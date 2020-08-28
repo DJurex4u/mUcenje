@@ -1,5 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
 
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.muenje.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/profilFragment"
+        android:name="com.example.muenje.ProfilFragment"
+        android:label="fragment_profil"
+        tools:layout="@layout/fragment_profil" />
+    <fragment
+        android:id="@+id/poredakFragment"
+        android:name="com.example.muenje.PoredakFragment"
+        android:label="fragment_poredak"
+        tools:layout="@layout/fragment_poredak" />
+    <fragment
+        android:id="@+id/postignucaFragment"
+        android:name="com.example.muenje.PostignucaFragment"
+        android:label="fragment_postignuca"
+        tools:layout="@layout/fragment_postignuca" />
+    <fragment
+        android:id="@+id/misijeFragment"
+        android:name="com.example.muenje.MisijeFragment"
+        android:label="fragment_misije"
+        tools:layout="@layout/fragment_misije" />
+    <fragment
+        android:id="@+id/lekcijeFragment"
+        android:name="com.example.muenje.LekcijeFragment"
+        android:label="fragment_lekcije"
+        tools:layout="@layout/fragment_lekcije" />
+    <fragment
+        android:id="@+id/izazoviFragment"
+        android:name="com.example.muenje.IzazoviFragment"
+        android:label="fragment_izazovi"
+        tools:layout="@layout/fragment_izazovi" />
+    <fragment
+        android:id="@+id/lekcijaFragment"
+        android:name="com.example.muenje.LekcijaFragment"
+        android:label="fragment_lekcija"
+        tools:layout="@layout/fragment_lekcija" />
+    <fragment
+        android:id="@+id/izazovFragment"
+        android:name="com.example.muenje.IzazovFragment"
+        android:label="fragment_izazov"
+        tools:layout="@layout/fragment_izazov" /><action android:id="@+id/action_global_loginFragment" app:destination="@id/loginFragment"/>
 </navigation>
