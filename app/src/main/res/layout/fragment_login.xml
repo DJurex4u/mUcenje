@@ -11,27 +11,30 @@
         android:id="@+id/login_header_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="header"
-        app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center"
-        android:textSize="36sp"
         android:layout_marginTop="50dp"
-        app:layout_constraintBottom_toTopOf="@id/username_text_input_layout"
-        />
+        android:gravity="center"
+        android:text="header"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/username_text_input_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Korisničko ime"
+        app:layout_constraintBottom_toTopOf="@id/password_text_input_layout"
         app:layout_constraintTop_toBottomOf="@id/login_header_text_view"
-        >
+        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp">
 
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+            android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -40,27 +43,33 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Lozinka"
-        app:layout_constraintTop_toBottomOf="@id/username_text_input_layout"
         app:layout_constraintBottom_toTopOf="@id/login_button"
-        >
+        app:layout_constraintTop_toBottomOf="@id/username_text_input_layout"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+            android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
 
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/login_button"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="login"
+        android:layout_marginTop="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginEnd="56dp"
+        app:cornerRadius="50dp"
+        android:text="login"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/password_text_input_layout"
-    />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/password_text_input_layout" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
