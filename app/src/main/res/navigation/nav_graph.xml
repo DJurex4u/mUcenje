@@ -9,12 +9,26 @@
         android:id="@+id/loginFragment"
         android:name="com.example.muenje.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_profilFragment"
+            app:destination="@id/profilFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profilFragment"
         android:name="com.example.muenje.ProfilFragment"
         android:label="fragment_profil"
-        tools:layout="@layout/fragment_profil" />
+        tools:layout="@layout/fragment_profil" >
+        <action
+            android:id="@+id/action_profilFragment_to_poredakFragment"
+            app:destination="@id/poredakFragment" />
+        <action
+            android:id="@+id/action_profilFragment_to_postignucaFragment"
+            app:destination="@id/postignucaFragment" />
+        <action
+            android:id="@+id/action_profilFragment_to_misijeFragment"
+            app:destination="@id/misijeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/poredakFragment"
         android:name="com.example.muenje.PoredakFragment"
@@ -29,17 +43,32 @@
         android:id="@+id/misijeFragment"
         android:name="com.example.muenje.MisijeFragment"
         android:label="fragment_misije"
-        tools:layout="@layout/fragment_misije" />
+        tools:layout="@layout/fragment_misije" >
+        <action
+            android:id="@+id/action_misijeFragment_to_lekcijeFragment"
+            app:destination="@id/lekcijeFragment" />
+        <action
+            android:id="@+id/action_misijeFragment_to_izazoviFragment"
+            app:destination="@id/izazoviFragment" />
+    </fragment>
     <fragment
         android:id="@+id/lekcijeFragment"
         android:name="com.example.muenje.LekcijeFragment"
         android:label="fragment_lekcije"
-        tools:layout="@layout/fragment_lekcije" />
+        tools:layout="@layout/fragment_lekcije" >
+        <action
+            android:id="@+id/action_lekcijeFragment_to_lekcijaFragment"
+            app:destination="@id/lekcijaFragment" />
+    </fragment>
     <fragment
         android:id="@+id/izazoviFragment"
         android:name="com.example.muenje.IzazoviFragment"
         android:label="fragment_izazovi"
-        tools:layout="@layout/fragment_izazovi" />
+        tools:layout="@layout/fragment_izazovi" >
+        <action
+            android:id="@+id/action_izazoviFragment_to_izazovFragment"
+            app:destination="@id/izazovFragment" />
+    </fragment>
     <fragment
         android:id="@+id/lekcijaFragment"
         android:name="com.example.muenje.LekcijaFragment"
