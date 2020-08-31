@@ -42,4 +42,8 @@ dependencies {
     implementation 'com.google.android.material:material:1.2.0'
     //for fragment view
     implementation "androidx.navigation:navigation-dynamic-features-fragment:2.3.0"
+    //viewmodel dependencies
+    implementation "androidx.lifecycle:lifecycle-viewmodel:2.2.0"
+    //livedata dependencies
+    implementation "androidx.lifecycle:lifecycle-livedata:2.2.0"
 }
