@@ -22,6 +22,7 @@ android {
     }
 
     buildFeatures {
+        //allows to bind UI components in layouts to data sources using declarative format
         dataBinding true
     }
 }
