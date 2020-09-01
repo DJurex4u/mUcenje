@@ -4,6 +4,6 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class LoginViewModel extends ViewModel {
-    MutableLiveData<String> mUsername = new MutableLiveData<>();
-    MutableLiveData<String> mPassword = new MutableLiveData<>();
+   public MutableLiveData<String> mUsername = new MutableLiveData<>();
+   public MutableLiveData<String> mPassword = new MutableLiveData<>();
 }
