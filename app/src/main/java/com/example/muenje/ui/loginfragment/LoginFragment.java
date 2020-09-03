@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.muenje.databinding.FragmentLoginBinding;
 
+
 public class LoginFragment extends Fragment {
     FragmentLoginBinding mBinding = null;
     LoginViewModel mViewModel = null;
