@@ -46,4 +46,6 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel:2.2.0"
     //livedata dependencies
     implementation "androidx.lifecycle:lifecycle-livedata:2.2.0"
+    //Rx2Firebase RxJava2.0 wrapper for Firebase
+    implementation 'com.github.FrangSierra:RxFirebase:1.5.6'
 }
