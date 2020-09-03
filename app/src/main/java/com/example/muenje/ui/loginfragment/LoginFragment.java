@@ -36,3 +36,4 @@ public class LoginFragment extends Fragment {
         mBinding.setViewModel(mViewModel);
     }
 }
+
