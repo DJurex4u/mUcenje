@@ -34,6 +34,15 @@ public class LoginFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mBinding.setViewModel(mViewModel);
+
+        mBinding.loginButton.setOnClickListener(button->mViewModel.tryToLoginUser());
+
+//        mBinding.loginButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                mViewModel.tryToLoginUser();
+//            }
+//        });
     }
 }
 
