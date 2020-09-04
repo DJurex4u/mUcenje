@@ -26,6 +26,10 @@ android {
         //allows to bind UI components in layouts to data sources using declarative format
         dataBinding true
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
