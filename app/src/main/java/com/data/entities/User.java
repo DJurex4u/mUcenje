@@ -1,10 +1,10 @@
 package com.data.entities;
 
 public class User {
-    public final String mUsername;
+    public final String mEmail;
 
-    public User(String username){
-        mUsername = username;
+    public User(String email){
+        mEmail = email;
     }
 
 }

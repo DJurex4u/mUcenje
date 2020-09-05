@@ -16,8 +16,8 @@ import com.example.muenje.databinding.FragmentLoginBinding;
 
 
 public class LoginFragment extends Fragment {
-    FragmentLoginBinding mBinding = null;
-    LoginViewModel mViewModel = null;
+    FragmentLoginBinding mBinding;
+    LoginViewModel mViewModel;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
