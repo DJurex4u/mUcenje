@@ -27,6 +27,8 @@ public class LoginViewModel extends RxViewModel {
    }
 
    public void tryToLoginUser(){
+      //zove interactor
+      //po to maybeju što vraća interactor postavlja LiveData na "logged in" "eroor" "logingIn"
       if(!mUsername.getValue().isEmpty() && !mPassword.getValue().isEmpty()) {
          getCompositeDisposable().add(mLoginInteractor.authenticateUser(mUsername.getValue(), mPassword.getValue()).subscribe(
                  (user -> {
@@ -38,12 +40,17 @@ public class LoginViewModel extends RxViewModel {
       }else {
          mLoginStatus.setValue(LoginStatus.ERROR_LOGIN);
       }
-      //zove interactor
-      //po to maybeju što vraća interactor postavlja LiveData na "logged in" "eroor" "logingIn"
    }
 
    public LiveData<LoginStatus> getLoginStatus(){
       return mLoginStatus;
+   }
+
+   public User getUser(){
+      if(mUser == null){
+         throw new NullPointerException("User is null");
+      }
+      return mUser;
    }
 
 }

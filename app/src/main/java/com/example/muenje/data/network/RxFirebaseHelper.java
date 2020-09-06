@@ -9,6 +9,7 @@ import io.reactivex.Maybe;
 
 public class RxFirebaseHelper {
     //poziva repo
+    //mapiraju se stvari iz repo (sa baze)
     RxFirebaseRepository mRxFirebaseRepository;
     IMapper<AuthResult, User> mAuthResultToUserMapper;
     AppSchedulerProvider mAppSchedulerProvider;
@@ -26,6 +27,5 @@ public class RxFirebaseHelper {
                 .map((authUser) -> mAuthResultToUserMapper.map(authUser))
                 .observeOn(mAppSchedulerProvider.ui());
     }
-    //ovdje map da mapiram
 
 }

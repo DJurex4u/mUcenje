@@ -1,10 +1,13 @@
 package com.example.muenje.data.entities;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     public final String mEmail;
+    public final String mDisplayName;
 
-    public User(String email){
+    public User(String email, String displayName){
         mEmail = email;
+        mDisplayName = displayName;
     }
-
 }
