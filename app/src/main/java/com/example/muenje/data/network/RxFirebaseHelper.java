@@ -5,8 +5,6 @@ import com.google.firebase.auth.AuthResult;
 import com.example.muenje.utilities.mapper.IMapper;
 import com.example.muenje.utilities.schedulers.AppSchedulerProvider;
 
-import org.jetbrains.annotations.NotNull;
-
 import io.reactivex.Maybe;
 
 public class RxFirebaseHelper {
@@ -21,7 +19,7 @@ public class RxFirebaseHelper {
         mAppSchedulerProvider = appSchedulerProvider;
     }
 
-    public Maybe<User> authenticateUser(@NotNull String email, @NotNull String password) {
+    public Maybe<User> authenticateUser( String email, String password) {
         return mRxFirebaseRepository
                 .authenticateUser(email, password)
                 .subscribeOn(mAppSchedulerProvider.io())

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,11 +14,13 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.muenje.BaseApplication;
 import com.example.muenje.data.interactor.LoginInteractor;
 import com.example.muenje.databinding.FragmentLoginBinding;
+import com.example.muenje.routers.LoginRouter;
 
 
 public class LoginFragment extends Fragment {
     FragmentLoginBinding mBinding;
     LoginViewModel mViewModel;
+    LoginRouter mLoginRouter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -25,7 +28,7 @@ public class LoginFragment extends Fragment {
         BaseApplication application = ((BaseApplication) requireActivity().getApplication());
         mViewModel = new ViewModelProvider(requireActivity()).get(LoginViewModel.class);
         LoginInteractor loginInteractor = new LoginInteractor(application.getRxFirebaseHelperInstance());
-
+        mLoginRouter = new LoginRouter(this);
         mViewModel.setUpViewModel(loginInteractor);
     }
 
@@ -52,9 +55,10 @@ public class LoginFragment extends Fragment {
                         case LOGGING_IN:
                             break;
                         case LOGGED_IN:
+                            mLoginRouter.goToProfilePage();
                             break;
                         case ERROR_LOGIN:
-                            break;
+                            Toast.makeText(getContext(),"Krivi email ili lozinka",Toast.LENGTH_LONG).show();
                     }
                 }
         );

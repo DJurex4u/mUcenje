@@ -3,7 +3,6 @@ package com.example.muenje.data.network;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-import org.jetbrains.annotations.NotNull;
 
 import durdinapps.rxfirebase2.RxFirebaseAuth;
 import io.reactivex.Maybe;
@@ -14,7 +13,7 @@ public class RxFirebaseRepository {
         mAuth = auth;
     }
 
-    Maybe<AuthResult> authenticateUser(@NotNull String email, @NotNull String password){
+    Maybe<AuthResult> authenticateUser( String email,String password){
         return RxFirebaseAuth.signInWithEmailAndPassword(mAuth, email, password);
     }
 
