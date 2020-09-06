@@ -1,14 +1,13 @@
-package com.data.network;
+package com.example.muenje.data.network;
 
-import com.data.entities.User;
+import com.example.muenje.data.entities.User;
 import com.google.firebase.auth.AuthResult;
-import com.utilities.mapper.IMapper;
-import com.utilities.schedulers.AppSchedulerProvider;
+import com.example.muenje.utilities.mapper.IMapper;
+import com.example.muenje.utilities.schedulers.AppSchedulerProvider;
 
 import org.jetbrains.annotations.NotNull;
 
 import io.reactivex.Maybe;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 
 public class RxFirebaseHelper {
     //poziva repo

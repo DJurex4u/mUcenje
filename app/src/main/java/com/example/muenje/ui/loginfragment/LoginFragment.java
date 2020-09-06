@@ -10,8 +10,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.BaseApplication;
-import com.data.interactor.LoginInteractor;
+import com.example.muenje.BaseApplication;
+import com.example.muenje.data.interactor.LoginInteractor;
 import com.example.muenje.databinding.FragmentLoginBinding;
 
 

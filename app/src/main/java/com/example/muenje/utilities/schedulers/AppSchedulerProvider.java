@@ -1,4 +1,4 @@
-package com.utilities.schedulers;
+package com.example.muenje.utilities.schedulers;
 
 import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;

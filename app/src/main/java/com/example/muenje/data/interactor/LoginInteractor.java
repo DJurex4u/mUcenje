@@ -1,7 +1,7 @@
-package com.data.interactor;
+package com.example.muenje.data.interactor;
 
-import com.data.entities.User;
-import com.data.network.RxFirebaseHelper;
+import com.example.muenje.data.entities.User;
+import com.example.muenje.data.network.RxFirebaseHelper;
 
 import io.reactivex.Maybe;
 

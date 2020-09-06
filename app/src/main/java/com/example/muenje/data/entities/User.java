@@ -1,4 +1,4 @@
-package com.data.entities;
+package com.example.muenje.data.entities;
 
 public class User {
     public final String mEmail;

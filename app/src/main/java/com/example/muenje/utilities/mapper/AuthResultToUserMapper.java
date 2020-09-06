@@ -1,6 +1,6 @@
-package com.utilities.mapper;
+package com.example.muenje.utilities.mapper;
 
-import com.data.entities.User;
+import com.example.muenje.data.entities.User;
 import com.google.firebase.auth.AuthResult;
 
 public class AuthResultToUserMapper implements IMapper<AuthResult, User> {

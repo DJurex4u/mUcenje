@@ -1,13 +1,12 @@
-package com;
+package com.example.muenje;
 
 import android.app.Application;
 
-import com.data.network.RxFirebaseHelper;
-import com.data.network.RxFirebaseRepository;
+import com.example.muenje.data.network.RxFirebaseHelper;
+import com.example.muenje.data.network.RxFirebaseRepository;
 import com.google.firebase.auth.FirebaseAuth;
-import com.utilities.mapper.AuthResultToUserMapper;
-import com.utilities.mapper.IMapper;
-import com.utilities.schedulers.AppSchedulerProvider;
+import com.example.muenje.utilities.mapper.AuthResultToUserMapper;
+import com.example.muenje.utilities.schedulers.AppSchedulerProvider;
 
 public class BaseApplication extends Application {
     //will create only one instance of:

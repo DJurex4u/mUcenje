@@ -1,14 +1,10 @@
 package com.example.muenje.ui.loginfragment;
 
-import android.telecom.StatusHints;
-
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
-import com.BaseApplication;
-import com.data.entities.User;
-import com.data.interactor.LoginInteractor;
+import com.example.muenje.data.entities.User;
+import com.example.muenje.data.interactor.LoginInteractor;
 import com.example.muenje.ui.RxViewModel;
 
 public class LoginViewModel extends RxViewModel {

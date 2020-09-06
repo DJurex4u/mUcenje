@@ -1,6 +1,5 @@
-package com.data.network;
+package com.example.muenje.data.network;
 
-import com.BaseApplication;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
