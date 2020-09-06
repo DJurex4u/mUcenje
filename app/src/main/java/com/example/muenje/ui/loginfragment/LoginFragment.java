@@ -43,9 +43,6 @@ public class LoginFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mBinding.setViewModel(mViewModel);
-
-        mBinding.loginButton.setOnClickListener(button -> mViewModel.tryToLoginUser());
-
         connectViewModel();
     }
 
@@ -59,6 +56,7 @@ public class LoginFragment extends Fragment {
                             break;
                         case ERROR_LOGIN:
                             Toast.makeText(getContext(),"Krivi email ili lozinka",Toast.LENGTH_LONG).show();
+                            break;
                     }
                 }
         );

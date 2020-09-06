@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/profilFragment"
-        android:name="com.example.muenje.ProfilFragment"
+        android:name="com.example.muenje.ui.profilfragment.ProfileFragment"
         android:label="fragment_profil"
         tools:layout="@layout/fragment_profil" >
         <action

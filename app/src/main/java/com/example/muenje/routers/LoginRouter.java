@@ -5,16 +5,15 @@ import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.example.muenje.R;
 import com.example.muenje.data.entities.User;
 import com.example.muenje.ui.loginfragment.LoginFragmentDirections;
 
 
-public class LoginRouter {
+public class LoginRouter extends Router {
 
-    private final NavController mNavController;
-
-    public LoginRouter(Fragment fragment) {
-        mNavController = NavHostFragment.findNavController(fragment);
+    public LoginRouter(Fragment fragment)  {
+        super(fragment);
     }
 
     public void goToProfilePage(User user){
