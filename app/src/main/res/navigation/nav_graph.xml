@@ -60,8 +60,8 @@
         android:label="fragment_lekcije"
         tools:layout="@layout/fragment_lekcije" >
         <action
-            android:id="@+id/action_lekcijeFragment_to_lekcijaFragment"
-            app:destination="@id/lekcijaFragment" />
+            android:id="@+id/action_lekcijeFragment_to_lekcijaFragmentContainer"
+            app:destination="@id/lekcijaFragmentContainer" />
     </fragment>
     <fragment
         android:id="@+id/izazoviFragment"
@@ -73,11 +73,6 @@
             app:destination="@id/izazovFragment" />
     </fragment>
     <fragment
-        android:id="@+id/lekcijaFragment"
-        android:name="com.example.muenje.LekcijaFragment"
-        android:label="fragment_lekcija"
-        tools:layout="@layout/fragment_lekcija" />
-    <fragment
         android:id="@+id/izazovFragment"
         android:name="com.example.muenje.IzazovFragment"
         android:label="fragment_izazov"
@@ -87,4 +82,9 @@
         app:destination="@id/loginFragment"
         app:popUpTo="@id/loginFragment"
         app:popUpToInclusive="true" />
+    <fragment
+        android:id="@+id/lekcijaFragmentContainer"
+        android:name="com.example.muenje.ui.lekcijaFragmentContainer.LekcijaFragmentContainer"
+        android:label="fragment_lekcija_container"
+        tools:layout="@layout/fragment_lekcija_container" />
 </navigation>
