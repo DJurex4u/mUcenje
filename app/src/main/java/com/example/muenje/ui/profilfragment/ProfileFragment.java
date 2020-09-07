@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -52,6 +53,8 @@ public class ProfileFragment extends Fragment {
             switch (to) {
                 case GO_TO_MISSIONS:
                     mRouter.navigateToMissions();
+                    //todo: delete after
+                    //NavHostFragment.findNavController(this).navigate(ProfileFragmentDirections.actionProfilFragmentToLekcijaFragmentContainer());
                     break;
                 case GO_TO_ACHIEVEMENT:
                     mRouter.navigateToAchievements();
