@@ -7,7 +7,7 @@ import io.reactivex.Maybe;
 
 public class LoginInteractor {
     //zove helper
-    //daje ViewMOdelu određene metode i daje viewModelu da što je odradio nad UseCaseovima
+    //zvan je u ViewModelu (određene metode daje viewModelu da što je odradio)
     //vezan za to što ViewModelu treba
     //radim map zbog use casea
     RxFirebaseHelper mRxFirebaseHelper;

@@ -1,4 +1,4 @@
-package com.example.muenje.ui.lekcijaFragmentContainer;
+package com.example.muenje.ui.misijefragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,29 +9,31 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.muenje.adapters.LectionsContainerPagerAdapter;
-import com.example.muenje.databinding.FragmentLekcijaContainerBinding;
+import com.example.muenje.databinding.FragmentMisijeBinding;
+import com.example.muenje.routers.MissionsRouter;
 
-public class LekcijaFragmentContainer extends Fragment {
-    LectionsContainerPagerAdapter mLectionPagerAdapter;
-    FragmentLekcijaContainerBinding mBinding;
 
+public class MissionsFragment extends Fragment {
+
+    FragmentMisijeBinding mBinding;
+    MissionsViewModel mViewModel;
+    MissionsRouter mRouter;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mLectionPagerAdapter = new LectionsContainerPagerAdapter(this);
-   }
+        mRouter = new MissionsRouter(this);
+    }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mBinding = FragmentLekcijaContainerBinding.inflate(inflater,container,false);
+        mBinding = FragmentMisijeBinding.inflate(inflater,container,false);
         return mBinding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mBinding.viewPager2.setAdapter(mLectionPagerAdapter);
+        mBinding.setViewModel(mViewModel);
     }
 }

@@ -44,7 +44,7 @@
         tools:layout="@layout/fragment_postignuca" />
     <fragment
         android:id="@+id/misijeFragment"
-        android:name="com.example.muenje.MisijeFragment"
+        android:name="com.example.muenje.ui.misijefragment.MissionsFragment"
         android:label="fragment_misije"
         tools:layout="@layout/fragment_misije" >
         <action
@@ -84,7 +84,7 @@
         app:popUpToInclusive="true" />
     <fragment
         android:id="@+id/lekcijaFragmentContainer"
-        android:name="com.example.muenje.ui.lekcijaFragmentContainer.LekcijaFragmentContainer"
+        android:name="com.example.muenje.ui.lekcijafragmentcontainer.LekcijaFragmentContainer"
         android:label="fragment_lekcija_container"
         tools:layout="@layout/fragment_lekcija_container" />
 </navigation>

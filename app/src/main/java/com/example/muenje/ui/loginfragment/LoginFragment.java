@@ -52,7 +52,7 @@ public class LoginFragment extends Fragment {
                         case LOGGING_IN:
                             break;
                         case LOGGED_IN:
-                            mLoginRouter.goToProfilePage(mViewModel.getUser());
+                            mLoginRouter.navigateToProfilePage(mViewModel.getUser());
                             break;
                         case ERROR_LOGIN:
                             Toast.makeText(getContext(),"Krivi email ili lozinka",Toast.LENGTH_LONG).show();

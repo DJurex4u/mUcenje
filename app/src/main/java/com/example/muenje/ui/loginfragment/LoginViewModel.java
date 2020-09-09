@@ -28,7 +28,7 @@ public class LoginViewModel extends RxViewModel {
 
    public void tryToLoginUser(){
       //zove interactor
-      //po to maybeju što vraća interactor postavlja LiveData na "logged in" "eroor" "logingIn"
+      //po tom maybeju što vraća interactor postavlja LiveData na "logged in" "eroor" "logingIn"
       if(!mUsername.getValue().isEmpty() && !mPassword.getValue().isEmpty()) {
          getCompositeDisposable().add(mLoginInteractor.authenticateUser(mUsername.getValue(), mPassword.getValue()).subscribe(
                  (user -> {
