@@ -7,14 +7,14 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.muenje.core.RxNavigation;
 import com.example.muenje.data.entities.User;
 import com.example.muenje.databinding.FragmentProfilBinding;
 import com.example.muenje.routers.ProfileRouter;
 
-public class ProfileFragment extends Fragment {
+public class ProfileFragment extends RxNavigation {
 
     FragmentProfilBinding mBinding;
     ProfileViewModel mViewModel;
@@ -44,7 +44,7 @@ public class ProfileFragment extends Fragment {
 
     private void connectViewModel(User user) {
         mViewModel.mUser.setValue(user);
-        mViewModel.getClickedChoice().observe(this, (to) -> {
+         addDisposableToCompositeDisposable(mViewModel.getNavigationObservable().subscribe((to) -> {
             switch (to) {
                 case GO_TO_MISSIONS:
                     mRouter.navigateToMissions();
@@ -55,6 +55,6 @@ public class ProfileFragment extends Fragment {
                     mRouter.navigateToAchievements();
                     break;
             }
-        });
+        }));
     }
 }

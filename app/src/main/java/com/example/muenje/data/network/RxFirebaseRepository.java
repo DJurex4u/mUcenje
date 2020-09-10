@@ -3,7 +3,6 @@ package com.example.muenje.data.network;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-
 import durdinapps.rxfirebase2.RxFirebaseAuth;
 import io.reactivex.Maybe;
 

@@ -1,12 +1,17 @@
 package com.example.muenje.ui.profilfragment;
 
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.muenje.data.entities.User;
+import com.jakewharton.rxrelay3.PublishRelay;
 
-public class ProfileViewModel extends ViewModel {
+import io.reactivex.rxjava3.core.Observable;
+
+
+public class ProfileViewModel extends ViewModel{
+
+    private PublishRelay<ClickedChoice> mRelay = PublishRelay.create();
 
     public enum ClickedChoice{
         GO_TO_ACHIEVEMENT,
@@ -14,15 +19,17 @@ public class ProfileViewModel extends ViewModel {
     }
 
     public MutableLiveData<User> mUser = new MutableLiveData<>();
-    private MutableLiveData<ClickedChoice> mClickedChoice = new MutableLiveData<>();
-
-    public LiveData<ClickedChoice> getClickedChoice(){return mClickedChoice;}
 
     public void goToAchievementsFragment(){
-        mClickedChoice.setValue(ClickedChoice.GO_TO_ACHIEVEMENT);
+        mRelay.accept(ClickedChoice.GO_TO_ACHIEVEMENT);
     }
 
     public void goToMissionsFragment(){
-        mClickedChoice.setValue(ClickedChoice.GO_TO_MISSIONS);
+        mRelay.accept(ClickedChoice.GO_TO_MISSIONS);
     }
+
+    public Observable<ClickedChoice> getNavigationObservable(){
+        return mRelay;
+    }
+
 }

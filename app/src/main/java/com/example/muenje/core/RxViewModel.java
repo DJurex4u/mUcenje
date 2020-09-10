@@ -1,4 +1,4 @@
-package com.example.muenje.ui;
+package com.example.muenje.core;
 
 import androidx.lifecycle.ViewModel;
 

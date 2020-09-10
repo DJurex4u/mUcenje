@@ -1,9 +1,9 @@
 package com.example.muenje.data.network;
 
 import com.example.muenje.data.entities.User;
-import com.google.firebase.auth.AuthResult;
 import com.example.muenje.utilities.mapper.IMapper;
 import com.example.muenje.utilities.schedulers.AppSchedulerProvider;
+import com.google.firebase.auth.AuthResult;
 
 import io.reactivex.Maybe;
 

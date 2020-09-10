@@ -1,4 +1,4 @@
-package com.example.muenje.routers;
+package com.example.muenje.core;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;

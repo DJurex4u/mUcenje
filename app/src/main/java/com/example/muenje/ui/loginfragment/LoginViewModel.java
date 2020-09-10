@@ -3,9 +3,9 @@ package com.example.muenje.ui.loginfragment;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.muenje.core.RxViewModel;
 import com.example.muenje.data.entities.User;
 import com.example.muenje.data.interactor.LoginInteractor;
-import com.example.muenje.ui.RxViewModel;
 
 public class LoginViewModel extends RxViewModel {
    
