@@ -27,5 +27,34 @@
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="50dp" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/lections_button"
+            android:layout_marginTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="56dp"
+            android:layout_marginEnd="56dp"
+            app:cornerRadius="50dp"
+            android:text="LEKCIJE"
+            android:onClick="@{()->viewModel.goToLectionsFragment()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/missions_button"
+            android:layout_marginTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="56dp"
+            android:layout_marginEnd="56dp"
+            app:cornerRadius="50dp"
+            android:text="IGRAJ"
+            android:onClick="@{()->viewModel.goToChallengesFragment()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lections_button" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
