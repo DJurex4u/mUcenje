@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import io.reactivex.rxjava3.disposables.Disposable;
 
-public class RxNavigation extends Fragment {
+public class RxNavigationFragment extends Fragment {
 
     private ArrayList<Disposable> mCompositeDisposable = new ArrayList<>();
 

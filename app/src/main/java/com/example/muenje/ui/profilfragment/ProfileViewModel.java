@@ -11,25 +11,24 @@ import io.reactivex.rxjava3.core.Observable;
 
 public class ProfileViewModel extends ViewModel{
 
-    private PublishRelay<ClickedChoice> mRelay = PublishRelay.create();
-
-    public enum ClickedChoice{
+    public enum GoTo {
         GO_TO_ACHIEVEMENT,
         GO_TO_MISSIONS
     }
 
+    private PublishRelay<GoTo> mNavigateTo = PublishRelay.create();
     public MutableLiveData<User> mUser = new MutableLiveData<>();
 
     public void goToAchievementsFragment(){
-        mRelay.accept(ClickedChoice.GO_TO_ACHIEVEMENT);
+        mNavigateTo.accept(GoTo.GO_TO_ACHIEVEMENT);
     }
 
     public void goToMissionsFragment(){
-        mRelay.accept(ClickedChoice.GO_TO_MISSIONS);
+        mNavigateTo.accept(GoTo.GO_TO_MISSIONS);
     }
 
-    public Observable<ClickedChoice> getNavigationObservable(){
-        return mRelay;
+    public Observable<GoTo> getNavigationObservable(){
+        return mNavigateTo;
     }
 
 }

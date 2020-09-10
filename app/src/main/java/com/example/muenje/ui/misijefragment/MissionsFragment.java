@@ -7,14 +7,14 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.muenje.core.RxNavigationFragment;
 import com.example.muenje.databinding.FragmentMisijeBinding;
 import com.example.muenje.routers.MissionsRouter;
 
 
-public class MissionsFragment extends Fragment {
+public class MissionsFragment extends RxNavigationFragment {
 
     FragmentMisijeBinding mBinding;
     MissionsViewModel mViewModel;
@@ -41,7 +41,7 @@ public class MissionsFragment extends Fragment {
     }
 
     private void connectViewModel(){
-        mViewModel.getClickedChoice().observe(this,(to)->{
+        addDisposableToCompositeDisposable(mViewModel.getNavigateTo().subscribe((to)->{
             switch (to){
                 case GO_TO_LECTIONS:
                     mRouter.navigateToLections();
@@ -50,6 +50,6 @@ public class MissionsFragment extends Fragment {
                     mRouter.navigateToChallenges();
                     break;
             }
-        });
+        }));
     }
 }

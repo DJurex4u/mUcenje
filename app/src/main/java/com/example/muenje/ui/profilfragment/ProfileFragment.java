@@ -9,12 +9,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.muenje.core.RxNavigation;
+import com.example.muenje.core.RxNavigationFragment;
 import com.example.muenje.data.entities.User;
 import com.example.muenje.databinding.FragmentProfilBinding;
 import com.example.muenje.routers.ProfileRouter;
 
-public class ProfileFragment extends RxNavigation {
+public class ProfileFragment extends RxNavigationFragment {
 
     FragmentProfilBinding mBinding;
     ProfileViewModel mViewModel;
