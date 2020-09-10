@@ -3,6 +3,8 @@ package com.example.muenje.routers;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavDirections;
 
+import com.example.muenje.ui.misijefragment.MissionsFragmentDirections;
+
 public class MissionsRouter extends Router {
 
     public MissionsRouter(Fragment fragment) {
@@ -10,7 +12,12 @@ public class MissionsRouter extends Router {
     }
 
     public void navigateToLections(){
-        NavDirections action;
-                mNavController.navigate(action);
+        NavDirections action = MissionsFragmentDirections.actionMisijeFragmentToLekcijeFragment();
+        mNavController.navigate(action);
+    }
+
+    public void navigateToChallenges(){
+        NavDirections action = MissionsFragmentDirections.actionMisijeFragmentToIzazoviFragment();
+        mNavController.navigate(action);
     }
 }
