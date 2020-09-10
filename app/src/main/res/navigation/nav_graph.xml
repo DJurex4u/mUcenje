@@ -20,9 +20,6 @@
         android:label="fragment_profil"
         tools:layout="@layout/fragment_profil" >
         <action
-            android:id="@+id/action_profilFragment_to_poredakFragment"
-            app:destination="@id/poredakFragment" />
-        <action
             android:id="@+id/action_profilFragment_to_postignucaFragment"
             app:destination="@id/postignucaFragment" />
         <action
@@ -32,11 +29,6 @@
             android:name="user"
             app:argType="com.example.muenje.data.entities.User" />
     </fragment>
-    <fragment
-        android:id="@+id/poredakFragment"
-        android:name="com.example.muenje.PoredakFragment"
-        android:label="fragment_poredak"
-        tools:layout="@layout/fragment_poredak" />
     <fragment
         android:id="@+id/postignucaFragment"
         android:name="com.example.muenje.PostignucaFragment"
