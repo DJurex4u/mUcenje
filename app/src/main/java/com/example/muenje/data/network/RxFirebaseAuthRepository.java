@@ -6,9 +6,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import durdinapps.rxfirebase2.RxFirebaseAuth;
 import io.reactivex.Maybe;
 
-public class RxFirebaseRepository {
+public class RxFirebaseAuthRepository {
     FirebaseAuth mAuth;
-    public RxFirebaseRepository(FirebaseAuth auth){
+    public RxFirebaseAuthRepository(FirebaseAuth auth){
         mAuth = auth;
     }
 
