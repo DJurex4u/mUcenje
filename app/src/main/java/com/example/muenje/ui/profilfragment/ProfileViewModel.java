@@ -1,5 +1,6 @@
 package com.example.muenje.ui.profilfragment;
 
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -17,7 +18,11 @@ public class ProfileViewModel extends ViewModel{
     }
 
     private PublishRelay<GoTo> mNavigateTo = PublishRelay.create();
-    public MutableLiveData<User> mUser = new MutableLiveData<>();
+    private MutableLiveData<User> mUser = new MutableLiveData<>();
+
+    void setUpViewModel(User user){
+        mUser.setValue(user);
+    }
 
     public void goToAchievementsFragment(){
         mNavigateTo.accept(GoTo.GO_TO_ACHIEVEMENT);
@@ -29,6 +34,10 @@ public class ProfileViewModel extends ViewModel{
 
     public Observable<GoTo> getNavigationObservable(){
         return mNavigateTo;
+    }
+
+    public LiveData<User> getUser(){
+        return mUser;
     }
 
 }

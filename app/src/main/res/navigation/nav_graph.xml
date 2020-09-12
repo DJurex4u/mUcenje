@@ -22,20 +22,15 @@
         android:label="fragment_profil"
         tools:layout="@layout/fragment_profil" >
         <action
-            android:id="@+id/action_profilFragment_to_postignucaFragment"
-            app:destination="@id/postignucaFragment" />
-        <action
             android:id="@+id/action_profilFragment_to_misijeFragment"
             app:destination="@id/misijeFragment" />
         <argument
             android:name="user"
             app:argType="com.example.muenje.data.entities.User" />
+        <action
+            android:id="@+id/action_profilFragment_to_achievementsFragment"
+            app:destination="@id/achievementsFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/postignucaFragment"
-        android:name="com.example.muenje.PostignucaFragment"
-        android:label="fragment_postignuca"
-        tools:layout="@layout/fragment_postignuca" />
     <fragment
         android:id="@+id/misijeFragment"
         android:name="com.example.muenje.ui.misijefragment.MissionsFragment"
@@ -43,27 +38,21 @@
         tools:layout="@layout/fragment_misije" >
         <action
             android:id="@+id/action_misijeFragment_to_lekcijeFragment"
-            app:destination="@id/lekcijeFragment" />
-        <action
-            android:id="@+id/action_misijeFragment_to_izazoviFragment"
-            app:destination="@id/izazoviFragment" />
+            app:destination="@id/pickerFragment" />
     </fragment>
     <fragment
-        android:id="@+id/lekcijeFragment"
-        android:name="com.example.muenje.LekcijeFragment"
+        android:id="@+id/pickerFragment"
+        android:name="com.example.muenje.ui.pickerFragment.PickerFragment"
         android:label="fragment_lekcije"
-        tools:layout="@layout/fragment_lekcije" >
+        tools:layout="@layout/fragment_picker" >
         <action
             android:id="@+id/action_lekcijeFragment_to_lekcijaFragmentContainer"
             app:destination="@id/lekcijaFragmentContainer" />
-    </fragment>
-    <fragment
-        android:id="@+id/izazoviFragment"
-        android:name="com.example.muenje.IzazoviFragment"
-        android:label="fragment_izazovi"
-        tools:layout="@layout/fragment_izazovi" >
+        <argument
+            android:name="whatPicker"
+            app:argType="com.example.muenje.ui.pickerFragment.WhatPicker" />
         <action
-            android:id="@+id/action_izazoviFragment_to_izazoviFragmentContainer"
+            android:id="@+id/action_lekcijeFragment_to_izazoviFragmentContainer2"
             app:destination="@id/izazoviFragmentContainer" />
     </fragment>
     <action
@@ -75,10 +64,26 @@
         android:id="@+id/lekcijaFragmentContainer"
         android:name="com.example.muenje.ui.lekcijafragmentcontainer.LekcijaFragmentContainer"
         android:label="fragment_lekcija_container"
-        tools:layout="@layout/fragment_lekcija_container" />
+        tools:layout="@layout/fragment_lekcija_container" >
+        <argument
+            android:name="lesionId"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/izazoviFragmentContainer"
-        android:name="com.example.muenje.izazoviFragmentContainer"
+        android:name="com.example.muenje.ui.izazoviFragmentContainer.izazoviFragmentContainer"
         android:label="fragment_izazovi_container"
-        tools:layout="@layout/fragment_izazovi_container" />
+        tools:layout="@layout/fragment_izazovi_container" >
+        <argument
+            android:name="quizId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/achievementsFragment"
+        android:name="com.example.muenje.ui.achievementsFragment.AchievementsFragment"
+        android:label="AchievementsFragment" >
+        <argument
+            android:name="user"
+            app:argType="com.example.muenje.data.entities.User" />
+    </fragment>
 </navigation>

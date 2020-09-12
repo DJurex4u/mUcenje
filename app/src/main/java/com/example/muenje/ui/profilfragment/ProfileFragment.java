@@ -26,7 +26,8 @@ public class ProfileFragment extends RxNavigationFragment {
         super.onCreate(savedInstanceState);
         mViewModel = new ViewModelProvider(requireActivity()).get(ProfileViewModel.class);
         User user = ProfileFragmentArgs.fromBundle(getArguments()).getUser();
-        connectViewModel(user);
+        mViewModel.setUpViewModel(user);
+        connectViewModel();
         mRouter = new ProfileRouter(this);
     }
 
@@ -42,17 +43,14 @@ public class ProfileFragment extends RxNavigationFragment {
         mBinding.setViewModel(mViewModel);
     }
 
-    private void connectViewModel(User user) {
-        mViewModel.mUser.setValue(user);
+    private void connectViewModel() {
          addDisposableToCompositeDisposable(mViewModel.getNavigationObservable().subscribe((to) -> {
             switch (to) {
                 case GO_TO_MISSIONS:
                     mRouter.navigateToMissions();
-                    //todo: delete after
-                    //NavHostFragment.findNavController(this).navigate(ProfileFragmentDirections.actionProfilFragmentToLekcijaFragmentContainer());
                     break;
                 case GO_TO_ACHIEVEMENT:
-                    mRouter.navigateToAchievements();
+                    mRouter.navigateToAchievements(mViewModel.getUser().getValue());
                     break;
             }
         }));
