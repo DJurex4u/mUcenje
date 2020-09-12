@@ -11,6 +11,8 @@ import com.example.muenje.R;
 
 public class LekcijaFragment extends Fragment {
 
+    private int mPosition;
+
     public static LekcijaFragment newInstance(Bundle args) {
         LekcijaFragment fragment = new LekcijaFragment();
         fragment.setArguments(args);
@@ -20,6 +22,7 @@ public class LekcijaFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mPosition = this.getArguments().getInt("page");
     }
 
     @Override
