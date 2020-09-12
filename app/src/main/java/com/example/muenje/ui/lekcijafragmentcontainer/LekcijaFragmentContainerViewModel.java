@@ -1,6 +1,8 @@
-package com.example.muenje.ui.lekcijafragmentcontainer;
+package com.example.muenje.ui.lekcijaFragmentContainer;
 
 import androidx.lifecycle.MutableLiveData;
+
+import com.example.muenje.adapters.LectionsContainerPagerAdapter;
 
 import java.util.ArrayList;
 
