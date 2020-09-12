@@ -63,14 +63,9 @@
         android:label="fragment_izazovi"
         tools:layout="@layout/fragment_izazovi" >
         <action
-            android:id="@+id/action_izazoviFragment_to_izazovFragment"
-            app:destination="@id/izazovFragment" />
+            android:id="@+id/action_izazoviFragment_to_izazoviFragmentContainer"
+            app:destination="@id/izazoviFragmentContainer" />
     </fragment>
-    <fragment
-        android:id="@+id/izazovFragment"
-        android:name="com.example.muenje.IzazovFragment"
-        android:label="fragment_izazov"
-        tools:layout="@layout/fragment_izazov" />
     <action
         android:id="@+id/action_global_loginFragment"
         app:destination="@id/loginFragment"
@@ -81,4 +76,9 @@
         android:name="com.example.muenje.ui.lekcijafragmentcontainer.LekcijaFragmentContainer"
         android:label="fragment_lekcija_container"
         tools:layout="@layout/fragment_lekcija_container" />
+    <fragment
+        android:id="@+id/izazoviFragmentContainer"
+        android:name="com.example.muenje.izazoviFragmentContainer"
+        android:label="fragment_izazovi_container"
+        tools:layout="@layout/fragment_izazovi_container" />
 </navigation>
