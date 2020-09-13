@@ -6,16 +6,17 @@
 
     </data>
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.achievementsFragment.AchievementsFragment">
+        android:layout_height="match_parent">
 
-        <!-- TODO: Update blank fragment layout -->
-        <TextView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/achievements_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment" />
+            tools:itemCount="3"
+            tools:listitem="@layout/item_achievement"/>
 
-    </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

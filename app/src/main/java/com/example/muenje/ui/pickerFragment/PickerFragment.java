@@ -58,6 +58,13 @@ public class PickerFragment extends Fragment implements TitleClickedCallback {
     @Override
     public void titleClicked(Integer id) {
         //TODO everything connected needs only override and logic to next fragment
+        switch (mWhatPicker){
+            case LESSON_PICKER:
+                mRouter.naviga
+                break;
+            case QUIZ_PICKER:
+                break;
+        }
     }
 
     void connectViewModel(){
