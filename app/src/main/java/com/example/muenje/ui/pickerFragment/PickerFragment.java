@@ -67,7 +67,7 @@ public class PickerFragment extends Fragment implements TitleClickedCallback {
     void setUpHeaderText(){
         switch (mWhatPicker){
             case LESSON_PICKER :
-                mBinding.pickerHeaderTextView.setText(getContext().getText(R.string.lesion_picker_header_text));
+                mBinding.pickerHeaderTextView.setText(getContext().getText(R.string.lesson_picker_header_text));
                 break;
             case QUIZ_PICKER:
                 mBinding.pickerHeaderTextView.setText(getContext().getText(R.string.quiz_picker_header_text));
