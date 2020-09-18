@@ -42,7 +42,7 @@
     </fragment>
     <fragment
         android:id="@+id/pickerFragment"
-        android:name="com.example.muenje.ui.pickerFragment.PickerFragment"
+        android:name="com.example.muenje.ui.pickerfragment.PickerFragment"
         android:label="fragment_lekcije"
         tools:layout="@layout/fragment_picker" >
         <action
@@ -71,7 +71,7 @@
     </fragment>
     <fragment
         android:id="@+id/izazoviFragmentContainer"
-        android:name="com.example.muenje.ui.izazoviFragmentContainer.IzazoviFragmentContainer"
+        android:name="com.example.muenje.ui.izazovifragmentcontainer.IzazoviFragmentContainer"
         android:label="fragment_izazovi_container"
         tools:layout="@layout/fragment_izazovi_container" >
         <argument
@@ -80,7 +80,7 @@
     </fragment>
     <fragment
         android:id="@+id/achievementsFragment"
-        android:name="com.example.muenje.ui.achievementsFragment.AchievementsFragment"
+        android:name="com.example.muenje.ui.achievementsfragment.AchievementsFragment"
         android:label="AchievementsFragment" >
         <argument
             android:name="user"

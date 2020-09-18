@@ -1,4 +1,4 @@
-package com.example.muenje.ui.achievementsFragment;
+package com.example.muenje.ui.achievementsfragment;
 
 import android.os.Bundle;
 

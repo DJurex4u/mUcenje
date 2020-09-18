@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.muenje.R;
 import com.example.muenje.data.entities.Title;
-import com.example.muenje.ui.pickerFragment.TitleClickedCallback;
+import com.example.muenje.ui.pickerfragment.TitleClickedCallback;
 import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;

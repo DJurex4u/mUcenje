@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavDirections;
 
 import com.example.muenje.core.Router;
-import com.example.muenje.ui.pickerFragment.PickerFragmentDirections;
+import com.example.muenje.ui.pickerfragment.PickerFragmentDirections;
 
 public class PickerRouter extends Router {
 

@@ -1,4 +1,4 @@
-package com.example.muenje.ui.pickerFragment;
+package com.example.muenje.ui.pickerfragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

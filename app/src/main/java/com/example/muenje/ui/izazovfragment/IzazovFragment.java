@@ -1,4 +1,4 @@
-package com.example.muenje.ui.izazovFragment;
+package com.example.muenje.ui.izazovfragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

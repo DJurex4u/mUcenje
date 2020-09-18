@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.example.muenje.ui.izazovFragment.IzazovFragment;
+import com.example.muenje.ui.izazovfragment.IzazovFragment;
 
 public class ChallengesContainerPagerAdapter extends FragmentStateAdapter {
 

@@ -1,4 +1,4 @@
-package com.example.muenje.ui.pickerFragment;
+package com.example.muenje.ui.pickerfragment;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

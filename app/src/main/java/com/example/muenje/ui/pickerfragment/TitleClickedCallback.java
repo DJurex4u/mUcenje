@@ -1,4 +1,4 @@
-package com.example.muenje.ui.pickerFragment;
+package com.example.muenje.ui.pickerfragment;
 
 public interface TitleClickedCallback {
     void titleClicked(Integer id);

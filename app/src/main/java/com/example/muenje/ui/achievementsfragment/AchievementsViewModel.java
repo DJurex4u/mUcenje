@@ -1,4 +1,4 @@
-package com.example.muenje.ui.achievementsFragment;
+package com.example.muenje.ui.achievementsfragment;
 
 import androidx.arch.core.util.Function;
 import androidx.lifecycle.LiveData;
@@ -10,9 +10,7 @@ import com.example.muenje.data.entities.SingleAchievement;
 import com.example.muenje.data.entities.User;
 import com.example.muenje.data.interactor.AchievementsInteractor;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class AchievementsViewModel extends RxViewModel {
