@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:gravity="center"
-            android:text="Bok, "
+            android:text="@string/hello"
             android:textSize="36sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.3"
@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="osvojeno bodova: "
+            android:text="@string/points_earned"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/profil_header1_text_view"
             app:layout_constraintEnd_toEndOf="parent"
@@ -64,22 +64,6 @@
             app:layout_constraintStart_toEndOf="@id/profil_header2_text_view"
             android:textSize="32sp" />
 
-<!--    NOTE: cannot do leaderboard without backend
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/scoreboard_button"
-            android:layout_marginTop="25dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="56dp"
-            android:layout_marginEnd="56dp"
-            app:cornerRadius="50dp"
-            android:text="LJESTVICA PORETKA"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
--->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/achievements_button"
             android:layout_marginTop="25dp"
@@ -88,7 +72,7 @@
             android:layout_marginStart="56dp"
             android:layout_marginEnd="56dp"
             app:cornerRadius="50dp"
-            android:text="POSTIGNUĆA"
+            android:text="@string/achievements"
             android:onClick="@{() -> viewModel.goToAchievementsFragment()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -103,7 +87,7 @@
             android:layout_marginStart="56dp"
             android:layout_marginEnd="56dp"
             app:cornerRadius="50dp"
-            android:text="MISIJE"
+            android:text="@string/missions"
             android:onClick="@{() -> viewModel.goToMissionsFragment()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

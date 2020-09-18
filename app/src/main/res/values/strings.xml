@@ -5,4 +5,17 @@
 
     <string name="lesson_picker_header_text">LEKCIJE</string>
     <string name="quiz_picker_header_text">IZAZOVI</string>
+    <string name="username">Korisničko ime</string>
+    <string name="password">Lozinka</string>
+    <string name="login">Prijavi se</string>
+    <string name="missions_header">MISIJE</string>
+    <string name="lections">LEKCIJE</string>
+    <string name="play">IGRAJ</string>
+    <string name="hello">Bok,</string>
+    <string name="points_earned">osvojeno bodova:</string>
+    <string name="achievements">POSTIGNUĆA</string>
+    <string name="missions">MISIJE</string>
+    <string name="challenge_header">IZAZOV</string>
+    <string name="achievements_header">POSTIGNUĆA</string>
+    <string name="lection_header">LEKCIJA</string>
 </resources>
