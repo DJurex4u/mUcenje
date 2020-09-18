@@ -1,6 +1,5 @@
 package com.example.muenje.data.network;
 
-import com.example.muenje.data.entities.User;
 import com.example.muenje.data.network.pojo.FullLessonResponse;
 import com.example.muenje.data.network.pojo.LessonTitleResponse;
 import com.example.muenje.data.network.pojo.QuizTitleResponse;
@@ -24,19 +23,19 @@ public class RxFirebaseRealtimeDatabaseRepository {
     }
 
     public Maybe<List<LessonTitleResponse>> getLessonsTitles() {
-        final Query query = mFirebaseDatabase.getReference(referenceNotes.getLectionTitleReference());
+        final Query query = mFirebaseDatabase.getReference(referenceNotes.getLessonTitleReference());
         return RxFirebaseDatabase.observeSingleValueEvent(query,
                 (dataSnapshot -> {
-                    ArrayList<LessonTitleResponse> lectionsTitlesArrayList = new ArrayList<>();
-                    for (DataSnapshot dataSnapshotLectionTitles : dataSnapshot.getChildren()) {
-                        lectionsTitlesArrayList.add(dataSnapshotLectionTitles.getValue(LessonTitleResponse.class));
+                    ArrayList<LessonTitleResponse> lessonsTitlesArrayList = new ArrayList<>();
+                    for (DataSnapshot dataSnapshotLessonTitles : dataSnapshot.getChildren()) {
+                        lessonsTitlesArrayList.add(dataSnapshotLessonTitles.getValue(LessonTitleResponse.class));
                     }
-                    return lectionsTitlesArrayList;
+                    return lessonsTitlesArrayList;
                 }));
     }
 
     public Maybe<FullLessonResponse> getFullLesson(Integer id){
-        final Query query =mFirebaseDatabase.getReference(referenceNotes.getFullLectionReference(id));
+        final Query query =mFirebaseDatabase.getReference(referenceNotes.getFullLessonReference(id));
         return RxFirebaseDatabase.observeSingleValueEvent(query,
                 (dataSnapshot -> dataSnapshot.getValue(FullLessonResponse.class)));
     }
@@ -66,22 +65,22 @@ public class RxFirebaseRealtimeDatabaseRepository {
     private static class referenceNotes {
         final static String challenges = "challenges";
         final static String lessons = "lessons";
-        final static String quiz = "quiz";
+        final static String quizzes = "quizzes";
         final static String titles = "titles";
         final static String full = "full";
 
         final static String achievements = "achievements";
 
-        public static String getLectionTitleReference() {
+        public static String getLessonTitleReference() {
             return referenceNotes.challenges + "/" + referenceNotes.lessons + "/" + referenceNotes.titles;
         }
 
-        public static String getFullLectionReference(Integer id){
+        public static String getFullLessonReference(Integer id){
             return referenceNotes.challenges + "/" + referenceNotes.lessons + "/" + referenceNotes.full + "/" + id.toString();
         }
 
         public static String getFullQuizTitleReference(){
-            return referenceNotes.challenges + "/" +referenceNotes.quiz + "/"+ referenceNotes.titles;
+            return referenceNotes.challenges + "/" +referenceNotes.quizzes + "/"+ referenceNotes.titles;
         }
 
         public static String getAchievementsReference(String username){

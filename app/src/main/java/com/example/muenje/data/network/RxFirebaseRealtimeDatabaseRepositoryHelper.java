@@ -35,14 +35,14 @@ public class RxFirebaseRealtimeDatabaseRepositoryHelper {
     public Maybe<List<Title>> getLessonsTitles() {
         return mRxFirebaseRealtimeDatabaseRepository.getLessonsTitles()
                 .subscribeOn(mAppSchedulerProvider.io())
-                .map((lectionTitleResponseList) -> mLessonTitleResponseToTitleMapper.mapList(lectionTitleResponseList))
+                .map((lessonTitleResponseList) -> mLessonTitleResponseToTitleMapper.mapList(lessonTitleResponseList))
                 .observeOn(mAppSchedulerProvider.ui());
     }
 
     public Maybe<FullLesson> getFullLesson(Integer id) {
         return mRxFirebaseRealtimeDatabaseRepository.getFullLesson(id)
                 .subscribeOn(mAppSchedulerProvider.io())
-                .map((fullLectionResponse) -> mFullLessonResponseToFullLessonMapper.map(fullLectionResponse))
+                .map((fullLessonResponse) -> mFullLessonResponseToFullLessonMapper.map(fullLessonResponse))
                 .observeOn(mAppSchedulerProvider.ui());
     }
 
