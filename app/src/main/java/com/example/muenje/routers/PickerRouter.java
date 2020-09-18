@@ -12,12 +12,12 @@ public class PickerRouter extends Router {
         super(fragment);
     }
 
-    void navigateToLessonContainer(Integer lessonId){
+    public void navigateToLessonContainer(Integer lessonId){
         NavDirections action = PickerFragmentDirections.actionLekcijeFragmentToLekcijaFragmentContainer(lessonId);
         mNavController.navigate(action);
     }
 
-    void navigateToQuizContainer(Integer quizId){
+    public void navigateToQuizContainer(Integer quizId){
         NavDirections action = PickerFragmentDirections.actionLekcijeFragmentToIzazoviFragmentContainer2(quizId);
         mNavController.navigate(action);
     }

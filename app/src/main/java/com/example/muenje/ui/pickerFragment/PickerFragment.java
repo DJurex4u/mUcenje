@@ -57,14 +57,16 @@ public class PickerFragment extends Fragment implements TitleClickedCallback {
 
     @Override
     public void titleClicked(Integer id) {
-//        //TODO everything connected needs only override and logic to next fragment
-//        switch (mWhatPicker){
-//            case LESSON_PICKER:
-//                mRouter.naviga
-//                break;
-//            case QUIZ_PICKER:
-//                break;
-//        }
+        switch (mWhatPicker){
+            case LESSON_PICKER:
+                mRouter.navigateToLessonContainer(id);
+                break;
+            case QUIZ_PICKER:
+                mRouter.navigateToQuizContainer(id);
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + mWhatPicker);
+        }
     }
 
     void connectViewModel(){
