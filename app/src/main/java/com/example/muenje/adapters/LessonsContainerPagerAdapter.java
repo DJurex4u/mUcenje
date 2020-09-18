@@ -7,11 +7,11 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.example.muenje.ui.lekcijaFragment.LekcijaFragment;
+import com.example.muenje.ui.lekcijaFragment.LessonFragment;
 
-public class LectionsContainerPagerAdapter extends FragmentStateAdapter {
+public class LessonsContainerPagerAdapter extends FragmentStateAdapter {
 
-    public LectionsContainerPagerAdapter(@NonNull Fragment fragment) {
+    public LessonsContainerPagerAdapter(@NonNull Fragment fragment) {
         super(fragment);
     }
 
@@ -25,7 +25,7 @@ public class LectionsContainerPagerAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         Bundle bundle = new Bundle();
         bundle.putInt("page", position);
-        return LekcijaFragment.newInstance(bundle);
+        return LessonFragment.newInstance(bundle);
     }
 }
 

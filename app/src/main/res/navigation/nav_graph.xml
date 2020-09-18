@@ -71,7 +71,7 @@
     </fragment>
     <fragment
         android:id="@+id/izazoviFragmentContainer"
-        android:name="com.example.muenje.ui.izazoviFragmentContainer.izazoviFragmentContainer"
+        android:name="com.example.muenje.ui.izazoviFragmentContainer.IzazoviFragmentContainer"
         android:label="fragment_izazovi_container"
         tools:layout="@layout/fragment_izazovi_container" >
         <argument
