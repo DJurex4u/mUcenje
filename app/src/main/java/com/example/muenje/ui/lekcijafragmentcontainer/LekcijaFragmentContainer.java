@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.muenje.adapters.LessonsContainerPagerAdapter;
 import com.example.muenje.databinding.FragmentLekcijaContainerBinding;
@@ -15,11 +16,17 @@ import com.example.muenje.databinding.FragmentLekcijaContainerBinding;
 public class LekcijaFragmentContainer extends Fragment {
     LessonsContainerPagerAdapter mLessonPagerAdapter;
     FragmentLekcijaContainerBinding mBinding;
+    LekcijaFragmentContainerViewModel mViewModel;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mLessonPagerAdapter = new LessonsContainerPagerAdapter(this);
+        mViewModel = new ViewModelProvider(requireActivity()).get(LekcijaFragmentContainerViewModel.class);
+        //TODO: sempai pls
+        Integer lessonId = LekcijaFragmentContainerArgs.fromBundle(getArguments()).getLesionId();
+        mViewModel.setUpViewModel(,lessonId);
+        mViewModel.initViewModel();
    }
 
     @Nullable

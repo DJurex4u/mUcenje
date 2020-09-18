@@ -1,13 +1,20 @@
 package com.example.muenje.ui.lekcijafragmentcontainer;
 
-import androidx.lifecycle.MutableLiveData;
+import com.example.muenje.core.RxViewModel;
+import com.example.muenje.data.interactor.LessonFragmentContainerInteractor;
 
-import java.util.ArrayList;
+public class LekcijaFragmentContainerViewModel extends RxViewModel {
 
-public class LekcijaFragmentContainerViewModel {
-
-    MutableLiveData<String> mHeader = new MutableLiveData<>();
-    MutableLiveData<ArrayList<String>> mLectionsList = new MutableLiveData<>();
+   LessonFragmentContainerInteractor mInteractor;
+   Integer mLessonId;
 
 
+   void setUpViewModel(LessonFragmentContainerInteractor interactor,Integer lessonId){
+      mInteractor = interactor;
+      mLessonId = lessonId;
+   }
+
+   void initViewModel(){
+      mInteractor.getFullLesson(mLessonId);
+   }
 }

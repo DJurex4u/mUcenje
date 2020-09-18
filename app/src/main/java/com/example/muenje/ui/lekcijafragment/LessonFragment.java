@@ -11,7 +11,8 @@ import com.example.muenje.R;
 
 public class LessonFragment extends Fragment {
 
-    private int mPosition;
+    private Integer mPosition;
+
 
     public static LessonFragment newInstance(Bundle args) {
         LessonFragment fragment = new LessonFragment();
