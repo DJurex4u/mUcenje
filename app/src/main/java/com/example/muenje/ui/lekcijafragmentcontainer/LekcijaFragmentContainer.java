@@ -10,7 +10,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.muenje.BaseApplication;
 import com.example.muenje.adapters.LessonsContainerPagerAdapter;
+import com.example.muenje.data.interactor.LessonFragmentContainerInteractor;
 import com.example.muenje.databinding.FragmentLekcijaContainerBinding;
 
 public class LekcijaFragmentContainer extends Fragment {
@@ -23,9 +25,10 @@ public class LekcijaFragmentContainer extends Fragment {
         super.onCreate(savedInstanceState);
         mLessonPagerAdapter = new LessonsContainerPagerAdapter(this);
         mViewModel = new ViewModelProvider(requireActivity()).get(LekcijaFragmentContainerViewModel.class);
-        //TODO: sempai pls
         Integer lessonId = LekcijaFragmentContainerArgs.fromBundle(getArguments()).getLesionId();
-        mViewModel.setUpViewModel(,lessonId);
+        BaseApplication application = ((BaseApplication) requireActivity().getApplication());
+        LessonFragmentContainerInteractor interactor = new LessonFragmentContainerInteractor(application.getRxFirebaseRealtimeDatabaseRepositoryHelper());
+        mViewModel.setUpViewModel(interactor,lessonId);
         mViewModel.initViewModel();
    }
 

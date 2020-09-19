@@ -9,12 +9,13 @@ public class LekcijaFragmentContainerViewModel extends RxViewModel {
    Integer mLessonId;
 
 
-   void setUpViewModel(LessonFragmentContainerInteractor interactor,Integer lessonId){
-      mInteractor = interactor;
+   void setUpViewModel(LessonFragmentContainerInteractor lessonInteractor, Integer lessonId){
+      mInteractor = lessonInteractor;
       mLessonId = lessonId;
    }
 
    void initViewModel(){
       mInteractor.getFullLesson(mLessonId);
+//            getCompositeDisposable().add(mInteractor.getFullLesson(mLessonId).subscribe((fullLesson -> mFullLesson.setValue(fullLesson)))
    }
 }

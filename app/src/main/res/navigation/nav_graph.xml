@@ -42,7 +42,7 @@
     </fragment>
     <fragment
         android:id="@+id/pickerFragment"
-        android:name="com.example.muenje.ui.pickerfragment.PickerFragment"
+        android:name="com.example.muenje.ui.pickerFragment.PickerFragment"
         android:label="fragment_lekcije"
         tools:layout="@layout/fragment_picker" >
         <action

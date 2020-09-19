@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.pickerfragment.PickerFragment">
+        tools:context=".ui.pickerFragment.PickerFragment">
 
         <TextView
             android:id="@+id/picker_header_text_view"

@@ -1,4 +1,4 @@
-package com.example.muenje.ui.pickerfragment;
+package com.example.muenje.ui.pickerFragment;
 
 public enum WhatPicker {
     LESSON_PICKER,

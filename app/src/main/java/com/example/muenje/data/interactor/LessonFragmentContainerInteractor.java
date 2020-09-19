@@ -8,9 +8,9 @@ import io.reactivex.Maybe;
 public class LessonFragmentContainerInteractor {
     RxFirebaseRealtimeDatabaseRepositoryHelper mDatabase;
 
+
     public LessonFragmentContainerInteractor(RxFirebaseRealtimeDatabaseRepositoryHelper rxFirebaseRealtimeDatabaseRepositoryHelper){
-        mDatabase = rxFirebaseRealtimeDatabaseRepositoryHelper;
-    }
+        mDatabase = rxFirebaseRealtimeDatabaseRepositoryHelper;    }
 
     public Maybe<FullLesson> getFullLesson(Integer id){
         return mDatabase.getFullLesson(id);
