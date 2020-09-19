@@ -11,4 +11,12 @@ public class FullLesson extends Title {
         //warrning: shallow copy
         mBodies = bodies;
     }
+
+    public List<String> getFullLesons(){
+        return mBodies;
+    }
+
+    public String getSingleBodie(Integer index){
+        return mBodies.get(index);
+    }
 }

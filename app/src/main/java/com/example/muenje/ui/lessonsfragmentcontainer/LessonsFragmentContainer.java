@@ -25,7 +25,7 @@ public class LessonsFragmentContainer extends Fragment {
         super.onCreate(savedInstanceState);
         mLessonPagerAdapter = new LessonsContainerPagerAdapter(this);
         mViewModel = new ViewModelProvider(requireActivity()).get(LessonsFragmentContainerViewModel.class);
-        Integer lessonId = LekcijaFragmentContainerArgs.fromBundle(getArguments()).getLesionId();
+        Integer lessonId = LessonsFragmentContainerArgs.fromBundle(getArguments()).getLesionId();
         BaseApplication application = ((BaseApplication) requireActivity().getApplication());
         LessonsFragmentContainerInteractor interactor = new LessonsFragmentContainerInteractor(application.getRxFirebaseRealtimeDatabaseRepositoryHelper());
         mViewModel.setUpViewModel(interactor,lessonId);

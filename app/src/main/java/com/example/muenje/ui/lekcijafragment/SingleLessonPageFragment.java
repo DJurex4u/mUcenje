@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -38,5 +40,18 @@ public class SingleLessonPageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_lekcija, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        connectViewModel();
+    }
+
+    void connectViewModel() {
+        mLessonsFragmentContainerViewModel.getFullLesson()
+                .observe(getViewLifecycleOwner(),
+                        (lessons) -> mSingleLessonPageViewModel.mLessonBody
+                                .setValue(lessons.getSingleBodie(mPosition)));
     }
 }
