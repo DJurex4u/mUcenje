@@ -10,16 +10,16 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.muenje.R;
-import com.example.muenje.ui.lessonsfragmentcontainer.LessonsFragmentContainer;
+import com.example.muenje.databinding.FragmentLekcijaBinding;
 import com.example.muenje.ui.lessonsfragmentcontainer.LessonsFragmentContainerViewModel;
-import com.example.muenje.ui.profilfragment.ProfileViewModel;
 
 public class SingleLessonPageFragment extends Fragment {
 
     private Integer mPosition;
     private SingleLessonPageViewModel mSingleLessonPageViewModel;
     private LessonsFragmentContainerViewModel mLessonsFragmentContainerViewModel;
+    private FragmentLekcijaBinding mBinding;
+
 
 
     public static SingleLessonPageFragment newInstance(Bundle args) {
@@ -39,19 +39,31 @@ public class SingleLessonPageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_lekcija, container, false);
+        mBinding = FragmentLekcijaBinding.inflate(inflater,container,false);
+        return mBinding.getRoot();
+        //return inflater.inflate(R.layout.fragment_lekcija, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         connectViewModel();
+        mBinding.setViewModel(mSingleLessonPageViewModel);
     }
 
     void connectViewModel() {
+        //TODO: ZAŠTO U OVOJ VUKOJEBINI?
         mLessonsFragmentContainerViewModel.getFullLesson()
                 .observe(getViewLifecycleOwner(),
-                        (lessons) -> mSingleLessonPageViewModel.mLessonBody
-                                .setValue(lessons.getSingleBodie(mPosition)));
+                        (lessons) -> {
+                            mSingleLessonPageViewModel.lessonBody
+                                    .setValue(lessons.getSingleBody(mPosition));
+                            mSingleLessonPageViewModel.lessonTitle
+                                    .setValue(lessons.getTitle());
+                        });
+
+        mSingleLessonPageViewModel.lessonBody.observe(getViewLifecycleOwner(),(body) -> {
+            mBinding.textView2.setText(body);}
+            );
     }
 }

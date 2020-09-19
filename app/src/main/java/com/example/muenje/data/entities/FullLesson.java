@@ -8,7 +8,6 @@ public class FullLesson extends Title {
 
     public FullLesson(int id, String mHeader, List<String> bodies){
         super(id,mHeader);
-        //warrning: shallow copy
         mBodies = bodies;
     }
 
@@ -16,7 +15,7 @@ public class FullLesson extends Title {
         return mBodies;
     }
 
-    public String getSingleBodie(Integer index){
+    public String getSingleBody(Integer index){
         return mBodies.get(index);
     }
 }

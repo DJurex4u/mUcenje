@@ -2,9 +2,11 @@ package com.example.muenje.ui.lessonsfragmentcontainer;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Transformations;
 
 import com.example.muenje.core.RxViewModel;
 import com.example.muenje.data.entities.FullLesson;
+import com.example.muenje.data.entities.Title;
 import com.example.muenje.data.interactor.LessonsFragmentContainerInteractor;
 
 public class LessonsFragmentContainerViewModel extends RxViewModel {
@@ -12,6 +14,7 @@ public class LessonsFragmentContainerViewModel extends RxViewModel {
    LessonsFragmentContainerInteractor mInteractor;
    Integer mLessonId;
    MutableLiveData<FullLesson> mFullLesson = new MutableLiveData<>();
+   MutableLiveData<String> mTitle = new MutableLiveData<>();
 
 
    void setUpViewModel(LessonsFragmentContainerInteractor lessonInteractor, Integer lessonId){
@@ -27,4 +30,5 @@ public class LessonsFragmentContainerViewModel extends RxViewModel {
    public LiveData<FullLesson> getFullLesson(){
       return mFullLesson;
    }
+
 }
