@@ -62,7 +62,7 @@
         app:popUpToInclusive="true" />
     <fragment
         android:id="@+id/lekcijaFragmentContainer"
-        android:name="com.example.muenje.ui.lekcijafragmentcontainer.LekcijaFragmentContainer"
+        android:name="com.example.muenje.ui.lessonsfragmentcontainer.LessonsFragmentContainer"
         android:label="fragment_lekcija_container"
         tools:layout="@layout/fragment_lekcija_container" >
         <argument

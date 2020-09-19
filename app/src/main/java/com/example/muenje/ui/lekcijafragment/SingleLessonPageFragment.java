@@ -6,12 +6,18 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.muenje.R;
+import com.example.muenje.ui.lessonsfragmentcontainer.LessonsFragmentContainer;
+import com.example.muenje.ui.lessonsfragmentcontainer.LessonsFragmentContainerViewModel;
+import com.example.muenje.ui.profilfragment.ProfileViewModel;
 
 public class SingleLessonPageFragment extends Fragment {
 
     private Integer mPosition;
+    private SingleLessonPageViewModel mSingleLessonPageViewModel;
+    private LessonsFragmentContainerViewModel mLessonsFragmentContainerViewModel;
 
 
     public static SingleLessonPageFragment newInstance(Bundle args) {
@@ -24,6 +30,8 @@ public class SingleLessonPageFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mPosition = this.getArguments().getInt("page");
+        mSingleLessonPageViewModel = new ViewModelProvider(requireActivity()).get(SingleLessonPageViewModel.class);
+        mLessonsFragmentContainerViewModel = new ViewModelProvider(requireActivity()).get(LessonsFragmentContainerViewModel.class);
     }
 
     @Override

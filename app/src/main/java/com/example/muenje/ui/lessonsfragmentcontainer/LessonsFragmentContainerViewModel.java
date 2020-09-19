@@ -1,15 +1,15 @@
-package com.example.muenje.ui.lekcijafragmentcontainer;
+package com.example.muenje.ui.lessonsfragmentcontainer;
 
 import com.example.muenje.core.RxViewModel;
-import com.example.muenje.data.interactor.LessonFragmentContainerInteractor;
+import com.example.muenje.data.interactor.LessonsFragmentContainerInteractor;
 
-public class LekcijaFragmentContainerViewModel extends RxViewModel {
+public class LessonsFragmentContainerViewModel extends RxViewModel {
 
-   LessonFragmentContainerInteractor mInteractor;
+   LessonsFragmentContainerInteractor mInteractor;
    Integer mLessonId;
 
 
-   void setUpViewModel(LessonFragmentContainerInteractor lessonInteractor, Integer lessonId){
+   void setUpViewModel(LessonsFragmentContainerInteractor lessonInteractor, Integer lessonId){
       mInteractor = lessonInteractor;
       mLessonId = lessonId;
    }

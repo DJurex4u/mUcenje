@@ -7,11 +7,12 @@
     tools:context=".ui.lekcijafragment.SingleLessonPageFragment">
 
     <TextView
-        android:id="@+id/lekcija_header_text_view"
+        android:id="@+id/lesson_header_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/lection_header"
+        android:text=""
+        tools:text="IME LEKCIJE"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,18 +20,62 @@
         android:layout_marginTop="50dp"
         />
 
+<!--    <TextView-->
+<!--        android:id="@+id/lesson_header_number_text_view"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="50dp"-->
+<!--        android:gravity="center"-->
+<!--        android:text=""-->
+<!--        tools:text="2"-->
+<!--        android:textSize="36sp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.08"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/lesson_header_text_view"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
     <TextView
-        android:id="@+id/lekcija_header_number_text_view"
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:gravity="center"
+        android:text="TextView"
+
+        app:layout_constraintBottom_toTopOf="@+id/lesson_slash"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lesson_header_text_view" />
+
+    <TextView
+        android:id="@+id/lesson_slash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        tools:text="/"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/lesson_current_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        tools:text="1"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/lesson_slash"
+         />
+
+    <TextView
+        android:id="@+id/lesson_total_page_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text=""
         tools:text="2"
-        android:textSize="36sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.08"
-        app:layout_constraintStart_toEndOf="@+id/lekcija_header_text_view"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/lesson_slash"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

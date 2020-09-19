@@ -1,4 +1,4 @@
-package com.example.muenje.ui.lekcijafragmentcontainer;
+package com.example.muenje.ui.lessonsfragmentcontainer;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,22 +12,22 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.muenje.BaseApplication;
 import com.example.muenje.adapters.LessonsContainerPagerAdapter;
-import com.example.muenje.data.interactor.LessonFragmentContainerInteractor;
+import com.example.muenje.data.interactor.LessonsFragmentContainerInteractor;
 import com.example.muenje.databinding.FragmentLekcijaContainerBinding;
 
-public class LekcijaFragmentContainer extends Fragment {
+public class LessonsFragmentContainer extends Fragment {
     LessonsContainerPagerAdapter mLessonPagerAdapter;
     FragmentLekcijaContainerBinding mBinding;
-    LekcijaFragmentContainerViewModel mViewModel;
+    LessonsFragmentContainerViewModel mViewModel;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mLessonPagerAdapter = new LessonsContainerPagerAdapter(this);
-        mViewModel = new ViewModelProvider(requireActivity()).get(LekcijaFragmentContainerViewModel.class);
+        mViewModel = new ViewModelProvider(requireActivity()).get(LessonsFragmentContainerViewModel.class);
         Integer lessonId = LekcijaFragmentContainerArgs.fromBundle(getArguments()).getLesionId();
         BaseApplication application = ((BaseApplication) requireActivity().getApplication());
-        LessonFragmentContainerInteractor interactor = new LessonFragmentContainerInteractor(application.getRxFirebaseRealtimeDatabaseRepositoryHelper());
+        LessonsFragmentContainerInteractor interactor = new LessonsFragmentContainerInteractor(application.getRxFirebaseRealtimeDatabaseRepositoryHelper());
         mViewModel.setUpViewModel(interactor,lessonId);
         mViewModel.initViewModel();
    }
