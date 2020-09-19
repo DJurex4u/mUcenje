@@ -9,13 +9,13 @@ import androidx.fragment.app.Fragment;
 
 import com.example.muenje.R;
 
-public class LessonFragment extends Fragment {
+public class SingleLessonPageFragment extends Fragment {
 
     private Integer mPosition;
 
 
-    public static LessonFragment newInstance(Bundle args) {
-        LessonFragment fragment = new LessonFragment();
+    public static SingleLessonPageFragment newInstance(Bundle args) {
+        SingleLessonPageFragment fragment = new SingleLessonPageFragment();
         fragment.setArguments(args);
         return fragment;
     }
