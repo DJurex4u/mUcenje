@@ -19,4 +19,5 @@
     <string name="achievements_header">POSTIGNUĆA</string>
     <string name="lection_header">LEKCIJA</string>
     <string name="finish">Završi</string>
+    <string name="confirm_answer">Potvrdi</string>
 </resources>

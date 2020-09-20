@@ -1,20 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <variable
+            name="viewModel"
+            type="com.example.muenje.ui.izazovifragmentcontainer.IzazoviFragmentContainer" />
 
     </data>
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.izazovifragmentcontainer.IzazoviFragmentContainer">
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPager2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            app:layout_constraintTop_toBottomOf="@id/challenges_container_header_text_view"
+            app:layout_constraintBottom_toTopOf="@id/challenges_container_finish_button"
+            android:layout_height="0dp"/>
+
+        <TextView
+            android:id="@+id/challenges_container_header_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            tools:text="KVIZ NASLOV"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="50dp"/>
+<!--
+-->
+        <TextView
+            android:id="@+id/challenges_containter_slash_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="/"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="/" />
+
+        <TextView
+            android:id="@+id/challenges_container_current_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            tools:text="1"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/challenges_containter_slash_text_view" />
+
+        <TextView
+            android:id="@+id/challenges_container_total_page_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="2"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/challenges_containter_slash_text_view" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/challenges_container_finish_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:text="@string/finish"
+            tools:text="@string/finish"
+            android:layout_marginBottom="30dp"
+            app:layout_constraintStart_toEndOf="@id/challenges_containter_slash_text_view" />
 
 
-    </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
