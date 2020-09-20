@@ -15,18 +15,18 @@ import java.util.List;
 
 public class AchievementsViewModel extends RxViewModel {
 
-    private AchievementsInteractor mIntereactor;
+    private AchievementsInteractor mInteractor;
     private User mUser;
 
     private MutableLiveData<List<SingleAchievement>> mSingleAchievementList = new MutableLiveData<>();
 
     void setUpViewModel(AchievementsInteractor interactor, User user) {
-        mIntereactor = interactor;
+        mInteractor = interactor;
         mUser = user;
     }
 
     void initViewModel() {
-        getCompositeDisposable().add(mIntereactor.getUsersAchievement(mUser).subscribe(
+        getCompositeDisposable().add(mInteractor.getUsersAchievement(mUser).subscribe(
                 singleAchievements -> mSingleAchievementList.setValue(singleAchievements)
         ));
     }

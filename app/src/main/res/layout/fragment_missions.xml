@@ -16,7 +16,7 @@
         tools:context=".ui.missionsFragment.MissionsFragment">
 
         <TextView
-            android:id="@+id/misije_header_text_view"
+            android:id="@+id/missions_header_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -28,7 +28,7 @@
             android:layout_marginTop="50dp" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/lections_button"
+            android:id="@+id/lessons_button"
             android:layout_marginTop="25dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
             android:onClick="@{()->viewModel.goToChallengesFragment()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/lections_button" />
+            app:layout_constraintTop_toBottomOf="@id/lessons_button" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
