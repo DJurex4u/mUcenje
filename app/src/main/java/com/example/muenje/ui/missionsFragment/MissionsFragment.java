@@ -11,13 +11,13 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.muenje.core.RxNavigationFragment;
 import com.example.muenje.data.entities.User;
-import com.example.muenje.databinding.FragmentMisijeBinding;
+import com.example.muenje.databinding.FragmentMissionsBinding;
 import com.example.muenje.routers.MissionsRouter;
 
 
 public class MissionsFragment extends RxNavigationFragment {
 
-    FragmentMisijeBinding mBinding;
+    FragmentMissionsBinding mBinding;
     MissionsViewModel mViewModel;
     MissionsRouter mRouter;
     @Override
@@ -34,7 +34,7 @@ public class MissionsFragment extends RxNavigationFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mBinding = FragmentMisijeBinding.inflate(inflater,container,false);
+        mBinding = FragmentMissionsBinding.inflate(inflater,container,false);
         return mBinding.getRoot();
     }
 

@@ -15,12 +15,12 @@ import com.example.muenje.adapters.LessonsContainerPagerAdapter;
 import com.example.muenje.core.RxNavigationFragment;
 import com.example.muenje.data.entities.User;
 import com.example.muenje.data.interactor.LessonsContainerInteractor;
-import com.example.muenje.databinding.FragmentLekcijaContainerBinding;
+import com.example.muenje.databinding.FragmentLessonsContainerBinding;
 import com.example.muenje.routers.LessonsContainerRouter;
 
 public class LessonsFragmentContainer extends RxNavigationFragment {
     LessonsContainerPagerAdapter mLessonPagerAdapter;
-    FragmentLekcijaContainerBinding mBinding;
+    FragmentLessonsContainerBinding mBinding;
     LessonsFragmentContainerViewModel mViewModel;
     LessonsContainerRouter mRouter;
 
@@ -42,7 +42,7 @@ public class LessonsFragmentContainer extends RxNavigationFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mBinding = FragmentLekcijaContainerBinding.inflate(inflater,container,false);
+        mBinding = FragmentLessonsContainerBinding.inflate(inflater,container,false);
         return mBinding.getRoot();
     }
 

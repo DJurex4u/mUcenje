@@ -20,7 +20,7 @@
         android:id="@+id/profilFragment"
         android:name="com.example.muenje.ui.profileFragment.ProfileFragment"
         android:label="fragment_profil"
-        tools:layout="@layout/fragment_profil" >
+        tools:layout="@layout/fragment_profile" >
         <action
             android:id="@+id/action_profilFragment_to_misijeFragment"
             app:destination="@id/misijeFragment" />
@@ -35,7 +35,7 @@
         android:id="@+id/misijeFragment"
         android:name="com.example.muenje.ui.missionsFragment.MissionsFragment"
         android:label="fragment_misije"
-        tools:layout="@layout/fragment_misije" >
+        tools:layout="@layout/fragment_missions" >
         <action
             android:id="@+id/action_misijeFragment_to_lekcijeFragment"
             app:destination="@id/pickerFragment" />
@@ -70,7 +70,7 @@
         android:id="@+id/lekcijaFragmentContainer"
         android:name="com.example.muenje.ui.lessonsFragmentContainer.LessonsFragmentContainer"
         android:label="fragment_lekcija_container"
-        tools:layout="@layout/fragment_lekcija_container" >
+        tools:layout="@layout/fragment_lessons_container" >
         <argument
             android:name="lesionId"
             app:argType="integer" />

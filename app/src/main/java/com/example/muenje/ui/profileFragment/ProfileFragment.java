@@ -13,12 +13,12 @@ import com.example.muenje.BaseApplication;
 import com.example.muenje.core.RxNavigationFragment;
 import com.example.muenje.data.entities.User;
 import com.example.muenje.data.interactor.ProfileInteractor;
-import com.example.muenje.databinding.FragmentProfilBinding;
+import com.example.muenje.databinding.FragmentProfileBinding;
 import com.example.muenje.routers.ProfileRouter;
 
 public class ProfileFragment extends RxNavigationFragment {
 
-    FragmentProfilBinding mBinding;
+    FragmentProfileBinding mBinding;
     ProfileViewModel mViewModel;
     ProfileRouter mRouter;
     ProfileInteractor mInteractor;
@@ -39,7 +39,7 @@ public class ProfileFragment extends RxNavigationFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mBinding = FragmentProfilBinding.inflate(inflater, container, false);
+        mBinding = FragmentProfileBinding.inflate(inflater, container, false);
         return mBinding.getRoot();
     }
 

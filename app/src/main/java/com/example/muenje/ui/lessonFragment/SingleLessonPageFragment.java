@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.muenje.databinding.FragmentLekcijaBinding;
+import com.example.muenje.databinding.FragmentLessonBinding;
 import com.example.muenje.ui.lessonsFragmentContainer.LessonsFragmentContainerViewModel;
 
 public class SingleLessonPageFragment extends Fragment {
@@ -18,7 +18,7 @@ public class SingleLessonPageFragment extends Fragment {
     private Integer mPosition;
     private SingleLessonPageViewModel mSingleLessonPageViewModel;
     private LessonsFragmentContainerViewModel mLessonsFragmentContainerViewModel;
-    private FragmentLekcijaBinding mBinding;
+    private FragmentLessonBinding mBinding;
 
 
 
@@ -39,9 +39,9 @@ public class SingleLessonPageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mBinding = FragmentLekcijaBinding.inflate(inflater,container,false);
+        mBinding = FragmentLessonBinding.inflate(inflater,container,false);
         return mBinding.getRoot();
-        //return inflater.inflate(R.layout.fragment_lekcija, container, false);
+        //return inflater.inflate(R.layout.fragment_lesson, container, false);
     }
 
     @Override
