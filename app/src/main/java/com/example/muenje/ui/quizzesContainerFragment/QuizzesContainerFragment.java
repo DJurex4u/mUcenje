@@ -4,30 +4,36 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.muenje.BaseApplication;
 import com.example.muenje.adapters.QuizContainerPagerAdapter;
+import com.example.muenje.core.RxNavigationFragment;
 import com.example.muenje.data.interactor.QuizzesContainerInteractor;
 import com.example.muenje.databinding.FragmentIzazoviContainerBinding;
+import com.example.muenje.routers.QuizzesContainerRouter;
 import com.example.muenje.ui.QuizSharedViewModel;
+import com.example.muenje.utilities.AnswerChecker;
 
 
-public class QuizzesContainerFragment extends Fragment {
+public class QuizzesContainerFragment extends RxNavigationFragment {
     FragmentIzazoviContainerBinding mBinding;
     QuizContainerPagerAdapter mAdapter;
     QuizzesContainerViewModel mViewModel;
     QuizSharedViewModel mSharedViewModel;
+    QuizzesContainerRouter mRouter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         BaseApplication application = (BaseApplication) requireActivity().getApplication();
         mAdapter = new QuizContainerPagerAdapter(this);
+        mRouter = new QuizzesContainerRouter(this);
         QuizzesContainerFragmentArgs args = QuizzesContainerFragmentArgs.fromBundle(getArguments());
         mViewModel = new ViewModelProvider(requireActivity()).get(QuizzesContainerViewModel.class);
         mViewModel.setUpViewModel(new QuizzesContainerInteractor(application.getRxFirebaseRealtimeDatabaseRepositoryHelper()),args.getQuizId(),args.getUser());
@@ -54,6 +60,32 @@ public class QuizzesContainerFragment extends Fragment {
 
     void connectViewModel(){
         mViewModel.mFullQuiz.observe(getViewLifecycleOwner(),(fullQuiz -> mBinding.challengesContainerHeaderTextView.setText(fullQuiz.title)));
+        mViewModel.getCorrectAnswers().observe(getViewLifecycleOwner(),(correctAnswers) -> mSharedViewModel.setUpViewModel(new AnswerChecker(correctAnswers)));
+        mSharedViewModel.getUserAnswerCorrect().subscribe(
+                (isCorrect) -> {
+                    if (!isCorrect){
+                        Toast.makeText(requireActivity(),"Netočno odgovoreno pitanje!",Toast.LENGTH_LONG).show();
+                    }else {
+                        if (mBinding.viewPager2.getCurrentItem() + 1 < mAdapter.getItemCount()) {
+                            mBinding.viewPager2.setCurrentItem(mBinding.viewPager2.getCurrentItem() + 1);
+                        }else {
+                            if(mSharedViewModel.getIsInASingeShot()){
+                                Toast.makeText(requireActivity(),"Isprve riješen kviz",Toast.LENGTH_LONG).show();
+                            }
+                            mViewModel.quizSolved(mSharedViewModel.getIsInASingeShot());
+                        }
+                    }
+                }
+        );
+        addDisposableToCompositeDisposable(mViewModel.getNavigationObservable().subscribe(
+                (navigateTo) -> {
+                    switch (navigateTo){
+                        case GO_BACK:
+                            mRouter.goBack();
+                            break;
+                    }
+                }
+        ));
     }
 
     void setUpPageCounter(){
@@ -68,13 +100,6 @@ public class QuizzesContainerFragment extends Fragment {
         @Override
         public void onPageSelected(int position) {
             mBinding.pageCounterLayout.lessonCurrentPage.setText(Integer.toString(position + 1));
-            if(position+1 == mAdapter.getItemCount()){
-                mBinding.challengesContainerFinishButton.setVisibility(View.VISIBLE);
-                mSharedViewModel.showNextButton.setValue(false);
-            }else {
-                mBinding.challengesContainerFinishButton.setVisibility(View.INVISIBLE);
-                mSharedViewModel.showNextButton.setValue(true);
-            }
         }
 
         @Override

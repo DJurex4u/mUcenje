@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RadioButton;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,6 +15,9 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.muenje.databinding.FragmentIzazovBinding;
 import com.example.muenje.ui.QuizSharedViewModel;
 import com.example.muenje.ui.quizzesContainerFragment.QuizzesContainerViewModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class QuizFragment extends Fragment {
@@ -52,25 +57,32 @@ public class QuizFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mBinding.setViewModel(mViewModel);
+        setUpNextClick();
         connectViewModel();
     }
 
     void connectViewModel(){
         mQuizzesContainerViewModel.getFullQuiz().observe( this ,(fullQuiz -> {
             mViewModel.question.setValue(fullQuiz.questionSet.get(mPosition).question);
-            mViewModel.possibleAnswer1.setValue(fullQuiz.questionSet.get(mPosition).possibleAnswers.get(0));
-            mViewModel.possibleAnswer2.setValue(fullQuiz.questionSet.get(mPosition).possibleAnswers.get(1));
-            mViewModel.possibleAnswer3.setValue(fullQuiz.questionSet.get(mPosition).possibleAnswers.get(2));})
+            List<String> mPossibleAnswers = fullQuiz.questionSet.get(mPosition).possibleAnswers;
+            mViewModel.possibleAnswer1.setValue(mPossibleAnswers.get(0));
+            mViewModel.possibleAnswer2.setValue(mPossibleAnswers.get(1));
+            mViewModel.possibleAnswer3.setValue(mPossibleAnswers.get(2));})
         );
         mViewModel.question.observe(getViewLifecycleOwner(),(question) -> mBinding.questionTextView.setText(question));
-        mViewModel.possibleAnswer1.observe(getViewLifecycleOwner(),(possibleAnswer1) -> mBinding.challengeAnswer0.setText(possibleAnswer1));
-        mViewModel.possibleAnswer2.observe(getViewLifecycleOwner(),(possibleAnswer2) -> mBinding.challengeAnswer1.setText(possibleAnswer2));
-        mViewModel.possibleAnswer3.observe(getViewLifecycleOwner(),(possibleAnswer3) -> mBinding.challengeAnswer2.setText(possibleAnswer3));
-        mShareViewModel.showNextButton.observe(getViewLifecycleOwner(),(show) -> {
-            if(show){
-                mBinding.challengeConfirmAnswerMaterialButton.setVisibility(View.VISIBLE);
+        mViewModel.possibleAnswer1.observe(getViewLifecycleOwner(),(possibleAnswer1) -> mBinding.challengeAnswer1.setText(possibleAnswer1));
+        mViewModel.possibleAnswer2.observe(getViewLifecycleOwner(),(possibleAnswer2) -> mBinding.challengeAnswer2.setText(possibleAnswer2));
+        mViewModel.possibleAnswer3.observe(getViewLifecycleOwner(),(possibleAnswer3) -> mBinding.challengeAnswer3.setText(possibleAnswer3));
+    }
+
+    void setUpNextClick(){
+        mBinding.challengeConfirmAnswerMaterialButton.setOnClickListener((view) -> {
+            Integer checkedButtonId = mBinding.challengesContainerPossibleAnswersRadioGroup.getCheckedRadioButtonId();
+            if(checkedButtonId < 0){
+                Toast.makeText(getActivity(),"Nije odabran niti jedan odgovor!",Toast.LENGTH_LONG).show();
             }else {
-                mBinding.challengeConfirmAnswerMaterialButton.setVisibility(View.INVISIBLE);
+                RadioButton radioButton = mBinding.getRoot().findViewById(checkedButtonId);
+                mShareViewModel.putInAnswer(radioButton.getText().toString(),mPosition);
             }
         });
     }

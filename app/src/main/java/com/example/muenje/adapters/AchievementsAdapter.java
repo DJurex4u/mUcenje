@@ -42,7 +42,7 @@ public class AchievementsAdapter extends RecyclerView.Adapter<AchievementViewHol
 
 class AchievementViewHolder extends RecyclerView.ViewHolder{
 
-    MaterialTextView achievementDisplayName;
+    final MaterialTextView achievementDisplayName;
 
     public AchievementViewHolder(@NonNull View itemView) {
         super(itemView);
