@@ -1,4 +1,4 @@
-package com.example.muenje.ui.izazovifragmentcontainer;
+package com.example.muenje.ui.quizzescontainerfragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
