@@ -7,19 +7,21 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.muenje.BaseApplication;
 import com.example.muenje.adapters.LessonsContainerPagerAdapter;
+import com.example.muenje.core.RxNavigationFragment;
 import com.example.muenje.data.interactor.LessonsFragmentContainerInteractor;
 import com.example.muenje.databinding.FragmentLekcijaContainerBinding;
+import com.example.muenje.routers.LessonsContainerRouter;
 
-public class LessonsFragmentContainer extends Fragment {
+public class LessonsFragmentContainer extends RxNavigationFragment {
     LessonsContainerPagerAdapter mLessonPagerAdapter;
     FragmentLekcijaContainerBinding mBinding;
     LessonsFragmentContainerViewModel mViewModel;
+    LessonsContainerRouter mRouter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -28,6 +30,7 @@ public class LessonsFragmentContainer extends Fragment {
         mViewModel = new ViewModelProvider(requireActivity()).get(LessonsFragmentContainerViewModel.class);
         Integer lessonId = LessonsFragmentContainerArgs.fromBundle(getArguments()).getLesionId();
         BaseApplication application = ((BaseApplication) requireActivity().getApplication());
+        mRouter = new LessonsContainerRouter(this);
         LessonsFragmentContainerInteractor interactor = new LessonsFragmentContainerInteractor(application.getRxFirebaseRealtimeDatabaseRepositoryHelper());
         mViewModel.setUpViewModel(interactor,lessonId);
         mViewModel.initViewModel();
@@ -62,6 +65,11 @@ public class LessonsFragmentContainer extends Fragment {
         @Override
         public void onPageSelected(int position) {
             mBinding.lessonCurrentPage.setText(Integer.toString(position + 1));
+            if(position+1 == mLessonPagerAdapter.getItemCount()){
+                mBinding.backButton.setVisibility(View.VISIBLE);
+            }else {
+                mBinding.backButton.setVisibility(View.GONE);
+            }
         }
 
         @Override
@@ -73,5 +81,9 @@ public class LessonsFragmentContainer extends Fragment {
     void connectViewModel(){
         mViewModel.getFullLesson().observe(getViewLifecycleOwner(), (fullLesson)->
                     mBinding.lessonContainerHeaderTextView.setText(fullLesson.getTitle()));
+
+        addDisposableToCompositeDisposable(mViewModel.getNavigationObservable().subscribe(
+                (to -> mRouter.goBack())
+        ));
     }
 }

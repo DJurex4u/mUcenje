@@ -28,7 +28,7 @@ public class BaseApplication extends Application {
         RxFirebaseAuthRepository mRxFirebaseRepository = new RxFirebaseAuthRepository(mAuth);
         mRxFirebaseHelper = new RxFirebaseAuthHelper(mRxFirebaseRepository, new AuthResultToUserMapper(), appSchedulerProvider);
         RxFirebaseRealtimeDatabaseRepository rxFirebaseRealtimeDatabaseRepository = new RxFirebaseRealtimeDatabaseRepository(firebaseDatabase);
-        mRxFirebaseRealtimeDatabaseRepositoryHelper = new RxFirebaseRealtimeDatabaseRepositoryHelper(rxFirebaseRealtimeDatabaseRepository, appSchedulerProvider, new LessonTitleResponseToTitleMapper(), new FullLessonResponseToFullLessonMapper(), new QuizTitleResponseToTitleMapper(),new SingleAchievementResponseToSingleAchievementMapper());
+        mRxFirebaseRealtimeDatabaseRepositoryHelper =  new RxFirebaseRealtimeDatabaseRepositoryHelper(rxFirebaseRealtimeDatabaseRepository, appSchedulerProvider, new LessonTitleResponseToTitleMapper(), new FullLessonResponseToFullLessonMapper(), new QuizTitleResponseToTitleMapper(),new SingleAchievementResponseToSingleAchievementMapper());
         super.onCreate();
     }
 

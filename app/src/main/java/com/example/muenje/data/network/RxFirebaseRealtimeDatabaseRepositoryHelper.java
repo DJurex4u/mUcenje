@@ -35,14 +35,14 @@ public class RxFirebaseRealtimeDatabaseRepositoryHelper {
     public Maybe<List<Title>> getLessonsTitles() {
         return mRxFirebaseRealtimeDatabaseRepository.getLessonsTitles()
                 .subscribeOn(mAppSchedulerProvider.io())
-                .map((lessonTitleResponseList) -> mLessonTitleResponseToTitleMapper.mapList(lessonTitleResponseList))
+                .map((lectionTitleResponseList) -> mLessonTitleResponseToTitleMapper.mapList(lectionTitleResponseList))
                 .observeOn(mAppSchedulerProvider.ui());
     }
 
     public Maybe<FullLesson> getFullLesson(Integer id) {
         return mRxFirebaseRealtimeDatabaseRepository.getFullLesson(id)
                 .subscribeOn(mAppSchedulerProvider.io())
-                .map((fullLessonResponse) -> mFullLessonResponseToFullLessonMapper.map(fullLessonResponse))
+                .map((fullLectionResponse) -> mFullLessonResponseToFullLessonMapper.map(fullLectionResponse))
                 .observeOn(mAppSchedulerProvider.ui());
     }
 
@@ -58,5 +58,9 @@ public class RxFirebaseRealtimeDatabaseRepositoryHelper {
                 .subscribeOn(mAppSchedulerProvider.io())
                 .map((responseList) -> mSingleAchievementResponseToSingleAchievementMapper.mapList(responseList))
                 .observeOn(mAppSchedulerProvider.ui());
+    }
+
+    public void setLessonReed(String username,String lessonId){
+        mRxFirebaseRealtimeDatabaseRepository.setLessonReed(username,lessonId);
     }
 }

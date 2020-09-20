@@ -23,19 +23,19 @@ public class RxFirebaseRealtimeDatabaseRepository {
     }
 
     public Maybe<List<LessonTitleResponse>> getLessonsTitles() {
-        final Query query = mFirebaseDatabase.getReference(referenceNotes.getLessonTitleReference());
+        final Query query = mFirebaseDatabase.getReference(referenceNotes.getLectionTitleReference());
         return RxFirebaseDatabase.observeSingleValueEvent(query,
                 (dataSnapshot -> {
-                    ArrayList<LessonTitleResponse> lessonsTitlesArrayList = new ArrayList<>();
-                    for (DataSnapshot dataSnapshotLessonTitles : dataSnapshot.getChildren()) {
-                        lessonsTitlesArrayList.add(dataSnapshotLessonTitles.getValue(LessonTitleResponse.class));
+                    ArrayList<LessonTitleResponse> lectionsTitlesArrayList = new ArrayList<>();
+                    for (DataSnapshot dataSnapshotLectionTitles : dataSnapshot.getChildren()) {
+                        lectionsTitlesArrayList.add(dataSnapshotLectionTitles.getValue(LessonTitleResponse.class));
                     }
-                    return lessonsTitlesArrayList;
+                    return lectionsTitlesArrayList;
                 }));
     }
 
     public Maybe<FullLessonResponse> getFullLesson(Integer id){
-        final Query query =mFirebaseDatabase.getReference(referenceNotes.getFullLessonReference(id));
+        final Query query =mFirebaseDatabase.getReference(referenceNotes.getFullLectionReference(id));
         return RxFirebaseDatabase.observeSingleValueEvent(query,
                 (dataSnapshot -> dataSnapshot.getValue(FullLessonResponse.class)));
     }
@@ -62,29 +62,40 @@ public class RxFirebaseRealtimeDatabaseRepository {
         }));
     }
 
+    public void setLessonReed(String username,String lessonId){
+        mFirebaseDatabase
+                .getReference(referenceNotes.getLessonReedReference(username,lessonId))
+                .setValue(true);
+    }
+
     private static class referenceNotes {
         final static String challenges = "challenges";
         final static String lessons = "lessons";
-        final static String quizzes = "quizzes";
+        final static String quiz = "quiz";
         final static String titles = "titles";
         final static String full = "full";
 
         final static String achievements = "achievements";
+        final static String isAchieved = "isAchieved";
 
-        public static String getLessonTitleReference() {
+        public static String getLectionTitleReference() {
             return referenceNotes.challenges + "/" + referenceNotes.lessons + "/" + referenceNotes.titles;
         }
 
-        public static String getFullLessonReference(Integer id){
+        public static String getFullLectionReference(Integer id){
             return referenceNotes.challenges + "/" + referenceNotes.lessons + "/" + referenceNotes.full + "/" + id.toString();
         }
 
         public static String getFullQuizTitleReference(){
-            return referenceNotes.challenges + "/" +referenceNotes.quizzes + "/"+ referenceNotes.titles;
+            return referenceNotes.challenges + "/" +referenceNotes.quiz + "/"+ referenceNotes.titles;
         }
 
         public static String getAchievementsReference(String username){
             return referenceNotes.achievements + "/" + username;
+        }
+
+        public static String getLessonReedReference(String username,String lessonId){
+            return getAchievementsReference(username) + "/" + lessonId + "/" + referenceNotes.isAchieved;
         }
     }
 }

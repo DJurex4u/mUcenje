@@ -18,4 +18,5 @@
     <string name="challenge_header">IZAZOV</string>
     <string name="achievements_header">POSTIGNUĆA</string>
     <string name="lection_header">LEKCIJA</string>
+    <string name="finish">Završi</string>
 </resources>
