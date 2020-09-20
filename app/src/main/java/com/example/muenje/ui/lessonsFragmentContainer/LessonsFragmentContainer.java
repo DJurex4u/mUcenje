@@ -57,7 +57,7 @@ public class LessonsFragmentContainer extends RxNavigationFragment {
 
     void setUpPageCounter(){
         mBinding.viewPager2.registerOnPageChangeCallback(mOnPageChangeCallback);
-        mBinding.lessonTotalPageNumber.setText(Integer.toString(mLessonPagerAdapter.getItemCount()));
+        mBinding.pageCounterLayout.lessonTotalPageNumber.setText(Integer.toString(mLessonPagerAdapter.getItemCount()));
     }
 
     ViewPager2.OnPageChangeCallback mOnPageChangeCallback = new ViewPager2.OnPageChangeCallback() {
@@ -67,7 +67,7 @@ public class LessonsFragmentContainer extends RxNavigationFragment {
 
         @Override
         public void onPageSelected(int position) {
-            mBinding.lessonCurrentPage.setText(Integer.toString(position + 1));
+            mBinding.pageCounterLayout.lessonCurrentPage.setText(Integer.toString(position + 1));
             if(position+1 == mLessonPagerAdapter.getItemCount()){
                 mBinding.backButton.setVisibility(View.VISIBLE);
             }else {

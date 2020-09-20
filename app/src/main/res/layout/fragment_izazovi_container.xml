@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.muenje.ui.quizzesContainerFragment.QuizzesContainerFragment" />
+            type="com.example.muenje.ui.quizzesContainerFragment.QuizzesContainerViewModel" />
 
     </data>
 
@@ -14,6 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.quizzesContainerFragment.QuizzesContainerFragment">
+
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPager2"
             android:layout_width="match_parent"
@@ -26,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text=""
+            android:text="@{viewModel.fullQuiz.title}"
             tools:text="KVIZ NASLOV"
             android:textSize="36sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -34,35 +35,15 @@
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="50dp"/>
 
-        <TextView
-            android:id="@+id/challenges_containter_slash_text_view"
-            android:layout_width="wrap_content"
+        <include
+            android:id="@+id/page_counter_layout"
             android:layout_height="wrap_content"
-            android:text="/"
-            android:layout_marginBottom="5dp"
+            android:layout_width="wrap_content"
+            layout="@layout/layout_page_counter"
+            android:layout_marginBottom="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:text="/" />
-
-        <TextView
-            android:id="@+id/challenges_container_current_page"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            tools:text="1"
-            android:layout_marginBottom="5dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/challenges_containter_slash_text_view" />
-
-        <TextView
-            android:id="@+id/challenges_container_total_page_number"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="5"
-            android:layout_marginBottom="5dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/challenges_containter_slash_text_view" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/challenges_container_finish_button"
@@ -70,13 +51,12 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:visibility="gone"
+            android:visibility="invisible"
             tools:visibility="visible"
             android:text="@string/finish"
             tools:text="@string/finish"
-            android:layout_marginBottom="30dp"
-            app:layout_constraintStart_toEndOf="@id/challenges_containter_slash_text_view" />
-
+            android:layout_marginBottom="50dp"
+            android:layout_marginEnd="30dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

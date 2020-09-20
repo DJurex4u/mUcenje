@@ -20,7 +20,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@{viewModel.fullLesson.title}"
             tools:text="IME LEKCIJE"
             android:textSize="36sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -35,49 +34,30 @@
             app:layout_constraintTop_toBottomOf="@id/lesson_container_header_text_view"
             app:layout_constraintBottom_toTopOf="@id/back_button"/>
 
-        <TextView
-            android:id="@+id/lesson_containter_slash_text_view"
-            android:layout_width="wrap_content"
+
+        <include
+            android:id="@+id/page_counter_layout"
             android:layout_height="wrap_content"
-            android:text="/"
-            android:layout_marginBottom="5dp"
+            android:layout_width="wrap_content"
+            layout="@layout/layout_page_counter"
+            android:layout_marginBottom="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:text="/" />
-
-        <TextView
-            android:id="@+id/lesson_current_page"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1"
-            tools:text="1"
-            android:layout_marginBottom="5dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/lesson_containter_slash_text_view" />
-
-        <TextView
-            android:id="@+id/lesson_total_page_number"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="2"
-            android:layout_marginBottom="5dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/lesson_containter_slash_text_view" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/back_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:visibility="gone"
             tools:visibility="visible"
             android:onClick="@{()->viewModel.GoBack()}"
             android:text="@string/finish"
             tools:text="@string/finish"
-            android:layout_marginBottom="30dp"
-            app:layout_constraintStart_toEndOf="@id/lesson_containter_slash_text_view" />
+            android:layout_marginBottom="50dp"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

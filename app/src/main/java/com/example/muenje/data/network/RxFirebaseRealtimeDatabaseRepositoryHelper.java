@@ -71,7 +71,7 @@ public class RxFirebaseRealtimeDatabaseRepositoryHelper {
                 .observeOn(mAppSchedulerProvider.ui());
     }
 
-    public void setLessonReed(String username,String lessonId){
+    public void setLessonRed(String username, String lessonId){
         mRxFirebaseRealtimeDatabaseRepository.setLessonReed(username,lessonId);
     }
 

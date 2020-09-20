@@ -65,7 +65,7 @@ public class PickerFragment extends Fragment implements TitleClickedCallback {
                 mRouter.navigateToLessonContainer(id,mViewModel.getUser());
                 break;
             case QUIZ_PICKER:
-                mRouter.navigateToQuizContainer(id);
+                mRouter.navigateToQuizContainer(id,mViewModel.getUser());
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + mWhatPicker);

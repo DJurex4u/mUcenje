@@ -18,8 +18,8 @@ public class PickerRouter extends Router {
         mNavController.navigate(action);
     }
 
-    public void navigateToQuizContainer(Integer quizId){
-        NavDirections action = PickerFragmentDirections.actionLekcijeFragmentToIzazoviFragmentContainer2(quizId);
+    public void navigateToQuizContainer(Integer quizId,User user){
+        NavDirections action = PickerFragmentDirections.actionLekcijeFragmentToIzazoviFragmentContainer2(quizId,user);
         mNavController.navigate(action);
     }
 }

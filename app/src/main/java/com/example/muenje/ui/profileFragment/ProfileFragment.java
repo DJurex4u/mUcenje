@@ -9,8 +9,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.muenje.BaseApplication;
 import com.example.muenje.core.RxNavigationFragment;
 import com.example.muenje.data.entities.User;
+import com.example.muenje.data.interactor.ProfileInteractor;
 import com.example.muenje.databinding.FragmentProfilBinding;
 import com.example.muenje.routers.ProfileRouter;
 
@@ -19,6 +21,7 @@ public class ProfileFragment extends RxNavigationFragment {
     FragmentProfilBinding mBinding;
     ProfileViewModel mViewModel;
     ProfileRouter mRouter;
+    ProfileInteractor mInteractor;
 
 
     @Override
@@ -26,7 +29,10 @@ public class ProfileFragment extends RxNavigationFragment {
         super.onCreate(savedInstanceState);
         mViewModel = new ViewModelProvider(requireActivity()).get(ProfileViewModel.class);
         User user = ProfileFragmentArgs.fromBundle(getArguments()).getUser();
-        mViewModel.setUpViewModel(user);
+        BaseApplication application = ((BaseApplication) requireActivity().getApplication());
+        mInteractor = new ProfileInteractor(application.getRxFirebaseRealtimeDatabaseRepositoryHelper());
+        mViewModel.setUpViewModel(user, mInteractor);
+        mViewModel.initViewModel();
         connectViewModel();
         mRouter = new ProfileRouter(this);
     }
@@ -41,9 +47,11 @@ public class ProfileFragment extends RxNavigationFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mBinding.setViewModel(mViewModel);
+        connectPointsEarned();
     }
 
     private void connectViewModel() {
+        //TODO: THIS GIVES BUG WHEN NAVIGATIN (fixed?: called in onViewCreate insted of OnViewCreated)
          addDisposableToCompositeDisposable(mViewModel.getNavigationObservable().subscribe((to) -> {
             switch (to) {
                 case GO_TO_MISSIONS:
@@ -54,5 +62,11 @@ public class ProfileFragment extends RxNavigationFragment {
                     break;
             }
         }));
+
+    }
+    private void connectPointsEarned(){
+        mViewModel.mPointsEarned.observe(getViewLifecycleOwner(),pointsEarned->{
+            mBinding.profilHeader2PointsTextView.setText(pointsEarned);
+        });
     }
 }

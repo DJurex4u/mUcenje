@@ -17,6 +17,6 @@ public class LessonsContainerInteractor {
     }
 
     public void setLessonRed(String username, String lessonId) {
-        mDatabase.setLessonReed(username,lessonId);
+        mDatabase.setLessonRed(username,lessonId);
     }
 }

@@ -15,6 +15,17 @@
         android:layout_height="match_parent"
         tools:context=".ui.quizFragment.QuizFragment">
 
+        <TextView
+            android:id="@+id/question_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.question}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/challenges_container_possible_answers_radioGroup"
+            android:layout_marginBottom="10dp"
+            />
+
         <RadioGroup
             android:id="@+id/challenges_container_possible_answers_radioGroup"
             android:layout_width="match_parent"
@@ -30,7 +41,7 @@
                 android:id="@+id/challenge_answer_0"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text=""
+                android:text="@{viewModel.possibleAnswer1}"
                 tools:text="Pitanje glasi lksdjflsdklfsdfkjsl?"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -39,7 +50,7 @@
                 android:id="@+id/challenge_answer_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text=""
+                android:text="@{viewModel.possibleAnswer2}"
                 tools:text="Pitanje glasi lksdjflsdklfsdfkjsl?"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -48,7 +59,7 @@
                 android:id="@+id/challenge_answer_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text=""
+                android:text="@{viewModel.possibleAnswer2}"
                 tools:text="Pitanje glasi lksdjflsdklfsdfkjsl?"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -59,7 +70,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/confirm_answer"
-            android:visibility="gone"
+            android:visibility="visible"
             tools:visibility="visible"
             app:layout_constraintTop_toBottomOf="@id/challenges_container_possible_answers_radioGroup"
             app:layout_constraintEnd_toEndOf="parent"

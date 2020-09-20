@@ -27,14 +27,8 @@ public class AchievementsViewModel extends RxViewModel {
 
     void initViewModel() {
         getCompositeDisposable().add(mIntereactor.getUsersAchievement(mUser).subscribe(
-                singleAchievements -> mSingleAchievementList.setValue(singleAchievements),
-                (error) -> {
-                    Integer i = 5;
-                    i--;
-                }, () -> {
-                    Integer i = 5;
-                    i--;
-                }));
+                singleAchievements -> mSingleAchievementList.setValue(singleAchievements)
+        ));
     }
 
     public LiveData<List<SingleAchievement>> getSingleAchievementList() {

@@ -86,6 +86,9 @@
         <argument
             android:name="quizId"
             app:argType="integer" />
+        <argument
+            android:name="user"
+            app:argType="com.example.muenje.data.entities.User" />
     </fragment>
     <fragment
         android:id="@+id/achievementsFragment"

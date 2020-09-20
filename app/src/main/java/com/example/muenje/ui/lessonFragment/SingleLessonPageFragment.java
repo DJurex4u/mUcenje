@@ -52,7 +52,6 @@ public class SingleLessonPageFragment extends Fragment {
     }
 
     void connectViewModel() {
-        //TODO: ne razumijem
         mLessonsFragmentContainerViewModel.getFullLesson()
                 .observe(getViewLifecycleOwner(),
                         (lessons) -> {
@@ -62,9 +61,6 @@ public class SingleLessonPageFragment extends Fragment {
                                     .setValue(lessons.getTitle());
                         });
 
-//        mSingleLessonPageViewModel.lessonTitle.observe(getViewLifecycleOwner(),(title)->{
-//            mBinding.lessonHeaderTextView.setText(title);
-//        });
         mSingleLessonPageViewModel.lessonBody.observe(getViewLifecycleOwner(),(body) -> {
             mBinding.lessonBodyTextView.setText(body);}
             );
