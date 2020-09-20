@@ -33,7 +33,7 @@
     </fragment>
     <fragment
         android:id="@+id/misijeFragment"
-        android:name="com.example.muenje.ui.misijefragment.MissionsFragment"
+        android:name="com.example.muenje.ui.missionsfragment.MissionsFragment"
         android:label="fragment_misije"
         tools:layout="@layout/fragment_misije" >
         <action
@@ -80,7 +80,7 @@
     </fragment>
     <fragment
         android:id="@+id/izazoviFragmentContainer"
-        android:name="com.example.muenje.ui.quizzescontainerfragment.QuizzesContainerFragment"
+        android:name="com.example.muenje.ui.quizzesContainerFragment.QuizzesContainerFragment"
         android:label="fragment_izazovi_container"
         tools:layout="@layout/fragment_izazovi_container" >
         <argument

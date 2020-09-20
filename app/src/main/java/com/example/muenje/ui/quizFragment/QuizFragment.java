@@ -1,4 +1,4 @@
-package com.example.muenje.ui.quizfragment;
+package com.example.muenje.ui.quizFragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

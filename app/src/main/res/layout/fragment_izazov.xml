@@ -6,14 +6,14 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.muenje.ui.quizfragment.QuizViewModel" />
+            type="com.example.muenje.ui.quizFragment.QuizViewModel" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.quizfragment.QuizFragment">
+        tools:context=".ui.quizFragment.QuizFragment">
 
         <RadioGroup
             android:id="@+id/challenges_container_possible_answers_radioGroup"

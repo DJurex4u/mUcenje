@@ -1,4 +1,4 @@
-package com.example.muenje.ui.misijefragment;
+package com.example.muenje.ui.missionsfragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

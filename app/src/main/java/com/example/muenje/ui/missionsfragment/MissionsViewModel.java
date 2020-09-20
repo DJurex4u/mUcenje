@@ -1,6 +1,5 @@
-package com.example.muenje.ui.misijefragment;
+package com.example.muenje.ui.missionsfragment;
 
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.muenje.data.entities.User;

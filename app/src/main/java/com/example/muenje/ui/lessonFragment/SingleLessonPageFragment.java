@@ -1,4 +1,4 @@
-package com.example.muenje.ui.lekcijafragment;
+package com.example.muenje.ui.lessonFragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
