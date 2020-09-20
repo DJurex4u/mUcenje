@@ -44,7 +44,7 @@ public class LessonsFragmentContainerViewModel extends RxViewModel {
    }
 
    public void GoBack(){
-      mInteractor.setLessonReed(mUser.mDisplayName,mLessonId.toString());
+      mInteractor.setLessonRed(mUser.mDisplayName,mLessonId.toString());
       mNavigateTo.accept(GoTo.GO_BACK);
    }
 }

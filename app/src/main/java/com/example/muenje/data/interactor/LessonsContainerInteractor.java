@@ -16,7 +16,7 @@ public class LessonsContainerInteractor {
         return mDatabase.getFullLesson(id);
     }
 
-    public void setLessonReed(String username,String lessonId) {
+    public void setLessonRed(String username, String lessonId) {
         mDatabase.setLessonReed(username,lessonId);
     }
 }
