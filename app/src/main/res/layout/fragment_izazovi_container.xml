@@ -33,8 +33,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="50dp"/>
-<!--
--->
+
         <TextView
             android:id="@+id/challenges_containter_slash_text_view"
             android:layout_width="wrap_content"
@@ -50,7 +49,7 @@
             android:id="@+id/challenges_container_current_page"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1"
+            android:text=""
             tools:text="1"
             android:layout_marginBottom="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -60,7 +59,7 @@
             android:id="@+id/challenges_container_total_page_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="2"
+            tools:text="5"
             android:layout_marginBottom="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/challenges_containter_slash_text_view" />

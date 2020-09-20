@@ -39,6 +39,9 @@
         <action
             android:id="@+id/action_misijeFragment_to_lekcijeFragment"
             app:destination="@id/pickerFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.muenje.data.entities.User" />
     </fragment>
     <fragment
         android:id="@+id/pickerFragment"
@@ -54,6 +57,9 @@
         <action
             android:id="@+id/action_lekcijeFragment_to_izazoviFragmentContainer2"
             app:destination="@id/izazoviFragmentContainer" />
+        <argument
+            android:name="user"
+            app:argType="com.example.muenje.data.entities.User" />
     </fragment>
     <action
         android:id="@+id/action_global_loginFragment"
@@ -68,6 +74,9 @@
         <argument
             android:name="lesionId"
             app:argType="integer" />
+        <argument
+            android:name="user"
+            app:argType="com.example.muenje.data.entities.User" />
     </fragment>
     <fragment
         android:id="@+id/izazoviFragmentContainer"

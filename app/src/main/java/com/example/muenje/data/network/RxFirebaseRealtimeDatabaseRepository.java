@@ -76,6 +76,7 @@ public class RxFirebaseRealtimeDatabaseRepository {
         final static String full = "full";
 
         final static String achievements = "achievements";
+        final static String lesson = "lesson";
         final static String isAchieved = "isAchieved";
 
         public static String getLectionTitleReference() {
@@ -83,7 +84,7 @@ public class RxFirebaseRealtimeDatabaseRepository {
         }
 
         public static String getFullLectionReference(Integer id){
-            return referenceNotes.challenges + "/" + referenceNotes.lessons + "/" + referenceNotes.full + "/" + id.toString();
+            return  referenceNotes.challenges + "/" + referenceNotes.lessons + "/" + referenceNotes.full + "/" + id.toString();
         }
 
         public static String getFullQuizTitleReference(){
@@ -95,7 +96,7 @@ public class RxFirebaseRealtimeDatabaseRepository {
         }
 
         public static String getLessonReedReference(String username,String lessonId){
-            return getAchievementsReference(username) + "/" + lessonId + "/" + referenceNotes.isAchieved;
+            return getAchievementsReference(username) + "/" + lesson + lessonId + "/" + referenceNotes.isAchieved;
         }
     }
 }

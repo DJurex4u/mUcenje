@@ -47,7 +47,7 @@ public class ProfileFragment extends RxNavigationFragment {
          addDisposableToCompositeDisposable(mViewModel.getNavigationObservable().subscribe((to) -> {
             switch (to) {
                 case GO_TO_MISSIONS:
-                    mRouter.navigateToMissions();
+                    mRouter.navigateToMissions(mViewModel.getUser().getValue());
                     break;
                 case GO_TO_ACHIEVEMENT:
                     mRouter.navigateToAchievements(mViewModel.getUser().getValue());

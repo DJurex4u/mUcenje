@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.muenje.core.RxViewModel;
 import com.example.muenje.data.entities.FullLesson;
+import com.example.muenje.data.entities.User;
 import com.example.muenje.data.interactor.LessonsFragmentContainerInteractor;
 import com.jakewharton.rxrelay3.PublishRelay;
 
@@ -20,12 +21,13 @@ public class LessonsFragmentContainerViewModel extends RxViewModel {
    Integer mLessonId;
    private PublishRelay<LessonsFragmentContainerViewModel.GoTo> mNavigateTo = PublishRelay.create();
    MutableLiveData<FullLesson> mFullLesson = new MutableLiveData<>();
-   MutableLiveData<String> mTitle = new MutableLiveData<>();
+   User mUser;
 
 
-   void setUpViewModel(LessonsFragmentContainerInteractor lessonInteractor, Integer lessonId){
+   void setUpViewModel(LessonsFragmentContainerInteractor lessonInteractor, Integer lessonId,User user){
       mInteractor = lessonInteractor;
       mLessonId = lessonId;
+      mUser = user;
    }
 
    void initViewModel(){
@@ -42,6 +44,7 @@ public class LessonsFragmentContainerViewModel extends RxViewModel {
    }
 
    public void GoBack(){
+      mInteractor.setLessonReed(mUser.mDisplayName,mLessonId.toString());
       mNavigateTo.accept(GoTo.GO_BACK);
    }
 }

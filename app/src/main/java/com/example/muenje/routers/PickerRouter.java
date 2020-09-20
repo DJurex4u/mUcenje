@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavDirections;
 
 import com.example.muenje.core.Router;
+import com.example.muenje.data.entities.User;
 import com.example.muenje.ui.pickerFragment.PickerFragmentDirections;
 
 public class PickerRouter extends Router {
@@ -12,8 +13,8 @@ public class PickerRouter extends Router {
         super(fragment);
     }
 
-    public void navigateToLessonContainer(Integer lessonId){
-        NavDirections action = PickerFragmentDirections.actionLekcijeFragmentToLekcijaFragmentContainer(lessonId);
+    public void navigateToLessonContainer(Integer lessonId, User user){
+        NavDirections action = PickerFragmentDirections.actionLekcijeFragmentToLekcijaFragmentContainer(lessonId,user);
         mNavController.navigate(action);
     }
 

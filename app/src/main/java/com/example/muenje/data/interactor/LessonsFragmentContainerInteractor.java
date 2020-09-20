@@ -15,4 +15,8 @@ public class LessonsFragmentContainerInteractor {
     public Maybe<FullLesson> getFullLesson(Integer id){
         return mDatabase.getFullLesson(id);
     }
+
+    public void setLessonReed(String username,String lessonId) {
+        mDatabase.setLessonReed(username,lessonId);
+    }
 }

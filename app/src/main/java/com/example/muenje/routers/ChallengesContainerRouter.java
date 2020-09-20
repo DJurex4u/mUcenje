@@ -4,9 +4,8 @@ import androidx.fragment.app.Fragment;
 
 import com.example.muenje.core.BackRouter;
 
-public class LessonsContainerRouter extends BackRouter {
-
-    public LessonsContainerRouter(Fragment fragment) {
+public class ChallengesContainerRouter extends BackRouter {
+    public ChallengesContainerRouter(Fragment fragment) {
         super(fragment);
     }
 }

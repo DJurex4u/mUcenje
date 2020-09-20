@@ -18,8 +18,8 @@ public class ProfileRouter extends Router {
         mNavController.navigate(action);
     }
 
-    public void navigateToMissions(){
-        NavDirections action = ProfileFragmentDirections.actionProfilFragmentToMisijeFragment();
+    public void navigateToMissions(User user){
+        NavDirections action = ProfileFragmentDirections.actionProfilFragmentToMisijeFragment(user);
         mNavController.navigate(action);
     }
 }

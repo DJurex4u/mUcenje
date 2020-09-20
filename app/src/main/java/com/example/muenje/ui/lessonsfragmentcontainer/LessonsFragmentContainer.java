@@ -13,6 +13,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.example.muenje.BaseApplication;
 import com.example.muenje.adapters.LessonsContainerPagerAdapter;
 import com.example.muenje.core.RxNavigationFragment;
+import com.example.muenje.data.entities.User;
 import com.example.muenje.data.interactor.LessonsFragmentContainerInteractor;
 import com.example.muenje.databinding.FragmentLekcijaContainerBinding;
 import com.example.muenje.routers.LessonsContainerRouter;
@@ -28,11 +29,13 @@ public class LessonsFragmentContainer extends RxNavigationFragment {
         super.onCreate(savedInstanceState);
         mLessonPagerAdapter = new LessonsContainerPagerAdapter(this);
         mViewModel = new ViewModelProvider(requireActivity()).get(LessonsFragmentContainerViewModel.class);
-        Integer lessonId = LessonsFragmentContainerArgs.fromBundle(getArguments()).getLesionId();
+        LessonsFragmentContainerArgs args = LessonsFragmentContainerArgs.fromBundle(getArguments());
+        Integer lessonId = args.getLesionId();
+        User user = args.getUser();
         BaseApplication application = ((BaseApplication) requireActivity().getApplication());
         mRouter = new LessonsContainerRouter(this);
         LessonsFragmentContainerInteractor interactor = new LessonsFragmentContainerInteractor(application.getRxFirebaseRealtimeDatabaseRepositoryHelper());
-        mViewModel.setUpViewModel(interactor,lessonId);
+        mViewModel.setUpViewModel(interactor,lessonId,user);
         mViewModel.initViewModel();
    }
 

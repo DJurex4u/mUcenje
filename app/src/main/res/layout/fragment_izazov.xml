@@ -1,29 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.izazovfragment.IzazovFragment">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <com.google.android.material.radiobutton.MaterialRadioButton
-        android:id="@+id/challenge_answer_materialRadioButton"
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.muenje.ui.izazovfragment.IzazovViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        android:layout_height="match_parent"
+        tools:context=".ui.izazovfragment.IzazovFragment">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/challenge_confirm_answer_materialButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/confirm_answer"
-        android:visibility="gone"
-        tools:visibility="visible"
-        app:layout_constraintTop_toBottomOf="@id/challenge_answer_materialRadioButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="20dp"
-        />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <RadioGroup
+            android:id="@+id/challenges_container_possible_answers_radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp">
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/challenge_answer_0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                tools:text="Pitanje glasi lksdjflsdklfsdfkjsl?"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/challenge_answer_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                tools:text="Pitanje glasi lksdjflsdklfsdfkjsl?"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/challenge_answer_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                tools:text="Pitanje glasi lksdjflsdklfsdfkjsl?"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </RadioGroup>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/challenge_confirm_answer_materialButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/confirm_answer"
+            android:visibility="gone"
+            tools:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@id/challenges_container_possible_answers_radioGroup"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="20dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

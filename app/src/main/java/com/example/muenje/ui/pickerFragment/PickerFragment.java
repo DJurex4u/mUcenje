@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.muenje.BaseApplication;
 import com.example.muenje.R;
 import com.example.muenje.adapters.TitleAdapter;
+import com.example.muenje.data.entities.User;
 import com.example.muenje.data.interactor.PickerInteractor;
 import com.example.muenje.databinding.FragmentPickerBinding;
 import com.example.muenje.routers.PickerRouter;
@@ -31,12 +32,14 @@ public class PickerFragment extends Fragment implements TitleClickedCallback {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mAdapter = new TitleAdapter(this);
-        mWhatPicker = PickerFragmentArgs.fromBundle(getArguments()).getWhatPicker();
+        PickerFragmentArgs args = PickerFragmentArgs.fromBundle(getArguments());
+        mWhatPicker = args.getWhatPicker();
+        User user = args.getUser();
         BaseApplication application = ((BaseApplication) requireActivity().getApplication());
         mViewModel = new ViewModelProvider(requireActivity()).get(PickerViewModel.class);
         mRouter = new PickerRouter(this);
         PickerInteractor interactor = new PickerInteractor(application.getRxFirebaseRealtimeDatabaseRepositoryHelper());
-        mViewModel.setUpViewModel(interactor,mWhatPicker);
+        mViewModel.setUpViewModel(interactor,mWhatPicker,user);
         mViewModel.initViewModel();
     }
 
@@ -59,7 +62,7 @@ public class PickerFragment extends Fragment implements TitleClickedCallback {
     public void titleClicked(Integer id) {
         switch (mWhatPicker){
             case LESSON_PICKER:
-                mRouter.navigateToLessonContainer(id);
+                mRouter.navigateToLessonContainer(id,mViewModel.getUser());
                 break;
             case QUIZ_PICKER:
                 mRouter.navigateToQuizContainer(id);

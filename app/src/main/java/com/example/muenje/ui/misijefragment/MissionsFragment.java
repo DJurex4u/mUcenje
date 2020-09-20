@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.muenje.core.RxNavigationFragment;
+import com.example.muenje.data.entities.User;
 import com.example.muenje.databinding.FragmentMisijeBinding;
 import com.example.muenje.routers.MissionsRouter;
 
@@ -22,7 +23,10 @@ public class MissionsFragment extends RxNavigationFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        MissionsFragmentArgs args = MissionsFragmentArgs.fromBundle(getArguments());
         mViewModel = new ViewModelProvider(requireActivity()).get(MissionsViewModel.class);
+        User user = args.getUser();
+        mViewModel.initViewModel(user);
         connectViewModel();
         mRouter = new MissionsRouter(this);
     }
@@ -44,10 +48,10 @@ public class MissionsFragment extends RxNavigationFragment {
         addDisposableToCompositeDisposable(mViewModel.getNavigateTo().subscribe((to)->{
             switch (to){
                 case GO_TO_LECTIONS:
-                    mRouter.navigateToLections();
+                    mRouter.navigateToLections(mViewModel.getUser());
                     break;
                 case GO_TO_CHALLENGES:
-                    mRouter.navigateToChallenges();
+                    mRouter.navigateToChallenges(mViewModel.getUser());
                     break;
             }
         }));
