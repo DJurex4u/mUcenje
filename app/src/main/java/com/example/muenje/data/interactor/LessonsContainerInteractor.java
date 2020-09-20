@@ -5,12 +5,12 @@ import com.example.muenje.data.network.RxFirebaseRealtimeDatabaseRepositoryHelpe
 
 import io.reactivex.Maybe;
 
-public class LessonsFragmentContainerInteractor {
+public class LessonsContainerInteractor {
     RxFirebaseRealtimeDatabaseRepositoryHelper mDatabase;
 
 
-    public LessonsFragmentContainerInteractor(RxFirebaseRealtimeDatabaseRepositoryHelper rxFirebaseRealtimeDatabaseRepositoryHelper){
-        mDatabase = rxFirebaseRealtimeDatabaseRepositoryHelper;    }
+    public LessonsContainerInteractor(RxFirebaseRealtimeDatabaseRepositoryHelper database){
+        mDatabase = database;    }
 
     public Maybe<FullLesson> getFullLesson(Integer id){
         return mDatabase.getFullLesson(id);

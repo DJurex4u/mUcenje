@@ -14,7 +14,7 @@ import com.example.muenje.BaseApplication;
 import com.example.muenje.adapters.LessonsContainerPagerAdapter;
 import com.example.muenje.core.RxNavigationFragment;
 import com.example.muenje.data.entities.User;
-import com.example.muenje.data.interactor.LessonsFragmentContainerInteractor;
+import com.example.muenje.data.interactor.LessonsContainerInteractor;
 import com.example.muenje.databinding.FragmentLekcijaContainerBinding;
 import com.example.muenje.routers.LessonsContainerRouter;
 
@@ -34,7 +34,7 @@ public class LessonsFragmentContainer extends RxNavigationFragment {
         User user = args.getUser();
         BaseApplication application = ((BaseApplication) requireActivity().getApplication());
         mRouter = new LessonsContainerRouter(this);
-        LessonsFragmentContainerInteractor interactor = new LessonsFragmentContainerInteractor(application.getRxFirebaseRealtimeDatabaseRepositoryHelper());
+        LessonsContainerInteractor interactor = new LessonsContainerInteractor(application.getRxFirebaseRealtimeDatabaseRepositoryHelper());
         mViewModel.setUpViewModel(interactor,lessonId,user);
         mViewModel.initViewModel();
    }
