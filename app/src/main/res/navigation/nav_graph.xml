@@ -82,7 +82,7 @@
         android:id="@+id/izazoviFragmentContainer"
         android:name="com.example.muenje.ui.quizzesContainerFragment.QuizzesContainerFragment"
         android:label="fragment_izazovi_container"
-        tools:layout="@layout/fragment_izazovi_container" >
+        tools:layout="@layout/fragment_quizzes_container" >
         <argument
             android:name="quizId"
             app:argType="integer" />

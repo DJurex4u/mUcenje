@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.muenje.BaseApplication;
 import com.example.muenje.R;
-import com.example.muenje.adapters.TitleAdapter;
+import com.example.muenje.adapters.titleAdapter.TitleAdapter;
 import com.example.muenje.data.entities.User;
 import com.example.muenje.data.interactor.PickerInteractor;
 import com.example.muenje.databinding.FragmentPickerBinding;

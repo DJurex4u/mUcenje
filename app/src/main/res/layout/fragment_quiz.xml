@@ -6,14 +6,14 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.muenje.ui.quizFragment.QuizViewModel" />
+            type="com.example.muenje.ui.quizzesContainerFragment.quizFragment.QuizViewModel" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.quizFragment.QuizFragment">
+        tools:context=".ui.quizzesContainerFragment.quizFragment.QuizFragment">
 
         <TextView
             android:id="@+id/question_text_view"

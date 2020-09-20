@@ -1,4 +1,4 @@
-package com.example.muenje.ui.quizFragment;
+package com.example.muenje.ui.quizzesContainerFragment.quizFragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,11 +12,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.muenje.databinding.FragmentIzazovBinding;
-import com.example.muenje.ui.QuizSharedViewModel;
+import com.example.muenje.databinding.FragmentQuizBinding;
+import com.example.muenje.ui.quizzesContainerFragment.QuizSharedViewModel;
 import com.example.muenje.ui.quizzesContainerFragment.QuizzesContainerViewModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -24,7 +23,7 @@ public class QuizFragment extends Fragment {
 
     private int mPosition;
 
-    FragmentIzazovBinding mBinding;
+    FragmentQuizBinding mBinding;
     QuizzesContainerViewModel mQuizzesContainerViewModel;
     QuizViewModel mViewModel;
     QuizSharedViewModel mShareViewModel;
@@ -49,7 +48,7 @@ public class QuizFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mBinding = FragmentIzazovBinding.inflate(inflater,container,false);
+        mBinding = FragmentQuizBinding.inflate(inflater,container,false);
         return mBinding.getRoot();
     }
 

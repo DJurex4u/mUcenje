@@ -1,4 +1,4 @@
-package com.example.muenje.ui.lessonFragment;
+package com.example.muenje.ui.lessonsFragmentContainer.lessonFragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.muenje.databinding.FragmentLessonBinding;
+import com.example.muenje.databinding.FragmentSingleLessonPageBinding;
 import com.example.muenje.ui.lessonsFragmentContainer.LessonsFragmentContainerViewModel;
 
 public class SingleLessonPageFragment extends Fragment {
@@ -18,7 +18,7 @@ public class SingleLessonPageFragment extends Fragment {
     private Integer mPosition;
     private SingleLessonPageViewModel mSingleLessonPageViewModel;
     private LessonsFragmentContainerViewModel mLessonsFragmentContainerViewModel;
-    private FragmentLessonBinding mBinding;
+    private FragmentSingleLessonPageBinding mBinding;
 
 
 
@@ -39,9 +39,9 @@ public class SingleLessonPageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mBinding = FragmentLessonBinding.inflate(inflater,container,false);
+        mBinding = FragmentSingleLessonPageBinding.inflate(inflater,container,false);
         return mBinding.getRoot();
-        //return inflater.inflate(R.layout.fragment_lesson, container, false);
+        //return inflater.inflate(R.layout.fragment_single_lesson_page, container, false);
     }
 
     @Override

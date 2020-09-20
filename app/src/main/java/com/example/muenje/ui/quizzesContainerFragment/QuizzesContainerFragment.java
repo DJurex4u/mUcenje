@@ -15,14 +15,13 @@ import com.example.muenje.BaseApplication;
 import com.example.muenje.adapters.QuizContainerPagerAdapter;
 import com.example.muenje.core.RxNavigationFragment;
 import com.example.muenje.data.interactor.QuizzesContainerInteractor;
-import com.example.muenje.databinding.FragmentIzazoviContainerBinding;
+import com.example.muenje.databinding.FragmentQuizzesContainerBinding;
 import com.example.muenje.routers.QuizzesContainerRouter;
-import com.example.muenje.ui.QuizSharedViewModel;
 import com.example.muenje.utilities.AnswerChecker;
 
 
 public class QuizzesContainerFragment extends RxNavigationFragment {
-    FragmentIzazoviContainerBinding mBinding;
+    FragmentQuizzesContainerBinding mBinding;
     QuizContainerPagerAdapter mAdapter;
     QuizzesContainerViewModel mViewModel;
     QuizSharedViewModel mSharedViewModel;
@@ -44,7 +43,7 @@ public class QuizzesContainerFragment extends RxNavigationFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mBinding = FragmentIzazoviContainerBinding.inflate(inflater, container, false);
+        mBinding = FragmentQuizzesContainerBinding.inflate(inflater, container, false);
         return mBinding.getRoot();
     }
 

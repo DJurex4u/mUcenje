@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.example.muenje.ui.lessonFragment.SingleLessonPageFragment;
+import com.example.muenje.ui.lessonsFragmentContainer.lessonFragment.SingleLessonPageFragment;
 
 public class LessonsContainerPagerAdapter extends FragmentStateAdapter {
 

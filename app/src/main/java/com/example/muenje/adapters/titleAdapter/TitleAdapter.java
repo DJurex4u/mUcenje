@@ -1,4 +1,4 @@
-package com.example.muenje.adapters;
+package com.example.muenje.adapters.titleAdapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +15,7 @@ import com.google.android.material.button.MaterialButton;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TitleAdapter extends RecyclerView.Adapter<TitleAdapter.TitleViewHolder> implements TitleClickedListener  {
+public class TitleAdapter extends RecyclerView.Adapter<TitleAdapter.TitleViewHolder> implements TitleClickedListener {
 
 
     private List<Title> mData = new ArrayList<>();

@@ -1,4 +1,4 @@
-package com.example.muenje.ui.quizFragment;
+package com.example.muenje.ui.quizzesContainerFragment.quizFragment;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
