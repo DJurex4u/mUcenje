@@ -36,7 +36,7 @@
             android:layout_marginEnd="56dp"
             app:cornerRadius="50dp"
             android:text="@string/lections"
-            android:onClick="@{()->viewModel.goToLectionsFragment()}"
+            android:onClick="@{()->viewModel.goToLessonsFragment()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

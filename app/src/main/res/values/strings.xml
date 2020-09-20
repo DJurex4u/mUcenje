@@ -20,4 +20,5 @@
     <string name="lection_header">LEKCIJA</string>
     <string name="finish">Završi</string>
     <string name="confirm_answer">Potvrdi</string>
+    <string name="wrong_email_or_password">Krivi email ili lozinka</string>
 </resources>

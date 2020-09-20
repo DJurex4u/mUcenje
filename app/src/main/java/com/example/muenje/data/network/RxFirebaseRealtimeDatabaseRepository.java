@@ -1,11 +1,8 @@
 package com.example.muenje.data.network;
 
-import com.example.muenje.data.entities.QuestionSet;
-import com.example.muenje.data.entities.User;
 import com.example.muenje.data.network.pojo.FullLessonResponse;
 import com.example.muenje.data.network.pojo.FullQuizResponse;
 import com.example.muenje.data.network.pojo.LessonTitleResponse;
-import com.example.muenje.data.network.pojo.QuestionSetResponse;
 import com.example.muenje.data.network.pojo.QuizTitleResponse;
 import com.example.muenje.data.network.pojo.SingleAchievementResponse;
 import com.google.firebase.database.DataSnapshot;
@@ -30,11 +27,11 @@ public class RxFirebaseRealtimeDatabaseRepository {
         final Query query = mFirebaseDatabase.getReference(referenceNotes.getLectionTitleReference());
         return RxFirebaseDatabase.observeSingleValueEvent(query,
                 (dataSnapshot -> {
-                    ArrayList<LessonTitleResponse> lectionsTitlesArrayList = new ArrayList<>();
-                    for (DataSnapshot dataSnapshotLectionTitles : dataSnapshot.getChildren()) {
-                        lectionsTitlesArrayList.add(dataSnapshotLectionTitles.getValue(LessonTitleResponse.class));
+                    ArrayList<LessonTitleResponse> lessonsTitlesArrayList = new ArrayList<>();
+                    for (DataSnapshot dataSnapshotLessonTitles : dataSnapshot.getChildren()) {
+                        lessonsTitlesArrayList.add(dataSnapshotLessonTitles.getValue(LessonTitleResponse.class));
                     }
-                    return lectionsTitlesArrayList;
+                    return lessonsTitlesArrayList;
                 }));
     }
 

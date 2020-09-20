@@ -76,7 +76,8 @@ public class ProfileViewModel extends RxViewModel {
         }
     };
 
-    public LiveData<String> getmPointsEarned(){
+    public LiveData<String> getPointsEarned(){
+        //TODO: not used
         return mPointsEarned;
     }
 

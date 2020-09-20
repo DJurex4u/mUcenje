@@ -51,7 +51,7 @@ public class ProfileFragment extends RxNavigationFragment {
     }
 
     private void connectViewModel() {
-        //TODO: THIS GIVES BUG WHEN NAVIGATIN (fixed?: called in onViewCreate insted of OnViewCreated)
+        //TODO: THIS GIVES BUG WHEN NAVIGATION (fixed?: called in onViewCreate insted of OnViewCreated)
          addDisposableToCompositeDisposable(mViewModel.getNavigationObservable().subscribe((to) -> {
             switch (to) {
                 case GO_TO_MISSIONS:
@@ -66,7 +66,7 @@ public class ProfileFragment extends RxNavigationFragment {
     }
     private void connectPointsEarned(){
         mViewModel.mPointsEarned.observe(getViewLifecycleOwner(),pointsEarned->{
-            mBinding.profilHeader2PointsTextView.setText(pointsEarned);
+            mBinding.profileHeader2PointsTextView.setText(pointsEarned);
         });
     }
 }

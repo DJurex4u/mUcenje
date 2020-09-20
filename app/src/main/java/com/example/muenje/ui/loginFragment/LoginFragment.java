@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.muenje.BaseApplication;
+import com.example.muenje.R;
 import com.example.muenje.data.interactor.LoginInteractor;
 import com.example.muenje.databinding.FragmentLoginBinding;
 import com.example.muenje.routers.LoginRouter;
@@ -55,7 +56,7 @@ public class LoginFragment extends Fragment {
                             mLoginRouter.navigateToProfilePage(mViewModel.getUser());
                             break;
                         case ERROR_LOGIN:
-                            Toast.makeText(getContext(),"Krivi email ili lozinka",Toast.LENGTH_LONG).show();
+                            Toast.makeText(getContext(), R.string.wrong_email_or_password,Toast.LENGTH_LONG).show();
                             break;
                     }
                 }

@@ -8,8 +8,7 @@ import com.google.firebase.auth.AuthResult;
 import io.reactivex.Maybe;
 
 public class RxFirebaseAuthHelper {
-    //poziva repo
-    //mapiraju se stvari iz repo (sa baze)
+
     RxFirebaseAuthRepository mRxFirebaseRepository;
     IMapper<AuthResult, User> mAuthResultToUserMapper;
     AppSchedulerProvider mAppSchedulerProvider;

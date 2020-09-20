@@ -14,7 +14,7 @@ public class MissionsRouter extends Router {
         super(fragment);
     }
 
-    public void navigateToLections(User user){
+    public void navigateToLessons(User user){
         NavDirections action = MissionsFragmentDirections.actionMisijeFragmentToLekcijeFragment(WhatPicker.LESSON_PICKER,user);
         mNavController.navigate(action);
     }

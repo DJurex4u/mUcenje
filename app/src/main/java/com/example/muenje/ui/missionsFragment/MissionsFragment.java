@@ -47,8 +47,8 @@ public class MissionsFragment extends RxNavigationFragment {
     private void connectViewModel(){
         addDisposableToCompositeDisposable(mViewModel.getNavigateTo().subscribe((to)->{
             switch (to){
-                case GO_TO_LECTIONS:
-                    mRouter.navigateToLections(mViewModel.getUser());
+                case GO_TO_LESSONS:
+                    mRouter.navigateToLessons(mViewModel.getUser());
                     break;
                 case GO_TO_CHALLENGES:
                     mRouter.navigateToChallenges(mViewModel.getUser());

@@ -10,7 +10,7 @@ import io.reactivex.rxjava3.core.Observable;
 public class MissionsViewModel extends ViewModel {
 
     public enum GoTo {
-        GO_TO_LECTIONS,
+        GO_TO_LESSONS,
         GO_TO_CHALLENGES
     }
 
@@ -25,8 +25,8 @@ public class MissionsViewModel extends ViewModel {
         mUser = user;
     }
 
-    public void goToLectionsFragment(){
-        mNavigateTo.accept(MissionsViewModel.GoTo.GO_TO_LECTIONS);
+    public void goToLessonsFragment(){
+        mNavigateTo.accept(MissionsViewModel.GoTo.GO_TO_LESSONS);
     }
 
     public void goToChallengesFragment(){
