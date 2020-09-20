@@ -27,7 +27,6 @@ public class ProfileViewModel extends RxViewModel {
     private PublishRelay<GoTo> mNavigateTo = PublishRelay.create();
     private MutableLiveData<User> mUser = new MutableLiveData<>();
     private MutableLiveData<List<SingleAchievement>> mAchievements = new MutableLiveData<>();
-    LiveData<String> mPointsEarned = new MutableLiveData<>();
 
     void setUpViewModel(User user, ProfileInteractor interactor){
         mUser.setValue(user);
@@ -39,7 +38,6 @@ public class ProfileViewModel extends RxViewModel {
                 (singleAchievementsList) -> {
                     mAchievements.setValue(singleAchievementsList);
                 }));
-        mPointsEarned = calculatePointsEarned();
     }
 
     public void goToAchievementsFragment(){
@@ -76,9 +74,11 @@ public class ProfileViewModel extends RxViewModel {
         }
     };
 
-    public LiveData<String> getPointsEarned(){
-        //TODO: not used
-        return mPointsEarned;
+    public void resetData(){
+        getCompositeDisposable().add(mInteractor.getUsersAchievement(mUser.getValue()).subscribe(
+                (singleAchievementsList) -> {
+                    mAchievements.setValue(singleAchievementsList);
+                }));
     }
 
 }

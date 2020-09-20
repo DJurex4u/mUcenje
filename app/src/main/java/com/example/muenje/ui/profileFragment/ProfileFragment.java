@@ -50,6 +50,12 @@ public class ProfileFragment extends RxNavigationFragment {
         connectPointsEarned();
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        mViewModel.resetData(); 
+    }
+
     private void connectViewModel() {
         //TODO: THIS GIVES BUG WHEN NAVIGATION (fixed?: called in onViewCreate insted of OnViewCreated)
          addDisposableToCompositeDisposable(mViewModel.getNavigationObservable().subscribe((to) -> {
@@ -65,7 +71,7 @@ public class ProfileFragment extends RxNavigationFragment {
 
     }
     private void connectPointsEarned(){
-        mViewModel.mPointsEarned.observe(getViewLifecycleOwner(),pointsEarned->{
+        mViewModel.calculatePointsEarned().observe(getViewLifecycleOwner(),pointsEarned->{
             mBinding.profileHeader2PointsTextView.setText(pointsEarned);
         });
     }
