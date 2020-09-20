@@ -1,7 +1,10 @@
 package com.example.muenje.data.network;
 
+import com.example.muenje.data.entities.QuestionSet;
 import com.example.muenje.data.network.pojo.FullLessonResponse;
+import com.example.muenje.data.network.pojo.FullQuizResponse;
 import com.example.muenje.data.network.pojo.LessonTitleResponse;
+import com.example.muenje.data.network.pojo.QuestionSetResponse;
 import com.example.muenje.data.network.pojo.QuizTitleResponse;
 import com.example.muenje.data.network.pojo.SingleAchievementResponse;
 import com.google.firebase.database.DataSnapshot;
@@ -51,6 +54,11 @@ public class RxFirebaseRealtimeDatabaseRepository {
         }));
     }
 
+    public Maybe<FullQuizResponse> getFullQuiz(Integer quizId){
+        final Query query = mFirebaseDatabase.getReference(referenceNotes.getFullQuizReference(quizId));
+        return RxFirebaseDatabase.observeSingleValueEvent(query,FullQuizResponse.class);
+    }
+
     public Maybe<List<SingleAchievementResponse>> getUsersAchievements(String username){
         final Query query = mFirebaseDatabase.getReference(referenceNotes.getAchievementsReference(username));
         return RxFirebaseDatabase.observeSingleValueEvent(query,(dataSnapshot -> {
@@ -71,7 +79,7 @@ public class RxFirebaseRealtimeDatabaseRepository {
     private static class referenceNotes {
         final static String challenges = "challenges";
         final static String lessons = "lessons";
-        final static String quiz = "quiz";
+        final static String quizzes = "quizzes";
         final static String titles = "titles";
         final static String full = "full";
 
@@ -88,7 +96,11 @@ public class RxFirebaseRealtimeDatabaseRepository {
         }
 
         public static String getFullQuizTitleReference(){
-            return referenceNotes.challenges + "/" +referenceNotes.quiz + "/"+ referenceNotes.titles;
+            return referenceNotes.challenges + "/" +referenceNotes.quizzes + "/"+ referenceNotes.titles;
+        }
+
+        public static String getFullQuizReference(Integer questionId){
+            return referenceNotes.challenges + "/" + referenceNotes.quizzes + "/" + referenceNotes.full + "/" + questionId.toString();
         }
 
         public static String getAchievementsReference(String username){

@@ -9,5 +9,5 @@ public class ChallengesContainerInteractor {
         mDatabase = database;
     }
 
-    public Maybe<>
+   // public Maybe<>
 }

@@ -8,7 +8,9 @@ import com.example.muenje.data.network.RxFirebaseRealtimeDatabaseRepository;
 import com.example.muenje.data.network.RxFirebaseRealtimeDatabaseRepositoryHelper;
 import com.example.muenje.utilities.mapper.AuthResultToUserMapper;
 import com.example.muenje.utilities.mapper.FullLessonResponseToFullLessonMapper;
+import com.example.muenje.utilities.mapper.FullQuizResponseToFullQuizMapper;
 import com.example.muenje.utilities.mapper.LessonTitleResponseToTitleMapper;
+import com.example.muenje.utilities.mapper.QuestionSetResponseToQuestionSetMapper;
 import com.example.muenje.utilities.mapper.QuizTitleResponseToTitleMapper;
 import com.example.muenje.utilities.mapper.SingleAchievementResponseToSingleAchievementMapper;
 import com.example.muenje.utilities.schedulers.AppSchedulerProvider;
@@ -28,7 +30,7 @@ public class BaseApplication extends Application {
         RxFirebaseAuthRepository mRxFirebaseRepository = new RxFirebaseAuthRepository(mAuth);
         mRxFirebaseHelper = new RxFirebaseAuthHelper(mRxFirebaseRepository, new AuthResultToUserMapper(), appSchedulerProvider);
         RxFirebaseRealtimeDatabaseRepository rxFirebaseRealtimeDatabaseRepository = new RxFirebaseRealtimeDatabaseRepository(firebaseDatabase);
-        mRxFirebaseRealtimeDatabaseRepositoryHelper =  new RxFirebaseRealtimeDatabaseRepositoryHelper(rxFirebaseRealtimeDatabaseRepository, appSchedulerProvider, new LessonTitleResponseToTitleMapper(), new FullLessonResponseToFullLessonMapper(), new QuizTitleResponseToTitleMapper(),new SingleAchievementResponseToSingleAchievementMapper());
+        mRxFirebaseRealtimeDatabaseRepositoryHelper =  new RxFirebaseRealtimeDatabaseRepositoryHelper(rxFirebaseRealtimeDatabaseRepository, appSchedulerProvider, new LessonTitleResponseToTitleMapper(), new FullLessonResponseToFullLessonMapper(), new QuizTitleResponseToTitleMapper(),new SingleAchievementResponseToSingleAchievementMapper(),new FullQuizResponseToFullQuizMapper(new QuestionSetResponseToQuestionSetMapper()));
         super.onCreate();
     }
 
