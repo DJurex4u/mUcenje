@@ -32,7 +32,7 @@ public class SingleLessonPageFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mPosition = this.getArguments().getInt("page");
-        mSingleLessonPageViewModel = new ViewModelProvider(requireActivity()).get(SingleLessonPageViewModel.class);
+        mSingleLessonPageViewModel = new ViewModelProvider(this).get(SingleLessonPageViewModel.class);
         mLessonsFragmentContainerViewModel = new ViewModelProvider(requireActivity()).get(LessonsFragmentContainerViewModel.class);
     }
 
@@ -52,7 +52,7 @@ public class SingleLessonPageFragment extends Fragment {
     }
 
     void connectViewModel() {
-        //TODO: ZAŠTO U OVOJ VUKOJEBINI?
+        //TODO: ne razumijem
         mLessonsFragmentContainerViewModel.getFullLesson()
                 .observe(getViewLifecycleOwner(),
                         (lessons) -> {
@@ -62,8 +62,11 @@ public class SingleLessonPageFragment extends Fragment {
                                     .setValue(lessons.getTitle());
                         });
 
+//        mSingleLessonPageViewModel.lessonTitle.observe(getViewLifecycleOwner(),(title)->{
+//            mBinding.lessonHeaderTextView.setText(title);
+//        });
         mSingleLessonPageViewModel.lessonBody.observe(getViewLifecycleOwner(),(body) -> {
-            mBinding.textView2.setText(body);}
+            mBinding.lessonBodyTextView.setText(body);}
             );
     }
 }

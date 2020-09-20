@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.muenje.BaseApplication;
 import com.example.muenje.adapters.LessonsContainerPagerAdapter;
@@ -42,6 +43,35 @@ public class LessonsFragmentContainer extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        mBinding.setViewModel(mViewModel);
         mBinding.viewPager2.setAdapter(mLessonPagerAdapter);
+        setUpPageCounter();
+        connectViewModel();
+    }
+
+    void setUpPageCounter(){
+        mBinding.viewPager2.registerOnPageChangeCallback(mOnPageChangeCallback);
+        mBinding.lessonTotalPageNumber.setText(Integer.toString(mLessonPagerAdapter.getItemCount()));
+    }
+
+    ViewPager2.OnPageChangeCallback mOnPageChangeCallback = new ViewPager2.OnPageChangeCallback() {
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+        }
+
+        @Override
+        public void onPageSelected(int position) {
+            mBinding.lessonCurrentPage.setText(Integer.toString(position + 1));
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int state) {
+            super.onPageScrollStateChanged(state);
+        }
+    };
+
+    void connectViewModel(){
+        mViewModel.getFullLesson().observe(getViewLifecycleOwner(), (fullLesson)->
+                    mBinding.lessonContainerHeaderTextView.setText(fullLesson.getTitle()));
     }
 }
