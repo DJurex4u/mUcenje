@@ -8,10 +8,9 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.example.muenje.ui.quizFragment.QuizFragment;
 
-public class ChallengesContainerPagerAdapter extends FragmentStateAdapter {
+public class QuizContainerPagerAdapter extends FragmentStateAdapter {
 
-
-    public ChallengesContainerPagerAdapter(@NonNull Fragment fragment) {
+    public QuizContainerPagerAdapter(@NonNull Fragment fragment) {
         super(fragment);
     }
 
@@ -25,6 +24,6 @@ public class ChallengesContainerPagerAdapter extends FragmentStateAdapter {
 
     @Override
     public int getItemCount() {
-        return 3;
+        return  3;
     }
 }

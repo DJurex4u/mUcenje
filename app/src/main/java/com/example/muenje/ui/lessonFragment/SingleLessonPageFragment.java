@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.muenje.databinding.FragmentLekcijaBinding;
-import com.example.muenje.ui.lessonsfragmentcontainer.LessonsFragmentContainerViewModel;
+import com.example.muenje.ui.lessonsFragmentContainer.LessonsFragmentContainerViewModel;
 
 public class SingleLessonPageFragment extends Fragment {
 

@@ -1,4 +1,4 @@
-package com.example.muenje.ui.loginfragment;
+package com.example.muenje.ui.loginFragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

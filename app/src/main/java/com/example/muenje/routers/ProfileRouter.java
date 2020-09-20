@@ -5,7 +5,7 @@ import androidx.navigation.NavDirections;
 
 import com.example.muenje.core.Router;
 import com.example.muenje.data.entities.User;
-import com.example.muenje.ui.profilfragment.ProfileFragmentDirections;
+import com.example.muenje.ui.profileFragment.ProfileFragmentDirections;
 
 public class ProfileRouter extends Router {
 

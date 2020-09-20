@@ -6,14 +6,14 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.muenje.ui.missionsfragment.MissionsViewModel" />
+            type="com.example.muenje.ui.missionsFragment.MissionsViewModel" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.missionsfragment.MissionsFragment">
+        tools:context=".ui.missionsFragment.MissionsFragment">
 
         <TextView
             android:id="@+id/misije_header_text_view"

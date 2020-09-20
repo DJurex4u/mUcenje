@@ -1,4 +1,4 @@
-package com.example.muenje.ui.loginfragment;
+package com.example.muenje.ui.loginFragment;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

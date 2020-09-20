@@ -1,4 +1,4 @@
-package com.example.muenje.ui.profilfragment;
+package com.example.muenje.ui.profileFragment;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

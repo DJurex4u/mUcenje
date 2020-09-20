@@ -5,7 +5,7 @@ import androidx.navigation.NavDirections;
 
 import com.example.muenje.core.Router;
 import com.example.muenje.data.entities.User;
-import com.example.muenje.ui.loginfragment.LoginFragmentDirections;
+import com.example.muenje.ui.loginFragment.LoginFragmentDirections;
 
 
 public class LoginRouter extends Router {

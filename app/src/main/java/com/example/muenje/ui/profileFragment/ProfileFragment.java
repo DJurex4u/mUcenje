@@ -1,4 +1,4 @@
-package com.example.muenje.ui.profilfragment;
+package com.example.muenje.ui.profileFragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

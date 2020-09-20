@@ -1,4 +1,4 @@
-package com.example.muenje.ui.lessonsfragmentcontainer;
+package com.example.muenje.ui.lessonsFragmentContainer;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

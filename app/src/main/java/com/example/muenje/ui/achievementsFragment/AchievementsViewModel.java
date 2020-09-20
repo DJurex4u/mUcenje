@@ -1,4 +1,4 @@
-package com.example.muenje.ui.achievementsfragment;
+package com.example.muenje.ui.achievementsFragment;
 
 import androidx.arch.core.util.Function;
 import androidx.lifecycle.LiveData;

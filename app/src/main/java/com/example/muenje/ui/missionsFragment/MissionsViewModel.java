@@ -1,4 +1,4 @@
-package com.example.muenje.ui.missionsfragment;
+package com.example.muenje.ui.missionsFragment;
 
 import androidx.lifecycle.ViewModel;
 

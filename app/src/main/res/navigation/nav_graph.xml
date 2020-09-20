@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.muenje.ui.loginfragment.LoginFragment"
+        android:name="com.example.muenje.ui.loginFragment.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/profilFragment"
-        android:name="com.example.muenje.ui.profilfragment.ProfileFragment"
+        android:name="com.example.muenje.ui.profileFragment.ProfileFragment"
         android:label="fragment_profil"
         tools:layout="@layout/fragment_profil" >
         <action
@@ -33,7 +33,7 @@
     </fragment>
     <fragment
         android:id="@+id/misijeFragment"
-        android:name="com.example.muenje.ui.missionsfragment.MissionsFragment"
+        android:name="com.example.muenje.ui.missionsFragment.MissionsFragment"
         android:label="fragment_misije"
         tools:layout="@layout/fragment_misije" >
         <action
@@ -68,7 +68,7 @@
         app:popUpToInclusive="true" />
     <fragment
         android:id="@+id/lekcijaFragmentContainer"
-        android:name="com.example.muenje.ui.lessonsfragmentcontainer.LessonsFragmentContainer"
+        android:name="com.example.muenje.ui.lessonsFragmentContainer.LessonsFragmentContainer"
         android:label="fragment_lekcija_container"
         tools:layout="@layout/fragment_lekcija_container" >
         <argument
@@ -89,7 +89,7 @@
     </fragment>
     <fragment
         android:id="@+id/achievementsFragment"
-        android:name="com.example.muenje.ui.achievementsfragment.AchievementsFragment"
+        android:name="com.example.muenje.ui.achievementsFragment.AchievementsFragment"
         android:label="AchievementsFragment" >
         <argument
             android:name="user"
