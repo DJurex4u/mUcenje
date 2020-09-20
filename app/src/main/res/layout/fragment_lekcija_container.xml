@@ -65,5 +65,16 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/lesson_containter_slash_text_view" />
 
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="gone"
+            tools:visibility="visible"
+            tools:text="Završi"
+            android:layout_marginBottom="30dp"
+            app:layout_constraintStart_toEndOf="@id/lesson_containter_slash_text_view" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
