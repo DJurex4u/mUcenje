@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.example.muenje.ui.izazovfragment.IzazovFragment;
+import com.example.muenje.ui.izazovfragment.QuizFragment;
 
 public class ChallengesContainerPagerAdapter extends FragmentStateAdapter {
 
@@ -20,7 +20,7 @@ public class ChallengesContainerPagerAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         Bundle bundle = new Bundle();
         bundle.putInt("page", position);
-        return IzazovFragment.newInstance(bundle);
+        return QuizFragment.newInstance(bundle);
     }
 
     @Override

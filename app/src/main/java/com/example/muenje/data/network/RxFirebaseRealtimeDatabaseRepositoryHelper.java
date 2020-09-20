@@ -74,4 +74,8 @@ public class RxFirebaseRealtimeDatabaseRepositoryHelper {
     public void setLessonReed(String username,String lessonId){
         mRxFirebaseRealtimeDatabaseRepository.setLessonReed(username,lessonId);
     }
+
+    public void setQuizSolved(String username,String quizId){
+        mRxFirebaseRealtimeDatabaseRepository.setQuizSolved(username,quizId);
+    }
 }

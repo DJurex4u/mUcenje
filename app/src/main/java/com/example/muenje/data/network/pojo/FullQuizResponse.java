@@ -20,6 +20,6 @@ public class FullQuizResponse {
     public FullQuizResponse(Integer id, List<QuestionSetResponse> questionSetResponse, String title) {
         this.id = id;
         this.questionSetResponse = questionSetResponse;
-        this.title = title; 
+        this.title = title;
     }
 }

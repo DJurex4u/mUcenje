@@ -6,14 +6,14 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.muenje.ui.izazovifragmentcontainer.IzazoviFragmentContainer" />
+            type="com.example.muenje.ui.izazovifragmentcontainer.QuizzesContainerFragment" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.izazovifragmentcontainer.IzazoviFragmentContainer">
+        tools:context=".ui.izazovifragmentcontainer.QuizzesContainerFragment">
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPager2"
             android:layout_width="match_parent"

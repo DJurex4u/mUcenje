@@ -13,7 +13,7 @@ import com.example.muenje.adapters.ChallengesContainerPagerAdapter;
 import com.example.muenje.databinding.FragmentIzazoviContainerBinding;
 
 
-public class IzazoviFragmentContainer extends Fragment {
+public class QuizzesContainerFragment extends Fragment {
     ChallengesContainerPagerAdapter mChallengePagerAdapter;
     FragmentIzazoviContainerBinding mBinding;
 

@@ -1,6 +1,7 @@
 package com.example.muenje.data.network;
 
 import com.example.muenje.data.entities.QuestionSet;
+import com.example.muenje.data.entities.User;
 import com.example.muenje.data.network.pojo.FullLessonResponse;
 import com.example.muenje.data.network.pojo.FullQuizResponse;
 import com.example.muenje.data.network.pojo.LessonTitleResponse;
@@ -76,6 +77,12 @@ public class RxFirebaseRealtimeDatabaseRepository {
                 .setValue(true);
     }
 
+    public void setQuizSolved(String username,String  quizId){
+        mFirebaseDatabase
+                .getReference(referenceNotes.getQuizSolvedReference(username,quizId))
+                .setValue(true);
+    }
+
     private static class referenceNotes {
         final static String challenges = "challenges";
         final static String lessons = "lessons";
@@ -85,6 +92,7 @@ public class RxFirebaseRealtimeDatabaseRepository {
 
         final static String achievements = "achievements";
         final static String lesson = "lesson";
+        final static String quiz = "quiz";
         final static String isAchieved = "isAchieved";
 
         public static String getLectionTitleReference() {
@@ -109,6 +117,10 @@ public class RxFirebaseRealtimeDatabaseRepository {
 
         public static String getLessonReedReference(String username,String lessonId){
             return getAchievementsReference(username) + "/" + lesson + lessonId + "/" + referenceNotes.isAchieved;
+        }
+
+        public static String getQuizSolvedReference(String username,String quizId){
+            return getAchievementsReference(username) + "/" + quiz + quizId + "/" + isAchieved;
         }
     }
 }

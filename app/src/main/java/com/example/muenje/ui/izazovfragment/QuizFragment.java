@@ -12,12 +12,12 @@ import androidx.fragment.app.Fragment;
 import com.example.muenje.R;
 
 
-public class IzazovFragment extends Fragment {
+public class QuizFragment extends Fragment {
 
     private int mPosition;
 
-    public static IzazovFragment newInstance(Bundle args){
-        IzazovFragment fragment = new IzazovFragment();
+    public static QuizFragment newInstance(Bundle args){
+        QuizFragment fragment = new QuizFragment();
         fragment.setArguments(args);
         return fragment;
     }
