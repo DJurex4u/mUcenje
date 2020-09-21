@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.muenje.ui.loginFragment.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_profilFragment"
+            app:destination="@id/profilFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/profilFragment"
+        android:name="com.example.muenje.ui.profileFragment.ProfileFragment"
+        android:label="fragment_profil"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profilFragment_to_misijeFragment"
+            app:destination="@id/misijeFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.muenje.data.entities.User" />
+        <action
+            android:id="@+id/action_profilFragment_to_achievementsFragment"
+            app:destination="@id/achievementsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/misijeFragment"
+        android:name="com.example.muenje.ui.missionsFragment.MissionsFragment"
+        android:label="fragment_misije"
+        tools:layout="@layout/fragment_missions" >
+        <action
+            android:id="@+id/action_misijeFragment_to_lekcijeFragment"
+            app:destination="@id/pickerFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.muenje.data.entities.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/pickerFragment"
+        android:name="com.example.muenje.ui.pickerFragment.PickerFragment"
+        android:label="fragment_lekcije"
+        tools:layout="@layout/fragment_picker" >
+        <action
+            android:id="@+id/action_lekcijeFragment_to_lekcijaFragmentContainer"
+            app:destination="@id/lekcijaFragmentContainer" />
+        <argument
+            android:name="whatPicker"
+            app:argType="com.example.muenje.ui.pickerFragment.WhatPicker" />
+        <action
+            android:id="@+id/action_lekcijeFragment_to_izazoviFragmentContainer2"
+            app:destination="@id/izazoviFragmentContainer" />
+        <argument
+            android:name="user"
+            app:argType="com.example.muenje.data.entities.User" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_loginFragment"
+        app:destination="@id/loginFragment"
+        app:popUpTo="@id/loginFragment"
+        app:popUpToInclusive="true" />
+    <fragment
+        android:id="@+id/lekcijaFragmentContainer"
+        android:name="com.example.muenje.ui.lessonsFragmentContainer.LessonsFragmentContainer"
+        android:label="fragment_lekcija_container"
+        tools:layout="@layout/fragment_lessons_container" >
+        <argument
+            android:name="lesionId"
+            app:argType="integer" />
+        <argument
+            android:name="user"
+            app:argType="com.example.muenje.data.entities.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/izazoviFragmentContainer"
+        android:name="com.example.muenje.ui.quizzesContainerFragment.QuizzesContainerFragment"
+        android:label="fragment_izazovi_container"
+        tools:layout="@layout/fragment_quizzes_container" >
+        <argument
+            android:name="quizId"
+            app:argType="integer" />
+        <argument
+            android:name="user"
+            app:argType="com.example.muenje.data.entities.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/achievementsFragment"
+        android:name="com.example.muenje.ui.achievementsFragment.AchievementsFragment"
+        android:label="AchievementsFragment" >
+        <argument
+            android:name="user"
+            app:argType="com.example.muenje.data.entities.User" />
+    </fragment>
+</navigation>

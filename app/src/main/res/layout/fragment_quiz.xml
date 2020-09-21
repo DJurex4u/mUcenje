@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.muenje.ui.quizzesContainerFragment.quizFragment.QuizViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.quizzesContainerFragment.quizFragment.QuizFragment">
+
+        <TextView
+            android:id="@+id/question_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.question}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/challenges_container_possible_answers_radioGroup"
+            android:layout_marginBottom="10dp"
+            />
+
+        <RadioGroup
+            android:id="@+id/challenges_container_possible_answers_radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp">
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/challenge_answer_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Pitanje glasi lksdjflsdklfsdfkjsl?"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/challenge_answer_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Pitanje glasi lksdjflsdklfsdfkjsl?"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/challenge_answer_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Pitanje glasi lksdjflsdklfsdfkjsl?"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </RadioGroup>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/challenge_confirm_answer_materialButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/confirm_answer"
+            android:visibility="visible"
+            tools:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@id/challenges_container_possible_answers_radioGroup"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="20dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

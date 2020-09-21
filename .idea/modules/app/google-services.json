@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "693267795227",
+    "firebase_url": "https://learny-e98cf.firebaseio.com",
+    "project_id": "learny-e98cf",
+    "storage_bucket": "learny-e98cf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:693267795227:android:83e238cb0bd4f24ade57be",
+        "android_client_info": {
+          "package_name": "com.example.muenje"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "693267795227-afc0438carm9ajj7b769j1dka9hetfo1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.muenje",
+            "certificate_hash": "a019438b404fdd05a873f7eda7cc6e7e56b5d587"
+          }
+        },
+        {
+          "client_id": "693267795227-g6o3r269irgupfb4c0rslccn9slomdvu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpr3E8dIYJ6jmKhZSLS4OSF76l95Pp5kk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "693267795227-g6o3r269irgupfb4c0rslccn9slomdvu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
