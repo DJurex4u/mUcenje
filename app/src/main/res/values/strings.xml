@@ -21,4 +21,6 @@
     <string name="finish">Završi</string>
     <string name="confirm_answer">Potvrdi</string>
     <string name="wrong_email_or_password">Krivi email ili lozinka</string>
+    <string name="register_here">Registriraj se ovdje.</string>
+    <string name="login_here">Prijavi se ovdje.</string>
 </resources>

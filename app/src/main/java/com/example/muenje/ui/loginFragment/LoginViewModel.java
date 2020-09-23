@@ -6,6 +6,9 @@ import androidx.lifecycle.MutableLiveData;
 import com.example.muenje.core.RxViewModel;
 import com.example.muenje.data.entities.User;
 import com.example.muenje.data.interactor.LoginInteractor;
+import com.jakewharton.rxrelay3.PublishRelay;
+import io.reactivex.rxjava3.core.Observable;
+
 
 public class LoginViewModel extends RxViewModel {
    
@@ -14,8 +17,14 @@ public class LoginViewModel extends RxViewModel {
       LOGGED_IN,
       ERROR_LOGIN
    }
+
+   public enum GoTo {
+      GO_TO_REGISTER_PAGE
+   }
+
    
    private LoginInteractor mLoginInteractor;
+   private PublishRelay<LoginViewModel.GoTo> mNavigateTo = PublishRelay.create();
    public MutableLiveData<String> mUsername = new MutableLiveData<>("");
    public MutableLiveData<String> mPassword = new MutableLiveData<>("");
    private MutableLiveData<LoginStatus> mLoginStatus = new MutableLiveData<>(LoginStatus.LOGGING_IN);
@@ -49,6 +58,14 @@ public class LoginViewModel extends RxViewModel {
          throw new NullPointerException("User is null");
       }
       return mUser;
+   }
+
+   public void goToRegisterFragment (){
+      mNavigateTo.accept(GoTo.GO_TO_REGISTER_PAGE);
+   }
+
+   public Observable<GoTo> getNavigationObservable(){
+      return mNavigateTo;
    }
 
 }

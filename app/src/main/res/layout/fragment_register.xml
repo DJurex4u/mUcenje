@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <variable
-            name="viewModel"
-            type="com.example.muenje.ui.loginFragment.LoginViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.loginFragment.LoginFragment">
+        tools:context=".ui.registerFragment.RegisterFragment">
 
         <TextView
             android:id="@+id/register_header_text_view"
@@ -80,7 +78,7 @@
             android:layout_marginStart="56dp"
             android:layout_marginTop="25dp"
             android:layout_marginEnd="56dp"
-            android:onClick="@{() -> viewModel.tryToLoginUser()}"
+            android:onClick="@{}"
             android:text="@string/login"
             app:cornerRadius="50dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -89,12 +87,12 @@
             app:layout_constraintTop_toBottomOf="@id/password_text_input_layout" />
 
         <TextView
-            android:onClick="@{()->viewModel.goToRegisterFragment()}"
+            android:onClick="@{}"
             android:id="@+id/login_register_here_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="56dp"
-            android:text="@string/register_here"
+            android:text="@string/login_here"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/login_button" />

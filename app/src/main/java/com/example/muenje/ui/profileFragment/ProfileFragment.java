@@ -57,7 +57,6 @@ public class ProfileFragment extends RxNavigationFragment {
     }
 
     private void connectViewModel() {
-        //TODO: THIS GIVES BUG WHEN NAVIGATION (fixed?: called in onViewCreate insted of OnViewCreated)
          addDisposableToCompositeDisposable(mViewModel.getNavigationObservable().subscribe((to) -> {
             switch (to) {
                 case GO_TO_MISSIONS:

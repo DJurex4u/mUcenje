@@ -13,12 +13,13 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.muenje.BaseApplication;
 import com.example.muenje.R;
+import com.example.muenje.core.RxNavigationFragment;
 import com.example.muenje.data.interactor.LoginInteractor;
 import com.example.muenje.databinding.FragmentLoginBinding;
 import com.example.muenje.routers.LoginRouter;
 
 
-public class LoginFragment extends Fragment {
+public class LoginFragment extends RxNavigationFragment {
     FragmentLoginBinding mBinding;
     LoginViewModel mViewModel;
     LoginRouter mLoginRouter;
@@ -38,6 +39,11 @@ public class LoginFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mBinding = FragmentLoginBinding.inflate(inflater, container, false);
         return mBinding.getRoot();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
     }
 
     @Override
@@ -61,6 +67,22 @@ public class LoginFragment extends Fragment {
                     }
                 }
         );
+
+        registerNavigation();
     }
+
+    private void registerNavigation(){
+        addDisposableToCompositeDisposable(mViewModel.getNavigationObservable().subscribe((to)->{
+            switch (to){
+                case GO_TO_REGISTER_PAGE:
+                    mLoginRouter.navigateToRegisterPage();
+                    break;
+                default:
+                    throw new IllegalStateException("Unexpected value LoginFragment: " + to);
+            }
+        }));
+    }
+
 }
+
 

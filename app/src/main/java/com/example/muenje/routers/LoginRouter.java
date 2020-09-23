@@ -18,4 +18,9 @@ public class LoginRouter extends Router {
         NavDirections action = LoginFragmentDirections.actionLoginFragmentToProfilFragment(user);
         mNavController.navigate(action);
     }
+
+    public void navigateToRegisterPage(){
+        NavDirections action = LoginFragmentDirections.actionLoginFragmentToRegisterFragment();
+        mNavController.navigate(action);
+    }
 }
