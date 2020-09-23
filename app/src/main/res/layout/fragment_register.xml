@@ -4,6 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <variable
+            name="viewModel"
+            type="com.example.muenje.ui.registerFragment.RegisterViewModel" />
 
     </data>
 
@@ -55,7 +58,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:hint="@string/password"
-            app:layout_constraintBottom_toTopOf="@id/login_button"
+            app:layout_constraintBottom_toTopOf="@id/repeat_password_text_input_layout"
             app:layout_constraintTop_toBottomOf="@id/username_text_input_layout"
             app:layout_constraintVertical_chainStyle="packed">
 
@@ -67,8 +70,32 @@
                 android:singleLine="true"
                 android:text="@={viewModel.mPassword}"
                 />
-
         </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/repeat_password_text_input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:hint="@string/repeat_password"
+            app:layout_constraintBottom_toTopOf="@id/login_button"
+            app:layout_constraintTop_toBottomOf="@id/password_text_input_layout"
+            app:layout_constraintVertical_bias="0.3"
+            tools:layout_editor_absoluteX="16dp"
+            app:layout_constraintVertical_chainStyle="packed">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/repeat_password_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:singleLine="true"
+                android:text="@={viewModel.mPassword}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
 
 
         <com.google.android.material.button.MaterialButton
@@ -79,12 +106,12 @@
             android:layout_marginTop="25dp"
             android:layout_marginEnd="56dp"
             android:onClick="@{}"
-            android:text="@string/login"
+            android:text="@string/register"
             app:cornerRadius="50dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/password_text_input_layout" />
+            app:layout_constraintTop_toBottomOf="@id/repeat_password_text_input_layout" />
 
         <TextView
             android:onClick="@{}"
