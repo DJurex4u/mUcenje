@@ -55,7 +55,7 @@ public class LoginViewModel extends RxViewModel {
 
    public User getUser(){
       if(mUser == null){
-         throw new NullPointerException("User is null");
+         throw new NullPointerException("LoginViewModel: User is null");
       }
       return mUser;
    }

@@ -1,61 +1,98 @@
 package com.example.muenje.ui.registerFragment;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
-import com.example.muenje.R;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProvider;
 
-public class RegisterFragment extends Fragment {
+import com.example.muenje.BaseApplication;
+import com.example.muenje.core.RxNavigationFragment;
+import com.example.muenje.data.interactor.RegisterInteractor;
+import com.example.muenje.databinding.FragmentRegisterBinding;
+import com.example.muenje.routers.RegisterRouter;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+public class RegisterFragment extends RxNavigationFragment {
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public RegisterFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment RegisterFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static RegisterFragment newInstance(String param1, String param2) {
-        RegisterFragment fragment = new RegisterFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    FragmentRegisterBinding mBinding;
+    RegisterViewModel mViewModel;
+    RegisterRouter mRegisterRouter;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        BaseApplication application = ((BaseApplication) requireActivity().getApplication());
+        mViewModel = new ViewModelProvider(requireActivity()).get(RegisterViewModel.class);
+        RegisterInteractor registerInteractor = new RegisterInteractor(application.getRxFirebaseHelperInstance());
+        mRegisterRouter = new RegisterRouter(this);
+        mViewModel.setUpViewModel(registerInteractor);
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    mBinding = FragmentRegisterBinding.inflate(inflater,container,false);
+    return mBinding.getRoot();
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_register, container, false);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        mBinding.setViewModel(mViewModel);
+        connectViewModel();
+    }
+
+    private void connectViewModel(){
+        mViewModel.getRegisterStatus().observe(getViewLifecycleOwner(),(registerStatus -> {
+            switch (registerStatus){
+                case NOT_ALL_FILLED:
+                    Toast.makeText(getContext(),"Sva polja moraju biti popunjena!",Toast.LENGTH_LONG).show();
+                    break;
+                case EMAIL_ALREADY_IN_USE:
+                    Toast.makeText(getContext(),"email se već koristi!",Toast.LENGTH_LONG).show();
+                    break;
+                case PASSWORD_TOO_SHORT:
+                    Toast.makeText(getContext(),"Lozinka mora imati barem 6 znakova!",Toast.LENGTH_LONG).show();
+                    break;
+                case PASSWORDS_DO_NOT_MATCH:
+                    Toast.makeText(getContext(),"Lozinke se ne podudaraju!",Toast.LENGTH_LONG).show();
+                    break;
+                case REGISTERING:
+                    break;
+                case REGISTERED:
+                    try{
+                        mRegisterRouter.navigateToProfilePage(mViewModel.getUser());
+                    }catch (NullPointerException mException){
+                        throw mException;
+//                        System.out.println(mException.getMessage());
+                    }
+                    break;
+                case INVALID_EMAIL:
+                    Toast.makeText(getContext(),"email nije valjan!",Toast.LENGTH_LONG).show();
+                    break;
+                case ERROR_REGISTRATION:
+                    Toast.makeText(getContext(),"Došlo je do pogreške pri registraciji.",Toast.LENGTH_LONG).show();
+
+                    break;
+            }
+        }));
+        loginNavigation();
+
+    }
+    
+    private void loginNavigation(){
+        addDisposableToCompositeDisposable(mViewModel.getNavigationObservable().subscribe((to)->{
+            switch (to){
+                case GO_TO_LOGIN_PAGE:
+                    mRegisterRouter.navigateToLoginPage();
+                    break;
+                default:
+                    throw new IllegalStateException("Unexpected value RegisterFragment: " + to);
+            }
+        }));
     }
 }

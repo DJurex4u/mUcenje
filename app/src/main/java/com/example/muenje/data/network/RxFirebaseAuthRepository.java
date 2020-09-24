@@ -16,4 +16,7 @@ public class RxFirebaseAuthRepository {
         return RxFirebaseAuth.signInWithEmailAndPassword(mAuth, email, password);
     }
 
+    public Maybe<AuthResult> createUser (String email, String password){
+        return RxFirebaseAuth.createUserWithEmailAndPassword(mAuth, email, password);
+    }
 }

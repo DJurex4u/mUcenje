@@ -93,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:singleLine="true"
-                android:text="@={viewModel.mPassword}" />
+                android:text="@={viewModel.mRepeatPassword}" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -105,7 +105,7 @@
             android:layout_marginStart="56dp"
             android:layout_marginTop="25dp"
             android:layout_marginEnd="56dp"
-            android:onClick="@{}"
+            android:onClick="@{()->viewModel.tryToRegisterUser()}"
             android:text="@string/register"
             app:cornerRadius="50dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -114,7 +114,7 @@
             app:layout_constraintTop_toBottomOf="@id/repeat_password_text_input_layout" />
 
         <TextView
-            android:onClick="@{}"
+            android:onClick="@{()->viewModel.goToLoginFragment()}"
             android:id="@+id/login_register_here_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

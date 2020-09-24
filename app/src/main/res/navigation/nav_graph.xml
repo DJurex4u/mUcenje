@@ -104,5 +104,9 @@
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.example.muenje.ui.registerFragment.RegisterFragment"
-        android:label="RegisterFragment" />
+        android:label="RegisterFragment" >
+        <action
+            android:id="@+id/action_registerFragment_to_profilFragment"
+            app:destination="@id/profilFragment" />
+    </fragment>
 </navigation>
