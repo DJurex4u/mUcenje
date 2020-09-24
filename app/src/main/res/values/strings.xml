@@ -24,4 +24,5 @@
     <string name="login_here">Prijavi se ovdje.</string>
     <string name="register">Registriraj se</string>
     <string name="repeat_password">Ponovi lozinku</string>
+    <string name="email">Email</string>
 </resources>

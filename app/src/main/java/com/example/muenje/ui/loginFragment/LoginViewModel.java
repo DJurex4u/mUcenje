@@ -25,7 +25,7 @@ public class LoginViewModel extends RxViewModel {
    
    private LoginInteractor mLoginInteractor;
    private PublishRelay<LoginViewModel.GoTo> mNavigateTo = PublishRelay.create();
-   public MutableLiveData<String> mUsername = new MutableLiveData<>("");
+   public MutableLiveData<String> mEmail = new MutableLiveData<>("");
    public MutableLiveData<String> mPassword = new MutableLiveData<>("");
    private MutableLiveData<LoginStatus> mLoginStatus = new MutableLiveData<>(LoginStatus.LOGGING_IN);
 
@@ -36,8 +36,8 @@ public class LoginViewModel extends RxViewModel {
    }
 
    public void tryToLoginUser(){
-      if(!mUsername.getValue().isEmpty() && !mPassword.getValue().isEmpty()) {
-         getCompositeDisposable().add(mLoginInteractor.authenticateUser(mUsername.getValue(), mPassword.getValue()).subscribe(
+      if(!mEmail.getValue().isEmpty() && !mPassword.getValue().isEmpty()) {
+         getCompositeDisposable().add(mLoginInteractor.authenticateUser(mEmail.getValue(), mPassword.getValue()).subscribe(
                  (user -> {
                     mUser = user;
                     mLoginStatus.setValue(LoginStatus.LOGGED_IN);

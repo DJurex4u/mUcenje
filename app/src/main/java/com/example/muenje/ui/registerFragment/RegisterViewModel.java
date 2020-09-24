@@ -28,7 +28,7 @@ public class RegisterViewModel extends RxViewModel {
         GO_TO_LOGIN_PAGE
     }
 
-    public MutableLiveData<String> mUsername = new MutableLiveData<>("");
+    public MutableLiveData<String> mEmail = new MutableLiveData<>("");
     public MutableLiveData<String> mPassword = new MutableLiveData<>("");
     public MutableLiveData<String> mRepeatPassword = new MutableLiveData<>("");
     private PublishRelay<GoTo> mNavigateTo = PublishRelay.create();
@@ -54,10 +54,10 @@ public class RegisterViewModel extends RxViewModel {
     }
 
     public void tryToRegisterUser() {
-        if (!mUsername.getValue().isEmpty() && !mPassword.getValue().isEmpty() && !mRepeatPassword.getValue().isEmpty()) {
+        if (!mEmail.getValue().isEmpty() && !mPassword.getValue().isEmpty() && !mRepeatPassword.getValue().isEmpty()) {
             if (mPassword.getValue().equals(mRepeatPassword.getValue())) {
                 if (mPassword.getValue().length()>=6) {
-                    getCompositeDisposable().add(mRegisterInteractor.createNewUser(mUsername.getValue(), mPassword.getValue()).subscribe(
+                    getCompositeDisposable().add(mRegisterInteractor.createNewUser(mEmail.getValue(), mPassword.getValue()).subscribe(
                             (user -> {
                                 mUser = user;
                                 mRegisterStatus.setValue(RegisterStatus.REGISTERED);
@@ -74,8 +74,6 @@ public class RegisterViewModel extends RxViewModel {
                                         String i = error.getMessage();
                                         mRegisterStatus.setValue(RegisterStatus.ERROR_REGISTRATION);
                                 }
-//                                String englishErrorMessage = error.getCause().getMessage();
-//                                mRegisterStatus.setValue(RegisterStatus.ERROR_REGISTRATION);
                             })
                     );
                 }else{
