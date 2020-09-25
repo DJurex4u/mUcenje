@@ -72,10 +72,12 @@ public class RxFirebaseRealtimeDatabaseRepositoryHelper {
     }
 
     public void setLessonRed(String username, String lessonId){
-        mRxFirebaseRealtimeDatabaseRepository.setLessonReed(username,lessonId);
+        mRxFirebaseRealtimeDatabaseRepository.setLessonRed(username,lessonId);
+        mRxFirebaseRealtimeDatabaseRepository.setLessonRedAchievementDisplayName(username,lessonId);
     }
 
     public void setQuizSolved(String username,String quizId){
         mRxFirebaseRealtimeDatabaseRepository.setQuizSolved(username,quizId);
+        mRxFirebaseRealtimeDatabaseRepository.setQuizSolvedAchievementDisplayName(username, quizId);
     }
 }

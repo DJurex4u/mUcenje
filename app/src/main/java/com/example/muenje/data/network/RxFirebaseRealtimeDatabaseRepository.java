@@ -35,15 +35,15 @@ public class RxFirebaseRealtimeDatabaseRepository {
                 }));
     }
 
-    public Maybe<FullLessonResponse> getFullLesson(Integer id){
-        final Query query =mFirebaseDatabase.getReference(referenceNotes.getFullLectionReference(id));
+    public Maybe<FullLessonResponse> getFullLesson(Integer id) {
+        final Query query = mFirebaseDatabase.getReference(referenceNotes.getFullLectionReference(id));
         return RxFirebaseDatabase.observeSingleValueEvent(query,
                 (dataSnapshot -> dataSnapshot.getValue(FullLessonResponse.class)));
     }
 
-    public Maybe<List<QuizTitleResponse>> getQuizTitles(){
+    public Maybe<List<QuizTitleResponse>> getQuizTitles() {
         final Query query = mFirebaseDatabase.getReference(referenceNotes.getFullQuizTitleReference());
-        return RxFirebaseDatabase.observeSingleValueEvent(query,(dataSnapshot -> {
+        return RxFirebaseDatabase.observeSingleValueEvent(query, (dataSnapshot -> {
             ArrayList<QuizTitleResponse> quizTitlesArrayList = new ArrayList<>();
             for (DataSnapshot dataSnapshotQuizTitles : dataSnapshot.getChildren()) {
                 quizTitlesArrayList.add(dataSnapshotQuizTitles.getValue(QuizTitleResponse.class));
@@ -52,32 +52,44 @@ public class RxFirebaseRealtimeDatabaseRepository {
         }));
     }
 
-    public Maybe<FullQuizResponse> getFullQuiz(Integer quizId){
+    public Maybe<FullQuizResponse> getFullQuiz(Integer quizId) {
         final Query query = mFirebaseDatabase.getReference(referenceNotes.getFullQuizReference(quizId));
-        return RxFirebaseDatabase.observeSingleValueEvent(query,FullQuizResponse.class);
+        return RxFirebaseDatabase.observeSingleValueEvent(query, FullQuizResponse.class);
     }
 
-    public Maybe<List<SingleAchievementResponse>> getUsersAchievements(String username){
+    public Maybe<List<SingleAchievementResponse>> getUsersAchievements(String username) {
         final Query query = mFirebaseDatabase.getReference(referenceNotes.getAchievementsReference(username));
-        return RxFirebaseDatabase.observeSingleValueEvent(query,(dataSnapshot -> {
+        return RxFirebaseDatabase.observeSingleValueEvent(query, (dataSnapshot -> {
             ArrayList<SingleAchievementResponse> achievementResponseArrayList = new ArrayList<>();
-            for (DataSnapshot dataSnapshotSingleAchievement : dataSnapshot.getChildren()){
+            for (DataSnapshot dataSnapshotSingleAchievement : dataSnapshot.getChildren()) {
                 achievementResponseArrayList.add(dataSnapshotSingleAchievement.getValue(SingleAchievementResponse.class));
             }
             return achievementResponseArrayList;
         }));
     }
 
-    public void setLessonReed(String username,String lessonId){
+    public void setLessonRed(String username, String lessonId) {
         mFirebaseDatabase
-                .getReference(referenceNotes.getLessonReedReference(username,lessonId))
+                .getReference(referenceNotes.getLessonRedReference(username, lessonId))
                 .setValue(true);
     }
 
-    public void setQuizSolved(String username,String  quizId){
+    public void setQuizSolved(String username, String quizId) {
         mFirebaseDatabase
-                .getReference(referenceNotes.getQuizSolvedReference(username,quizId))
+                .getReference(referenceNotes.getQuizSolvedReference(username, quizId))
                 .setValue(true);
+    }
+
+    public void setLessonRedAchievementDisplayName(String username, String lessonId) {
+        mFirebaseDatabase
+                .getReference(referenceNotes.getLessonAchievementDisplayNameReference(username,lessonId))
+                .setValue(AchievementNotes.getAchievementDisplayName(AchievementReason.LESSON, lessonId));
+    }
+
+    public void setQuizSolvedAchievementDisplayName(String username, String quizId) {
+        mFirebaseDatabase
+                .getReference(referenceNotes.getQuizAchievementsDisplayNameReference(username, quizId))
+                .setValue(AchievementNotes.getAchievementDisplayName(AchievementReason.QUIZ, quizId));
     }
 
     private static class referenceNotes {
@@ -87,6 +99,7 @@ public class RxFirebaseRealtimeDatabaseRepository {
         final static String titles = "titles";
         final static String full = "full";
 
+        public final static String displayName = "displayName";
         final static String achievements = "achievements";
         final static String lesson = "lesson";
         final static String quiz = "quiz";
@@ -96,28 +109,79 @@ public class RxFirebaseRealtimeDatabaseRepository {
             return referenceNotes.challenges + "/" + referenceNotes.lessons + "/" + referenceNotes.titles;
         }
 
-        public static String getFullLectionReference(Integer id){
-            return  referenceNotes.challenges + "/" + referenceNotes.lessons + "/" + referenceNotes.full + "/" + id.toString();
+        public static String getFullLectionReference(Integer id) {
+            return referenceNotes.challenges + "/" + referenceNotes.lessons + "/" + referenceNotes.full + "/" + id.toString();
         }
 
-        public static String getFullQuizTitleReference(){
-            return referenceNotes.challenges + "/" +referenceNotes.quizzes + "/"+ referenceNotes.titles;
+        public static String getFullQuizTitleReference() {
+            return referenceNotes.challenges + "/" + referenceNotes.quizzes + "/" + referenceNotes.titles;
         }
 
-        public static String getFullQuizReference(Integer questionId){
+        public static String getFullQuizReference(Integer questionId) {
             return referenceNotes.challenges + "/" + referenceNotes.quizzes + "/" + referenceNotes.full + "/" + questionId.toString();
         }
 
-        public static String getAchievementsReference(String username){
+        public static String getAchievementsReference(String username) {
             return referenceNotes.achievements + "/" + username;
         }
 
-        public static String getLessonReedReference(String username,String lessonId){
+        public static String getLessonRedReference(String username, String lessonId) {
             return getAchievementsReference(username) + "/" + lesson + lessonId + "/" + referenceNotes.isAchieved;
         }
 
-        public static String getQuizSolvedReference(String username,String quizId){
+        public static String getQuizSolvedReference(String username, String quizId) {
             return getAchievementsReference(username) + "/" + quiz + quizId + "/" + isAchieved;
+        }
+
+        public static String getLessonAchievementDisplayNameReference(String username, String lessonId) {
+            return getAchievementsReference(username) + "/" + lesson + lessonId + "/" + referenceNotes.displayName;
+        }
+
+        public static String getQuizAchievementsDisplayNameReference(String username, String quizId) {
+            return getAchievementsReference(username) + "/" + quiz + quizId + "/" + displayName;
+        }
+
+    }
+
+    enum AchievementReason {
+        LESSON,
+        QUIZ
+    }
+
+    private static class AchievementNotes {
+        final static ArrayList<String> lessons = new ArrayList<String>(){
+            {
+                add("Znamo više o Trenku!");
+                add("Pročitali smo o Atomu!");
+                add("Mravi više nisu nevidljivi!");
+                add("Znamo sve o Trenku!");
+            }
+        };
+
+        final static ArrayList<String> quizzes = new ArrayList<String>(){
+            {
+                add("Znamo sve o Trenku!");
+                add("Znamo sve o Atomu!");
+                add("Znamo sve o Mravima!");
+            }
+        };
+
+        public static String getAchievementDisplayName(AchievementReason achievementReason, String id) {
+            Integer mId = Integer.valueOf(id);
+            switch (achievementReason){
+                case QUIZ: return getQuizDisplayName(mId);
+                case LESSON: return getLessonDisplayName(mId);
+                default:
+                    throw new IllegalStateException("Unexpected value: " + achievementReason);
+            }
+        }
+
+        private static String getLessonDisplayName(Integer id) {
+            return AchievementNotes.lessons.get(id);
+        }
+
+        private static String getQuizDisplayName(Integer id) {
+            return AchievementNotes.quizzes.get(id);
         }
     }
 }
