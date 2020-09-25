@@ -25,4 +25,5 @@
     <string name="register">Registriraj se</string>
     <string name="repeat_password">Ponovi lozinku</string>
     <string name="email">Email</string>
+    <string name="leaderboard">LJESTVICA PORETKA</string>
 </resources>
