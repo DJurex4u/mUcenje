@@ -48,6 +48,7 @@ public class ProfileFragment extends RxNavigationFragment {
         super.onViewCreated(view, savedInstanceState);
         mBinding.setViewModel(mViewModel);
         connectPointsEarned();
+        connectUserTier();
     }
 
     @Override
@@ -73,8 +74,14 @@ public class ProfileFragment extends RxNavigationFragment {
 
     }
     private void connectPointsEarned(){
-        mViewModel.calculatePointsEarned().observe(getViewLifecycleOwner(),pointsEarned->{
+        mViewModel.getPointsEarned().observe(getViewLifecycleOwner(), pointsEarned->{
             mBinding.profileHeader2PointsTextView.setText(pointsEarned);
+        });
+    }
+
+    private void connectUserTier(){
+        mViewModel.getUserTier().observe(getViewLifecycleOwner(),userTier->{
+            mBinding.profileUserTierTextView.setText(userTier);
         });
     }
 }

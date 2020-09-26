@@ -7,6 +7,7 @@ import com.example.muenje.data.network.pojo.LessonTitleResponse;
 import com.example.muenje.data.network.pojo.QuizTitleResponse;
 import com.example.muenje.data.network.pojo.SingleAchievementResponse;
 import com.example.muenje.data.network.pojo.SingleLeaderboardEntryResponse;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
@@ -85,13 +86,41 @@ public class RxFirebaseRealtimeDatabaseRepository {
     public void setLessonRedAchievementDisplayName(String username, String lessonId) {
         mFirebaseDatabase
                 .getReference(referenceNotes.getLessonAchievementDisplayNameReference(username,lessonId))
-                .setValue(AchievementNotes.getAchievementDisplayName(AchievementReason.LESSON, lessonId));
+                .setValue(AchievementNotes.getAchievementDisplayName(AchievementReason.LESSON, lessonId))
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        getUsersAchievements(username).subscribe((singleAchievementResponseList) -> {
+                            Integer numberOfPoints = 0;
+                            for(SingleAchievementResponse singleAchievement : singleAchievementResponseList){
+                                if(singleAchievement.isAchieved) {
+                                    numberOfPoints += 5;
+                                }
+                            }
+                            writeToLeaderboard(username,numberOfPoints);
+                        });
+                    }
+                });
     }
 
     public void setQuizSolvedAchievementDisplayName(String username, String quizId) {
         mFirebaseDatabase
                 .getReference(referenceNotes.getQuizAchievementsDisplayNameReference(username, quizId))
-                .setValue(AchievementNotes.getAchievementDisplayName(AchievementReason.QUIZ, quizId));
+                .setValue(AchievementNotes.getAchievementDisplayName(AchievementReason.QUIZ, quizId))
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        getUsersAchievements(username).subscribe((singleAchievementResponseList) -> {
+                            Integer numberOfPoints = 0;
+                            for(SingleAchievementResponse singleAchievement : singleAchievementResponseList){
+                                if(singleAchievement.isAchieved) {
+                                    numberOfPoints += 5;
+                                }
+                            }
+                            writeToLeaderboard(username,numberOfPoints);
+                        });
+                    }
+                });
     }
 
     public Maybe<LeaderboardResponse> getLeaderboard(){
@@ -103,6 +132,12 @@ public class RxFirebaseRealtimeDatabaseRepository {
             }
             return new LeaderboardResponse(singleLeaderboardEntryResponsesList);
         }));
+    }
+
+    public void writeToLeaderboard(String username,Integer numberOfPoints){
+        mFirebaseDatabase
+                .getReference(referenceNotes.getSingleUserLeaderboardReference(username))
+                .setValue(numberOfPoints);
     }
 
     private SingleLeaderboardEntryResponse extractSingleLeaderboardEntryResponse(DataSnapshot singleLeaderboardEntryResponseDataSnapshot){
@@ -164,6 +199,10 @@ public class RxFirebaseRealtimeDatabaseRepository {
 
         public static String getLeaderboardReference(){
             return leaderboard;
+        }
+
+        public static String getSingleUserLeaderboardReference(String username) {
+            return leaderboard + "/" + username;
         }
 
     }
