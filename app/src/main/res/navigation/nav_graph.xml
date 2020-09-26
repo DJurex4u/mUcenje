@@ -33,6 +33,9 @@
         <action
             android:id="@+id/action_profilFragment_to_achievementsFragment"
             app:destination="@id/achievementsFragment" />
+        <action
+            android:id="@+id/action_profilFragment_to_leaderboardFragment"
+            app:destination="@id/leaderboardFragment" />
     </fragment>
     <fragment
         android:id="@+id/misijeFragment"
@@ -109,4 +112,8 @@
             android:id="@+id/action_registerFragment_to_profilFragment"
             app:destination="@id/profilFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/leaderboardFragment"
+        android:name="com.example.muenje.ui.leaderboardFragment.LeaderboardFragment"
+        android:label="LeaderboardFragment" />
 </navigation>

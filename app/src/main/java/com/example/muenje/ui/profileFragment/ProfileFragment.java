@@ -65,6 +65,9 @@ public class ProfileFragment extends RxNavigationFragment {
                 case GO_TO_ACHIEVEMENT:
                     mRouter.navigateToAchievements(mViewModel.getUser().getValue());
                     break;
+                case GO_TO_LEADERBOARD:
+                    mRouter.navigateToLeaderboard();
+                    break;
             }
         }));
 

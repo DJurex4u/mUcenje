@@ -20,7 +20,8 @@ public class ProfileViewModel extends RxViewModel {
 
     public enum GoTo {
         GO_TO_ACHIEVEMENT,
-        GO_TO_MISSIONS
+        GO_TO_MISSIONS,
+        GO_TO_LEADERBOARD
     }
 
     private ProfileInteractor mInteractor;
@@ -47,6 +48,8 @@ public class ProfileViewModel extends RxViewModel {
     public void goToMissionsFragment(){
         mNavigateTo.accept(GoTo.GO_TO_MISSIONS);
     }
+
+    public void goToLeaderboardFragment(){mNavigateTo.accept(GoTo.GO_TO_LEADERBOARD);}
 
     public Observable<GoTo> getNavigationObservable(){
         return mNavigateTo;

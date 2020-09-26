@@ -2,9 +2,11 @@ package com.example.muenje.data.network;
 
 import com.example.muenje.data.network.pojo.FullLessonResponse;
 import com.example.muenje.data.network.pojo.FullQuizResponse;
+import com.example.muenje.data.network.pojo.LeaderboardResponse;
 import com.example.muenje.data.network.pojo.LessonTitleResponse;
 import com.example.muenje.data.network.pojo.QuizTitleResponse;
 import com.example.muenje.data.network.pojo.SingleAchievementResponse;
+import com.example.muenje.data.network.pojo.SingleLeaderboardEntryResponse;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
@@ -92,6 +94,23 @@ public class RxFirebaseRealtimeDatabaseRepository {
                 .setValue(AchievementNotes.getAchievementDisplayName(AchievementReason.QUIZ, quizId));
     }
 
+    public Maybe<LeaderboardResponse> getLeaderboard(){
+        final Query query = mFirebaseDatabase.getReference(referenceNotes.getLeaderboardReference());
+        return RxFirebaseDatabase.observeSingleValueEvent(query, (dataSnapshot -> {
+            ArrayList<SingleLeaderboardEntryResponse> singleLeaderboardEntryResponsesList = new ArrayList<>();
+            for(DataSnapshot singleLeaderboardEntryResponseDataSnapshot : dataSnapshot.getChildren()){
+                singleLeaderboardEntryResponsesList.add(extractSingleLeaderboardEntryResponse(singleLeaderboardEntryResponseDataSnapshot));
+            }
+            return new LeaderboardResponse(singleLeaderboardEntryResponsesList);
+        }));
+    }
+
+    private SingleLeaderboardEntryResponse extractSingleLeaderboardEntryResponse(DataSnapshot singleLeaderboardEntryResponseDataSnapshot){
+        String key = singleLeaderboardEntryResponseDataSnapshot.getKey();
+        Integer value = singleLeaderboardEntryResponseDataSnapshot.getValue(Integer.class);
+        return new SingleLeaderboardEntryResponse(key,value);
+    }
+
     private static class referenceNotes {
         final static String challenges = "challenges";
         final static String lessons = "lessons";
@@ -104,6 +123,8 @@ public class RxFirebaseRealtimeDatabaseRepository {
         final static String lesson = "lesson";
         final static String quiz = "quiz";
         final static String isAchieved = "isAchieved";
+
+        final static String leaderboard = "leaderboard";
 
         public static String getLectionTitleReference() {
             return referenceNotes.challenges + "/" + referenceNotes.lessons + "/" + referenceNotes.titles;
@@ -139,6 +160,10 @@ public class RxFirebaseRealtimeDatabaseRepository {
 
         public static String getQuizAchievementsDisplayNameReference(String username, String quizId) {
             return getAchievementsReference(username) + "/" + quiz + quizId + "/" + displayName;
+        }
+
+        public static String getLeaderboardReference(){
+            return leaderboard;
         }
 
     }

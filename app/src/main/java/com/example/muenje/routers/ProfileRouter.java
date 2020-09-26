@@ -22,4 +22,9 @@ public class ProfileRouter extends Router {
         NavDirections action = ProfileFragmentDirections.actionProfilFragmentToMisijeFragment(user);
         mNavController.navigate(action);
     }
+
+    public void navigateToLeaderboard(){
+        NavDirections action = ProfileFragmentDirections.actionProfilFragmentToLeaderboardFragment();
+        mNavController.navigate(action);
+    }
 }
