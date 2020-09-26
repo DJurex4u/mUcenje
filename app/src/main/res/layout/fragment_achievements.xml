@@ -21,7 +21,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="50dp"
-            />
+            android:paddingBottom="20dp"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/achievements_recycler_view"
