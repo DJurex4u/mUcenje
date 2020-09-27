@@ -48,6 +48,7 @@ public class ProfileFragment extends RxNavigationFragment {
         super.onViewCreated(view, savedInstanceState);
         mBinding.setViewModel(mViewModel);
         connectPointsEarned();
+        connectUserTier();
     }
 
     @Override
@@ -57,7 +58,6 @@ public class ProfileFragment extends RxNavigationFragment {
     }
 
     private void connectViewModel() {
-        //TODO: THIS GIVES BUG WHEN NAVIGATION (fixed?: called in onViewCreate insted of OnViewCreated)
          addDisposableToCompositeDisposable(mViewModel.getNavigationObservable().subscribe((to) -> {
             switch (to) {
                 case GO_TO_MISSIONS:
@@ -66,13 +66,22 @@ public class ProfileFragment extends RxNavigationFragment {
                 case GO_TO_ACHIEVEMENT:
                     mRouter.navigateToAchievements(mViewModel.getUser().getValue());
                     break;
+                case GO_TO_LEADERBOARD:
+                    mRouter.navigateToLeaderboard();
+                    break;
             }
         }));
 
     }
     private void connectPointsEarned(){
-        mViewModel.calculatePointsEarned().observe(getViewLifecycleOwner(),pointsEarned->{
+        mViewModel.getPointsEarned().observe(getViewLifecycleOwner(), pointsEarned->{
             mBinding.profileHeader2PointsTextView.setText(pointsEarned);
+        });
+    }
+
+    private void connectUserTier(){
+        mViewModel.getUserTier().observe(getViewLifecycleOwner(),userTier->{
+            mBinding.profileUserTierTextView.setText(userTier);
         });
     }
 }

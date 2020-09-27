@@ -49,20 +49,36 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/points_earned"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/profile_header1_text_view"
+            android:textSize="32sp"
             app:layout_constraintEnd_toEndOf="parent"
-            android:textSize="32sp" />
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profile_header1_text_view" />
 
         <TextView
             android:id="@+id/profile_header2_points_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            tools:text=""
+            android:text="0"
+            tools:text="0"
             app:layout_constraintTop_toBottomOf="@id/profile_header1_text_view"
             app:layout_constraintStart_toEndOf="@id/profile_header2_text_view"
             android:textSize="32sp" />
+
+        <TextView
+            android:id="@+id/profile_user_tier_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{viewModel.userTier}"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profile_header2_text_view"
+            android:layout_marginTop="40dp"
+            />
+
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/achievements_button"
@@ -93,6 +109,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/achievements_button" />
 
-
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/leaderboard_button"
+            android:layout_marginTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="56dp"
+            android:layout_marginEnd="56dp"
+            app:cornerRadius="50dp"
+            android:text="@string/leaderboard"
+            android:onClick="@{() -> viewModel.goToLeaderboardFragment()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/missions_button" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

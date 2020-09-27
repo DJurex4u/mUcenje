@@ -27,4 +27,12 @@ public class RxFirebaseAuthHelper {
                 .observeOn(mAppSchedulerProvider.ui());
     }
 
+    public Maybe<User> createNewUser(String email, String password){
+        return mRxFirebaseRepository
+                .createUser(email, password)
+                .subscribeOn(mAppSchedulerProvider.io())
+                .map((createdUser)->mAuthResultToUserMapper.map(createdUser))
+                .observeOn(mAppSchedulerProvider.ui());
+    }
+
 }

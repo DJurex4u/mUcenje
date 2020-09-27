@@ -2,11 +2,13 @@ package com.example.muenje.data.network;
 
 import com.example.muenje.data.entities.FullLesson;
 import com.example.muenje.data.entities.FullQuiz;
+import com.example.muenje.data.entities.Leaderboard;
 import com.example.muenje.data.entities.SingleAchievement;
 import com.example.muenje.data.entities.Title;
 import com.example.muenje.data.entities.User;
 import com.example.muenje.utilities.mapper.FullLessonResponseToFullLessonMapper;
 import com.example.muenje.utilities.mapper.FullQuizResponseToFullQuizMapper;
+import com.example.muenje.utilities.mapper.LeaderboardResponseToLeaderboardMapper;
 import com.example.muenje.utilities.mapper.LessonTitleResponseToTitleMapper;
 import com.example.muenje.utilities.mapper.QuizTitleResponseToTitleMapper;
 import com.example.muenje.utilities.mapper.SingleAchievementResponseToSingleAchievementMapper;
@@ -25,8 +27,9 @@ public class RxFirebaseRealtimeDatabaseRepositoryHelper {
     final QuizTitleResponseToTitleMapper mQuizTitleResponseToTitleMapper;
     final SingleAchievementResponseToSingleAchievementMapper mSingleAchievementResponseToSingleAchievementMapper;
     final FullQuizResponseToFullQuizMapper mFullQuizResponseToFullQuizMapper;
+    final LeaderboardResponseToLeaderboardMapper mLeaderboardResponseToLeaderboardMapper;
 
-    public RxFirebaseRealtimeDatabaseRepositoryHelper(RxFirebaseRealtimeDatabaseRepository rxFirebaseRealtimeDatabaseRepository, AppSchedulerProvider appSchedulerProvider, LessonTitleResponseToTitleMapper lessonTitleResponseToTitleMapper, FullLessonResponseToFullLessonMapper fullLessonResponseToFullLessonMapper, QuizTitleResponseToTitleMapper quizTitleResponseToTitleMapper, SingleAchievementResponseToSingleAchievementMapper singleAchievementResponseToSingleAchievementMapper,FullQuizResponseToFullQuizMapper fullQuizResponseToFullQuizMapper) {
+    public RxFirebaseRealtimeDatabaseRepositoryHelper(RxFirebaseRealtimeDatabaseRepository rxFirebaseRealtimeDatabaseRepository, AppSchedulerProvider appSchedulerProvider, LessonTitleResponseToTitleMapper lessonTitleResponseToTitleMapper, FullLessonResponseToFullLessonMapper fullLessonResponseToFullLessonMapper, QuizTitleResponseToTitleMapper quizTitleResponseToTitleMapper, SingleAchievementResponseToSingleAchievementMapper singleAchievementResponseToSingleAchievementMapper, FullQuizResponseToFullQuizMapper fullQuizResponseToFullQuizMapper, LeaderboardResponseToLeaderboardMapper leaderboardResponseToLeaderboardMapper) {
         mRxFirebaseRealtimeDatabaseRepository = rxFirebaseRealtimeDatabaseRepository;
         mAppSchedulerProvider = appSchedulerProvider;
         mLessonTitleResponseToTitleMapper = lessonTitleResponseToTitleMapper;
@@ -34,6 +37,7 @@ public class RxFirebaseRealtimeDatabaseRepositoryHelper {
         mQuizTitleResponseToTitleMapper = quizTitleResponseToTitleMapper;
         mSingleAchievementResponseToSingleAchievementMapper = singleAchievementResponseToSingleAchievementMapper;
         mFullQuizResponseToFullQuizMapper = fullQuizResponseToFullQuizMapper;
+        mLeaderboardResponseToLeaderboardMapper = leaderboardResponseToLeaderboardMapper;
     }
 
     public Maybe<List<Title>> getLessonsTitles() {
@@ -57,7 +61,7 @@ public class RxFirebaseRealtimeDatabaseRepositoryHelper {
                 .observeOn(mAppSchedulerProvider.ui());
     }
 
-    public Maybe<FullQuiz> getFullQuiz(Integer quizId){
+    public Maybe<FullQuiz> getFullQuiz(Integer quizId) {
         return mRxFirebaseRealtimeDatabaseRepository.getFullQuiz(quizId)
                 .subscribeOn(mAppSchedulerProvider.io())
                 .map((fullQuizResponse) -> mFullQuizResponseToFullQuizMapper.map(fullQuizResponse))
@@ -71,11 +75,20 @@ public class RxFirebaseRealtimeDatabaseRepositoryHelper {
                 .observeOn(mAppSchedulerProvider.ui());
     }
 
-    public void setLessonRed(String username, String lessonId){
-        mRxFirebaseRealtimeDatabaseRepository.setLessonReed(username,lessonId);
+    public void setLessonRed(String username, String lessonId) {
+        mRxFirebaseRealtimeDatabaseRepository.setLessonRed(username, lessonId);
+        mRxFirebaseRealtimeDatabaseRepository.setLessonRedAchievementDisplayName(username, lessonId);
     }
 
-    public void setQuizSolved(String username,String quizId){
-        mRxFirebaseRealtimeDatabaseRepository.setQuizSolved(username,quizId);
+    public void setQuizSolved(String username, String quizId) {
+        mRxFirebaseRealtimeDatabaseRepository.setQuizSolved(username, quizId);
+        mRxFirebaseRealtimeDatabaseRepository.setQuizSolvedAchievementDisplayName(username, quizId);
+    }
+
+    public Maybe<Leaderboard> getLeaderBoard() {
+        return mRxFirebaseRealtimeDatabaseRepository.getLeaderboard()
+                .observeOn(mAppSchedulerProvider.io())
+                .map((leaderboardResponse -> mLeaderboardResponseToLeaderboardMapper.map(leaderboardResponse)))
+                .subscribeOn(mAppSchedulerProvider.ui());
     }
 }

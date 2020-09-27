@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">mUčenje</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="lesson_picker_header_text">LEKCIJE</string>
@@ -21,4 +20,10 @@
     <string name="finish">Završi</string>
     <string name="confirm_answer">Potvrdi</string>
     <string name="wrong_email_or_password">Krivi email ili lozinka</string>
+    <string name="register_here">Registriraj se ovdje.</string>
+    <string name="login_here">Prijavi se ovdje.</string>
+    <string name="register">Registriraj se</string>
+    <string name="repeat_password">Ponovi lozinku</string>
+    <string name="email">Email</string>
+    <string name="leaderboard">LJESTVICA PORETKA</string>
 </resources>

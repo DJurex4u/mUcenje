@@ -9,9 +9,11 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:context=".ui.leaderboardFragment.LeaderboardFragment">
+
         <TextView
-            android:id="@+id/achievements_header_text_view"
+            android:id="@+id/leaderboard_header_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -21,16 +23,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="50dp"
-            android:paddingBottom="20dp"/>
+            android:paddingBottom="20dp"
+            />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/achievements_recycler_view"
-            app:layout_constraintTop_toBottomOf="@id/achievements_header_text_view"
+            app:layout_constraintTop_toBottomOf="@id/leaderboard_header_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:itemCount="3"
-            tools:listitem="@layout/item_achievement"/>
+            tools:listitem="@layout/item_single_leaderboard_entry"/>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </layout>
