@@ -13,10 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.muenje.BaseApplication;
-import com.example.muenje.R;
 import com.example.muenje.adapters.LeaderboardEntryAdapter;
 import com.example.muenje.data.interactor.LeaderboardInteractor;
-import com.example.muenje.data.interactor.LoginInteractor;
 import com.example.muenje.databinding.FragmentLeaderboardBinding;
 
 
@@ -51,7 +49,7 @@ public class LeaderboardFragment extends Fragment {
     }
 
     void connectViewModel(){
-        mViewModel.getLeaderboard().observe(getViewLifecycleOwner(),(leaderboard -> mAdapter.setData(leaderboard.getOrderedList())));
+        mViewModel.getLeaderboard().observe(getViewLifecycleOwner(),(leaderboard -> mAdapter.setData(leaderboard.getOrderedListDescending())));
     }
 
     void setUpRecycleView(){
